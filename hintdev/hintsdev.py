@@ -1,3 +1,6 @@
+#reference from
+#https://becominghuman.ai/text-summarization-in-5-steps-using-nltk-65b21e352b65
+
 import nltk
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
