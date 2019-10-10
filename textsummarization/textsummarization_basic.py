@@ -1,5 +1,5 @@
-#reference from
-#https://becominghuman.ai/text-summarization-in-5-steps-using-nltk-65b21e352b65
+# reference from
+# https://becominghuman.ai/text-summarization-in-5-steps-using-nltk-65b21e352b65
 
 import nltk
 from nltk.corpus import stopwords
@@ -82,5 +82,5 @@ scorethershold = find_average_score(scoresentences)
 print(scorethershold)
 
 print("###############Showing summary - Hints##################\n")
-summary = generate_summary(sentences, scoresentences, 1.5*scorethershold)
+summary = generate_summary(sentences, scoresentences, 1.5 * scorethershold)
 print(summary)
