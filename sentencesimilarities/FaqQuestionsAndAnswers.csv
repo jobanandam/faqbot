@@ -1,0 +1,15 @@
+What is your Name, Myself FAQ BOT. How can i help you
+Who are you , Myself FAQ BOT. How can i help you
+What is Jenkins,Jenkins is a free and open source automation server written in Java. Jenkins helps to automate the non-human part of the software development process with continuous integration and facilitating technical aspects of continuous delivery
+How can you help me, Myself FAQ BOT. you can ask your DevOps Questions to me i can help answering you
+Where india Located, Please ask questions related to DevOps
+How do I deploy my application to DEV/Test , You can do it through Jenkins Pipeline & then through CDD. Detailed documentation can be found here!
+How to report my CDD issue ,You can ask me !If we don't have any match for that answer, then we can ask if Bot can log a issue to CDD Team on behalf of user
+I'm unable to create a user story in Agile Central ,Oh no ! That's not good ! Can you provide me the user Id ?
+My commits in Git doesn't trigger builds in Jenkins automatically ,You problem is likely to be an issue with Webhooks. Can you verify the settings as mentioned here ?
+My merge to the master branch is getting rejected ,I've just checked your permissions and it looks good. Your issue is reported to the concerned team & you should receive the feedback soon.
+You're not answering well !,I'm just a kid. Learning from you.
+Can you grant me access to the application repo AABB ,Your request has been submitted for approval by the maintainer. You'll receieve the updates as soon as there's a change in status.
+I'm unable to connect to Git with SSH ,I'm sorry. You're allowed to connect only by means of https at this moment.
+What's the nexus URL ,https://inet-prod.nexus.bnnpparibasfortis.com/nexus
+What's the latest version of commons-httpclient available ,The latest which you can use at this moment is 3.1

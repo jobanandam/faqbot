@@ -1,0 +1,15 @@
+What is your Name
+Who are you 
+What is Jenkins
+How can you help me
+Where india Located
+How do I deploy my application to DEV/Test 
+How to report my CDD issue 
+I'm unable to create a user story in Agile Central 
+My commits in Git doesn't trigger builds in Jenkins automatically 
+My merge to the master branch is getting rejected 
+You're not answering well !
+Can you grant me access to the application repo AABB 
+I'm unable to connect to Git with SSH 
+What's the nexus URL 
+What's the latest version of commons-httpclient available 
