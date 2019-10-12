@@ -144,30 +144,33 @@ def print_match_results(question, best_sentence, best_score):
     print("************************************************")
 
 
-def print_question_answer(answers, question, bestScore):
+def print_question_answer(question, answers, best_score):
     print("************************************************")
     print("Answer for your Question")
     print("Question, Answer , Matched Score")
-    print("%s, %s , %s  " % (question, answers, bestScore))
+    print("%s, %s , %s  " % (question, answers, best_score))
     print("************************************************")
 
 
-def get_questions_from_user():
+def get_questions_from_user(detailed_logging):
     print("Hi Welcome to FAQ BOT !!!!  Ctrl+C to Exit from FAQ BOT \n")
 
     while True:
         question = input("Please ask your Questions? \n")
-        best_sentence, best_score = calculate_similarity(False, question)
-        answer = get_the_answer(False, best_sentence, best_score, question)
-        if not answer:
-            print("Please ask questions related to DevOps")
+        if question.split(" ").__len__().__le__(1):
+            print("Can you please give some more details, so that i can try to answer")
         else:
-            print(answer)
+            best_sentence, best_score = calculate_similarity(detailed_logging, question)
+            answer = get_the_answer(detailed_logging, best_sentence, best_score, question)
+            if not answer:
+                print("Please ask questions related to DevOps")
+            else:
+                print(answer)
 
     pass
 
 
-def get_the_answer(print_answers, best_sentence, best_score , question):
+def get_the_answer(print_answers, best_sentence, best_score, question):
     import csv
     answers = ""
 
@@ -185,4 +188,4 @@ def get_the_answer(print_answers, best_sentence, best_score , question):
 
 if __name__ == '__main__':
     sentences = read_content_from_file("FaqQuestions.txt")
-    get_questions_from_user()
+    get_questions_from_user(True)
