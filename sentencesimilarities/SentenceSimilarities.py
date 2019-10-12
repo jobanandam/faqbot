@@ -188,4 +188,4 @@ def get_the_answer(print_answers, best_sentence, best_score, question):
 
 if __name__ == '__main__':
     sentences = read_content_from_file("FaqQuestions.txt")
-    get_questions_from_user(True)
+    get_questions_from_user(False)
