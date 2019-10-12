@@ -1,0 +1,45 @@
+1.How do I deploy my application to DEV/Test ? 
+
+Ans: You can do it through Jenkins Pipeline & then through CDD. Detailed documentation can be found here!
+
+2.How to report my CDD issue ?
+
+Ans: You can ask me !
+
+If we don't have any match for that answer, then we can ask if Bot can log a issue to CDD Team on behelf of user
+
+3.I'm unable to create a user story in Agile Central ?
+
+Ans : Oh no ! That's not good ! Can you provide me the user Id ?
+
+User : *****
+
+Ans : I've just granted you the access to create ! Have a good day !
+
+4. My commits in Git doesn't trigger builds in Jenkins automatically ?
+
+Ans: You problem is likely to be an issue with Webhooks. Can you verify the settings as mentioned here ?
+
+5.My merge to the master branch is getting rejected ?
+
+Ans : I've just checked your permissions and it looks good. Your issue is reported to the concerned team & you should receive the feedback soon.
+
+6. You're not answering well !
+
+Ans: I'm just a kid. Learning from you.
+
+7.Can you grant me access to the application repo AABB ?
+
+Ans: Your request has been submitted for approval by the maintainer. You'll receieve the updates as soon as there's a change in status.
+
+8. I'm unable to connect to Git with SSH ?
+
+Ans: I'm sorry. You're allowed to connect only by means of https at this moment.
+
+9. What's the nexus URL ?
+
+Ans: ******
+
+10. What's the latest version of commons-httpclient available ?
+
+Ans : The latest which you can use at this moment is 3.1
