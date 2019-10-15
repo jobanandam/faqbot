@@ -1,0 +1,53 @@
+Why does my run history show updated records when I did not update any records, but only created records?	"New field values created in a destination endpoint during synchronization are automatically sent back the record in the source endpoint.
+
+So, for example, when you create a record in ALM and synchronize it to ALM Octane, that new record is created in ALM Octane, and assigned an ALM Octane ID.
+
+ALM Octane Synchronizer recognizes this new ID field value, and sends it back to ALM, adding it to the source record.
+
+This last step is the update you see in your run history."
+I modified my link to fix errors that occurred in previous synchronizations. Why do I see these same errors occurring again?	"If your link is in automatic mode, and a synchronization ran with errors, the records with errors are not necessarily fixed in subsequent runs.
+
+This may happen if the errors occurred because of changes outside of the link configuration, such as if the schema changed, but the field mapping was not updated. If you fix the cause of the error (such as refreshing the Field Mapping tab and map the new fields), ALM Octane Synchronizer will re-synchronize those records if changes in the actual record are detected.
+
+ALM Octane Synchronizer also periodically re-synchronizes all records, including those that had run with errors, but have had no subsequent changes.
+
+To ensure that records that ran with errors are re-synchronized in the next upcoming run, manually set the link to re-synchronize those records.
+
+For details, see Re-synchronizing records with fixed errors (automatic mode only)."
+Why is the Search Links box in the link tree disabled?	You cannot search in the link tree when a link is in edit mode. Save any changes or click Cancel Edit to enable the search box.
+"Why can’t I access Synchronizer? I keep getting to a login page.
+"	In certain cases you may try to open Synchronizer and a login page appears but you cannot log in. In this case you need to modify your authentication cookies setting, as described in Install the Synchronizer.
+Why can't I edit mapped requirement types in my synchronization link?	After a link is synchronized, you can no longer remove mapped requirement types. You can still add types that are not yet mapped.
+"Synchronization failed due to unmapped users. What should I do?
+"	"When synchronization fails because of unmapped users, check if the missing users exist. If they do not, you can create them in ALM Octane (either as active users, or inactive). When you run synchronization again, the ALM users that were missing will be mapped to the newly-created users in ALM Octane. For details on adding or activating users in ALM Octane, see Assign roles and permissions and Assign roles and permissions.
+"
+During synchronization I received an error: “Some of the mapped fields were deleted from ALM Octane.”	"This error indicates that user defined fields were removed from ALM Octane, which were mapped in a synchronization link. The list of missing fields is displayed in the UI.
+
+Edit the relevant link within the Synchronizer UI, and click Refresh fields and field values in the Field mapping tab. All the removed fields will be removed from field mapping. Run an integrity check to verify that records will be synchronized correctly."
+During synchronization I received an error: “Some of the fields used in the filter were deleted from ALM Octane.”	"This error indicates that you removed user defined fields from ALM Octane, which were used in a Synchronizer filter within a particular synchronization link.
+
+Either edit the existing filter, or create a new filter without the user defined fields that no longer exist. If you create a new filter, within the Synchronizer UI edit the appropriate link and change the Synchronizer filter in the General tab. Run an integrity check to verify that records will be synchronized correctly."
+Why is ALM Octane Synchronizer failing to find a custom field that was OK in the past?	"Check the list of custom fields defined in ALM Octane: 
+
+In Settings , clickand select a shared space or a workspace.
+In Entities, click User-defined Fields and select the entity whose fields you want to check.
+Make sure that the field in question still defined for the workspace you are synchronizing."
+Why is the synchronization adding attachments named attachment.url to the ALM Octane entities?	"This may happen if an ALM entity has an attachment whose name contains special characters (~!@#$%()^&).
+
+Workaround: On ALM Octane, remove the added attachment. On ALM, rename the attachment so that it does not contain special characters."
+Why am I not receiving emails after configuring Issue notifications?	If you configured Issue notifications but you are not receiving emails as expected, define values for FROM_EMAIL_ADDRESS & MAIL_SERVER_HOST in the sync_sa schema.
+What does my basic subscription include?	You will be able to track your daily victories and setbacks, lifestyle contributors on a weekly level, and your overall well being on a monthly basis (depression, anxiety, connectedness, etc.) - each of which provide some basic summary stats. You can also access a portion of the training (Week 1) - and progress in the gamified levels. Along with being able to participate in a “daily discussion,” you can access SOS anytime (for immediate support), and a place to journal thoughts and create your own Freedom Plan (aiming for longer-term progress). In addition to being able to participate in monthly “Fortify chats,” you’ll be able to explore our professional directory as well.
+How long does Fortify take?	There is no set amount of time to move through Fortify. The training can be explored in whatever time frame feels comfortable. We provide a 12-week pathway as one option. We encourage people to take whatever time they need - and not to rush or go too fast. Participation in the Daily Tracker, webinars, forums, groups and in personalized coaching are open-ended – and can go as long as someone needs.
+"How can I know if Fortify is right for me?
+"	Try it out for yourself! One of the purposes of the free basic access is to give people a chance to experience Fortify directly for themselves and see if it feels like a good fit. We respect that there are many other kinds of supports that may also be very helpful. In fact, we mention many of them within Fortify to encourage people to look around for anything that can be personally impactful. We definitely want you to go with what is right for you!
+"How do I get in touch with the Fortify team?
+"	Send us a note! We’re reachable at info@joinfortify.com. After logging in, you can also find us in the bottom left corner anytime you need. We look forward to hearing from you.
+How does Fortify ensure that my subscription is anonymous?	Fortify does not, nor would not, share any user information – with industry standard data security protections in place. At sign-up, all we need connected to you personally is a working email address. You can use a pseudonym if you prefer. The username you create upon signing up also doesn’t have to identify you in any way and will be the only way the community will see you. If you sign-up for a Fortify group or coach, they will only know you by your custom username as well. Lastly, your bank statements will show charges from Impact Collective, LLC not Fortify.
+How do I speed up management inside EC2?	Don’t try to manage a fleet of EC2 machines from your laptop. Connect to a management node inside EC2 first and run Ansible from there.
+"Can I get training on Ansible or find commercial support?
+"	Yes! See our Guru offering for online support, and support is also included with Ansible Tower. You can also read our service page and email info@ansible.com for further details.
+"Is there a web interface / REST API / etc?
+
+"	Yes! Ansible, Inc makes a great product that makes Ansible even more powerful and easy to use. See Ansible Tower.
+"How do I submit a change to the documentation?
+"	Great question! Documentation for Ansible is kept in the main project git repository, and complete instructions for contributing can be found in the docs README viewable on GitHub. Thanks!
