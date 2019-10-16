@@ -1,0 +1,138 @@
+1. How do I change my last commit message?
+
+Ans : git commit --amend --only. For without staged changes :  git commit --amend
+
+2.How do I commit a file?
+
+Ans:
+git add file.js # stage the file
+git commit      # commit the file
+
+3.How do I create a branch?
+
+Ans:
+git checkout -b <branch> # branches and moves to the branch in one command
+
+4.How do I push my changes?
+
+Ans:
+git push
+git push origin branch-name
+
+5.How do I completely reset my local repository?
+
+Ans:
+git reset
+git checkout .
+git clean -fdx
+
+6.How do I remove all untracked files?
+
+Ans:
+git clean -fd
+
+7.How do I undo git add?
+
+Ans:
+git reset or git reset fileName
+
+8.What is "origin"?
+
+Ans:
+Origin is the default name for the remote server. “Remotes” can be named anything, you can see the names of all your remotes with the command remote
+
+9.What is difference between master & HEAD?
+
+Ans:
+master is the common name for the default branch. It doesn’t need to exist, but it often does.
+
+HEAD can be thought of as a variable pointing to a specific commit. It can change and isn’t related to a branch.
+
+Issuing new commits changes HEAD, checking anything out changes HEAD.
+
+10.What's the difference between fetch and pull?
+
+Ans:
+Fetch: Download (new) objects and a head from another repository.
+
+Pull: Fetch (as defined above), and then merge what was downloaded with the current development.
+
+11.Does Git convert encodings of file names?
+
+Ans:
+No. Filenames are treated as byte sequences.
+
+12.Does Git convert encodings of comments and committer names or file content?
+
+Ans:
+A Git repository can store a flag to register the encoding supposedly used for comments (including author names). File content is not converted unless you are inclined to want to shoot yourself in the foot, in which case use the filtering mechanism described above.
+
+13.Does Git track all file data and metadata?
+
+Ans:
+No. Git has a specific notion of tracked "content", which is basically just the file data. It is thus not directly suitable for tracking directories where additional filesystem information is significant, such as "/etc" or home directories.
+
+14.How do I untrack a file?
+
+Ans:
+If you want to keep a file, but not have it in the next revision, do this:
+git rm --cached <filename>
+
+15.How can I add a diff of the commit into the commit message window?
+
+Ans:
+Just call git commit with the -v flag: git commit -v
+
+16.How to create the first project?
+
+Ans:
+
+Please refer to Git tutorial in this link (www.gittutorial.com) !
+
+17.How do I obtain a list of files which have changed in a given commit?
+
+Ans:
+git diff --name-only <commit>^!
+or (to get also the commit message):
+git show --name-only <commit>
+
+18. Which is smarter Git protocol ? SSH:// or Git:// ?
+
+Ans:
+The only "dumb" protocol is straight HTTP, which requires no special effort on the server. In both the git:// and ssh:// protocols, a git upload-pack process (which is not a daemon) is forked on the server that communicates with the client who's running git fetch-pack. In both ssh:// and git://, you get "smart" communication.
+
+19.How do I rename the current Git branch?
+
+Ans:
+git branch -m <newname>
+
+20. How to rename a branch while I'm in another branch ?
+
+Ans:
+git branch -m <oldname> <newname>
+
+21. How to undo git add before commit ?
+
+Ans:
+git reset <file> or git reset
+
+22. What is the difference between 'git pull' and 'git fetch'?
+
+Ans:
+In the simplest terms, git pull does a git fetch followed by a git merge.
+
+23. How to amend the most recent commit message?
+
+Ans:
+git commit --amend or git commit --amend -m "New commit message"
+
+24. How do I force “git pull” to overwrite local files?
+
+Ans:
+git reset --hard HEAD
+git pull
+
+25. How can I add an empty directory to a Git repository?
+
+Ans:
+Create an empty file called .gitkeep in the directory, and add that.

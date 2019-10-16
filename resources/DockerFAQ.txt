@@ -1,0 +1,127 @@
+1. Can I control service startup order?
+
+Ans:
+Yes , it is possible.
+
+2. Can I use json instead of yaml for my Compose file?
+
+Ans:
+Yes. Yaml is a superset of json so any JSON file should be valid Yaml. To use a JSON file with Compose, specify the filename to use, for example:
+docker-compose -f docker-compose.json up
+
+3. What is Docker.app?
+
+Ans:
+Docker.app is Docker for Mac, a bundle of Docker client, and Docker Engine. Docker.app uses the macOS Hypervisor.framework to run containers, meaning that no separate VirtualBox is required.
+
+4. What is HyperKit?
+
+Ans:
+HyperKit is a hypervisor built on top of the Hypervisor.framework in macOS. It runs entirely in userspace and has no other dependencies.We use HyperKit to eliminate the need for other VM products, such as Oracle VirtualBox or VMWare Fusion.
+
+5.What is the benefit of HyperKit?
+
+Ans:
+It is thinner than VirtualBox and VMWare fusion, and the version we include is tailor made for Docker workloads on the Mac.
+
+6.How much does Docker cost?
+
+Ans:
+Docker is 100% free, it is open source, so you can use it without paying.
+
+7.Does Docker run on Mac OS X or Windows?
+
+Ans:
+Not at this time, Docker currently only runs on Linux, but you can use VirtualBox to run Docker in a virtual machine on your box, and get the best of both worlds.
+
+8.What is a Docker image?
+
+Ans:
+Docker image is the source of Docker container. In other words, Docker images are used to create containers. Images are created with the build command, and they’ll produce a container when started with run. Images are stored in a Docker registry such as registry.hub.docker.com because they can become quite large, images are designed to be composed of layers of other images, allowing a minimal amount of data to be sent when transferring images over the network.
+
+9.What is Docker container?
+
+Ans:
+Docker containers include the application and all of its dependencies, but share the kernel with other containers, running as isolated processes in user space on the host operating system. Docker containers are not tied to any specific infrastructure: they run on any computer, on any infrastructure, and in any cloud.
+
+10.What is the difference between the 'COPY' and 'ADD' commands in a Dockerfile?
+
+Ans:
+COPY is same as 'ADD', but without the tar and remote URL handling.
+
+11.How to force Docker for a clean build of an image ?
+
+Ans:
+There's a --no-cache option: docker build --no-cache -t u12_core -f u12_core
+In older versions of Docker you needed to pass --no-cache=true, but this is no longer the case.
+
+12.How can I expose more than 1 port with Docker?
+
+Ans:
+To expose multiple ports, simply provide multiple -p arguments:
+docker run -p <host_port1>:<container_port1> -p <host_port2>:<container_port2>
+
+13. How to view docker daemon when OS is using systemd ?
+
+Ans:
+sudo journalctl -fu docker.service
+
+14.What is Docker Swarm?
+
+Ans:
+Docker Swarm is native clustering for Docker. It turns a pool of Docker hosts into a single, virtual Docker host. Docker Swarm serves the standard Docker API, any tool that already communicates with a Docker daemon can use Swarm to transparently scale to multiple hosts.
+
+15.What command should you run to see all running container in Docker?
+
+Ans:
+$ docker ps
+
+16.What is the command to stop the docker container ?
+
+Ans:
+$ sudo docker stop container name
+
+17.What is the command to run the image as a container?
+
+Ans:
+$ sudo docker run -i -t alpine /bin/bash
+
+18.What are the common instruction in Dockerfile?
+
+Ans:
+The common instruction in Dockerfile are: FROM, LABEL, RUN, and CMD.
+
+19.Where the docker volumes are stored?
+
+Ans:
+You need to navigate:  /var/lib/docker/volumes
+
+20.How does communication happen between Docker client and Docker Daemon?
+
+Ans:
+You can communicate between Docker client and Docker Daemon with the combination of Rest API, socket.IO, and TCP.
+
+21. What is the command you need to give to push the new image to Docker registry?
+
+Ans:
+docker push myorg/img
+
+22.How can you run multiple containers using a single service?
+
+Ans:
+By using docker-compose, you can run multiple containers using a single service. All docker-compose files uses yaml language.
+
+23.What are the three components of Docker Architecture ?
+
+Ans:
+Client ,Docker-Host ,Registry
+
+24.What is the purpose of Docker_Host?
+
+Ans:
+It contains container, images, and Docker daemon. It offers a complete environment to execute and run your application.
+
+25.Does Docker offer support for IPV6?
+
+Ans:
+Yes, Docker provides support IPv6. IPv6 networking is supported only on Docker daemons runs on Linux hosts. However, if you want to enable IPv6 support in the Docker daemon, you need to modify /etc/docker/daemon.json and set the ipv6 key to true.
