@@ -1,0 +1,9 @@
+How do you define DevOps?,DevOps is a clipped compound term which combines “Development” and “Operations” practices of IT software development, having originated in the mid 2000s among IT professionals looking for efficient and innovative ways to automate and speed up the process of software delivery.
+Why is there a need for DevOps or why does DevOps matter?, DevOps is needed when two teams work for the same system, but operate with relatively different thought processes.
+How DevOps in IT differs from DevOps in Internet of Things (IoT)?, Compared to pure play IT where you have to deal with software codes alone, when applying DevOps to IoT, you also need to take physical components, devices and existing legacy systems into account which together build in an extra layer of complexity in the overall automation process.
+Why is it that DevOps can be so easily extended to the world of product engineering services?, DevOps is the only methodology available right now which can help prepare for real time failure scenarios with the use of simulators, virtual machines and remote monitoring and updates of firmware.
+Are Agile and DevOps same?, No, agile is not same as DevOps. However, agile can be used as a part of DevOps.
+What are the best practices for DevOps implementation?, DevOps implementation align business goals, Encouraging communication and collaboration.
+What are the key components of DevOps?, Continuous Integration Continuous Testing Continuous Delivery Continuous Monitoring.
+
+
