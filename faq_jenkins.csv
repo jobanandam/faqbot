@@ -1,0 +1,32 @@
+Why can't I deploy from a Jenkins Slave?	Only deployments from a Jenkins Master are supported at this time.
+How do I deploy to multiple servers using the same context root?	"if you're deploying to multiple servers with the same deployment manager, you must give each WDP configuration a unique ""Application Name"" for the job.
+    For example, if you are deploying to DEV & QA, you can use application names like ""myapp-dev"" and ""myapp-qa"". This will allow you to deploy the same context root (""/myapp"" for example) on both servers, regardless of whether the is a cluster or a single node in either DEV or QA."
+I keep getting PermGen errors when deploying.	You will most likely run out of PermGen space if you're using the default JVM values on your application server/servlet container that's hosting Jenkins (Please update your JVM memory requirements).
+I get an IncompatibleClassChangeError when deploying.	This error typically occurs when you're running Jenkins on a newer version of Java than the WebSphere server. For example, you can't run Jenkins on JRE 1.8 and expect to deploy to WebSphere v7.
+I get a KrbException when deploying to WebSphere v7.0.0	"This is a bug in WebSphere v7.0.0, you must apply the latest updates (v7.0.43 at the time of this writing) and copy over the updated ""admin client jars"" as specified in the configuration of this plugin. If you don't copy over the jars, you will still have the old websphere thin client jars in Jenkins. Please make sure you copy them to the websphere-deployer/WEB-INF/lib folder on the jenkins server."
+I get an ObjectName error when deploying to WebSphere.	" This error typically occurs because of a classloader issue. The latest versions of this plugin have tried to rectify this issue by implementing ""<pluginFirstClassLoader>false</pluginFirstClassLoader>"". If you have issues, you can always attempt to change this to ""true"" in the plugin's manifest."
+Are cluster deployments allowed?	"Yes, you can deploy to 1 or more clusters using this plugin. The latest version has a button called ""Show Available Targets"" to help you identify where the plugin is allowed to deploy to. You can deploy to multiple targets as long as each target is on its own line. See the plugins (question) icon in the job configuration for more details."
+I keep getting PKIX errors when connecting to WebSphere, what causes this? and how do I fix it?	"PKIX errors happen when the SSL certificate provided by the Webphere Deployment Manager (or standalone WebSphere Admin Console) is not trusted by the JVM that's running Websphere Deployer Plugin. Traditionally the fix for this issue was to import the SSL certificate from the Deployment Manager or Admin Console into the cacerts of the JVM that's running Jenkins. With the newer version(s) v1.6.0+, you can select ""Trust SSL Certificates"" to work around these issues. Typically, these deployments are internal to an organization, so it's not necessarily an issue to trust all SSL certificates the WDP is deploying to."
+I get other errors after upgrading the plugin or unexplained errors.	It is imperative that you use the jar files associated with your specific version of WebSphere. For example, if you were using WebSphere v7 jars with this plugin and then decide you want to deploy to WebSphere v8.5, you MUST copy over the jar files for the WebSphere v8.5. Using the old WebSphere v7 files to deploy to another version of WebSphere may work but certain features required by this plugin will fail. 
+Can I deploy to multiple versions of WebSphere?	Yes, but only if you use another Jenkins server to deploy to the different version (see FAQ #10 above). If you want to deploy to the same to different WebSphere versions from the same Jenkins server, you can't due to classloader issues between the WebSphere jar versions.
+I get errors when starting/stopping/isArtifactInstalled, why is that?	"If you are authenticating to WebSphere using SOAP, the user must have the correct role for the actions you want to perform.
+Reference: https://www.ibm.com/support/knowledgecenter/en/SSAW57_9.0.0/com.ibm.websphere.nd.multiplatform.doc/ae/rsec_adminroles.html"
+What is Jenkins?	Jenkins is a free open source Continuous Integration tool and automation server to monitor continuous integration and delivery. It is written in Java.
+What are the advantages of Jenkins? Why we use Jenkins?	Jenkins is used to continuously monitor the large code base in real time. It enables developers to find bugs in their code and fix. Email notifications are made to the developers regarding their check-ins as a post-build action.
+Mention some of the important plugins in Jenkins?	Gits, Maven 2 Project, Green Balls etc
+What is the difference between Hudson and Jenkins?	There is no difference between Hudson and Jenkins. Hudson was the former name of Jenkins, after going through several issues the name was changed to Jenkins.
+What is Jenkinsfile?	"The text file where all the definitions of pipelines are defined is called Jenkinsfile. It is
+being checked in the source control repository."
+Which Environmental Directives are used in Jenkins?	"Environmental Directives is the sequence which specifies pairs of the key-values called
+Environmental Variables for the steps in the pipeline."
+What are Triggers?	"Trigger in Jenkins defines the way in which the pipeline should be executed
+frequently. PollSCM, Cron, etc are the currently available Triggers."
+"What is Agent Directive in Jenkins?
+"	"The Agent is the section that specifies the execution point for the entire pipeline or any
+specific stage in the pipeline. This section is being specified at the top-level inside the
+pipeline block."
+What are Parameters in Jenkins?	"Parameters are supported by Agent section and are used to support various use-cases pipelines. Parameters are defined at the top-level of the pipeline or inside an
+individual stage directive."
+How can You Clone a Git Repository via Jenkins?	To create a clone repository via Jenkins you need to use your login credentials in the Jenkins System. To achieve the same you need to enter the Jenkins job directory and execute the git config command.
+What is Flow Control in Jenkins?	"In Jenkins, flow control follows the pipeline structure (scripted pipeline) that are being
+executed from the top to bottom of the Jenkins file."
