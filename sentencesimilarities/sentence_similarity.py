@@ -81,7 +81,7 @@ def bot_start_chat():
             print("Can you please give some more details, so that i can try to answer ?")
         else:
             best_sentence, best_score = get_best_suitable_question(question)
-            answer = SentenceUtil.get_the_answer(best_sentence,'resources/FaqQuestionsAndAnswers.csv')
+            answer = SentenceUtil.get_the_answer(best_sentence, 'resources/FaqQuestionsAndAnswers.csv')
             if not answer:
                 print("Please ask questions related to DevOps")
             else:
