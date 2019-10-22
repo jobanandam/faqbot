@@ -33,9 +33,9 @@ def filter_on_tag(tag):
 def get_the_answer(best_sentence, csvPath):
     answers = ""
     with open(csvPath, encoding='UTF-8') as csvfile:
-        csv_content = csv.reader(csvfile, delimiter='?')
+        csv_content = csv.reader(csvfile, delimiter=',')
         for row in csv_content:
-            if row[0] == best_sentence:
+            if row[0].strip() == best_sentence.strip():
                 answers = row[1]
     return answers
 
