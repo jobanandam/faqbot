@@ -1,3 +1,19 @@
+What is your Name, Myself FAQ BOT. How can i help you
+What are the code quality tools available, We have Sonar Qube and HP Fortify for Security check. Please find the links for more details https://confluence.bnnpparibasfortis.com/sonar and https://confluence.bnnpparibasfortis.com/nexus
+What are the devops tool available, Please refer link https://confluence.bnnpparibasfortis.com/devopstools
+where can i get the architecture of DevOps, Please refer link https://confluence.bnnpparibasfortis.com/devops/architect
+How can you help me, Myself FAQ BOT. you can ask your DevOps Questions to me i can help answering you
+Where india Located, Please ask questions related to DevOps
+How do I deploy my application to DEV/Test , You can do it through Jenkins Pipeline & then through CDD. Detailed documentation can be found here!
+How to report my CDD issue ,You can ask me !If we don't have any match for that answer, then we can ask if Bot can log a issue to CDD Team on behalf of user
+I'm unable to create a user story in Agile Central ,Oh no ! That's not good ! Can you provide me the user Id ?
+My commits in Git doesn't trigger builds in Jenkins automatically ,You problem is likely to be an issue with Webhooks. Can you verify the settings as mentioned here ?
+My merge to the master branch is getting rejected ,I've just checked your permissions and it looks good. Your issue is reported to the concerned team & you should receive the feedback soon.
+You're not answering well,I'm just a kid. Learning from you.
+Can you grant me access to the application repo AABB ,Your request has been submitted for approval by the maintainer. You'll receieve the updates as soon as there's a change in status.
+I'm unable to connect to Git with SSH ,I'm sorry. You're allowed to connect only by means of https at this moment.
+What's the nexus URL ,https://inet-prod.nexus.bnnpparibasfortis.com/nexus
+What's the latest version of commons-httpclient available ,The latest which you can use at this moment is 3.1
 What is SVN, SVN or Subversion is an open source code control system. It is used to trace all the changes made to your source code or files.  It is a repository used to manage files# folders# directories and the modification made to these files over a period of time.
 What is the difference between GIT and SVN repository, The difference between SVN and GIT is# Git does not support commits across multiple branches or tags. Subversion allows the creation of folders at any location in the repository layout. Gits are unchangeable while subversion enables committers to treat a tag a branch and to create multiple revisions under a tag root. Git is less preferred for handling large files or frequently changing binary files while SVN is capable of handling multiple projects stored in the same repository.
 List out what all things should be stored in the SVN repository, Source Code# Build scripts# Test data used by QA# DB schema# Project settings (When the whole team is using the same IDE)# Project documentation (Internal and External)# Minutes of meetings# significant e-mails# and info from the web# Expensively generated artifacts# And other documents related to the project.
@@ -238,3 +254,53 @@ what is Test Lab module in Quality Center,"Test Lab module helps the tester to e
 what is Sprinter in HP-Alm,"Sprinter offers advanced functionality and tools to make manual testing more effective and efficiently.  It allows you to accomplish these tasks without disrupting your test flow.  With the help of sprinter, you can execute many of the repetitive and tedious tasks of manual testing automatically.  It includes many tools that can help you to detect and submit defects."
 how one can map a single defect to more than one test script,Using the  associate defect  option in TestDirector one can assign the same defect to a number of test cases.
 what is ALM workflow,Release Specification. Requirement Specification. Test Planning. Test Execution. Defect Tracking.
+Can I control service startup order, Yes ! it is possible
+Can I use json instead of yaml for my Compose file, Yes. Yaml is a superset of json so any JSON file should be valid Yaml
+What is Docker.app, Docker.app is Docker for Mac which is a bundle of Docker client and Docker Engine
+What is HyperKit, HyperKit is a hypervisor built on top of the Hypervisor.framework in macOS
+What is the benefit of HyperKit, It is thinner than VirtualBox and VMWare fusion and the version we include is tailor made for Docker workloads on the Mac
+How much does Docker cost, Docker is 100% free.It is open source
+Does Docker run on Mac OS X or Windows, Not at this time. Docker currently only runs on Linux but you can use VirtualBox to run Docker in a virtual machine on your box
+What is a Docker image, Docker image is the source of Docker container. In other words Docker images are used to create containers
+What is Docker container, Docker containers include the application and all of its dependencies but share the kernel with other containers running as isolated processes in user space on the host operating system. Docker containers are not tied to any specific infrastructure: they run on any computer on any infrastructure and in any cloud
+What is the difference between the COPY and ADD commands in a Dockerfile, COPY is same as ADD but without the tar and remote URL handling
+How to force Docker for a clean build of an image, There's a --no-cache option: docker build --no-cache -t u12_core -f u12_core
+How can I expose more than 1 port with Docker, To expose multiple ports simply provide multiple -p arguments: docker run -p <host_port1>:<container_port1> -p <host_port2>:<container_port2>
+How to view docker daemon when OS is using systemd, sudo journalctl -fu docker.service
+What is Docker Swarm, Docker Swarm is native clustering for Docker. It turns a pool of Docker hosts into a single & virtual Docker host
+What command should you run to see all running container in Docker, $ docker ps
+What is the command to stop the docker container, $ sudo docker stop container name
+What is the command to run the image as a container, $ sudo docker run -i -t alpine /bin/bash
+What are the common instruction in Dockerfile, The common instruction in Dockerfile are: FROM - LABEL - RUN and CMD
+Where the docker volumes are stored, You need to navigate:  /var/lib/docker/volumes
+How does communication happen between Docker client and Docker Daemon, You can communicate between Docker client and Docker Daemon with the combination of Rest API / socket.IO and TCP
+What is the command you need to give to push the new image to Docker registry, docker push myorg/img
+How can you run multiple containers using a single service, By using docker-compose you can run multiple containers using a single service. All docker-compose files uses yaml language
+What are the three components of Docker Architecture, 1.Client 2.Docker-Host 3.Registry
+What is the purpose of Docker_Host, It contains container/ images / Docker daemon. It offers a complete environment to execute and run your application
+Does Docker offer support for IPV6, Yes! Docker provides support IPv6. IPv6 networking is supported only on Docker daemons runs on Linux hosts. However if you want to enable IPv6 support in the Docker daemon you need to modify /etc/docker/daemon.json and set the ipv6 key to true
+How do I change my last commit message in Git, git commit --amend --only. For without staged changes :  git commit --amend
+How do I commit a file, git add file.js # stage the file       git commit      # commit the file
+How do I create a branch, git checkout -b <branch> # branches and moves to the branch in one command
+How do I push my changes, git push      git push origin branch-name
+How do I completely reset my local repository, git reset    git checkout      git clean -fdx
+How do I remove all untracked files, git clean -fd
+How do I undo git add, git reset or git reset fileName
+What is origin, Origin is the default name for the remote server. “Remotes” can be named anything. You can see the names of all your remotes with the command remote
+What is difference between master & HEAD, master is the common name for the default branch.HEAD can be thought of as a variable pointing to a specific commit. It can change and isn’t related to a branch
+What's the difference between fetch and pull, Fetch: Download (new) objects and a head from another repository.Pull: Fetch (as defined above) and then merge what was downloaded with the current development
+Does Git convert encodings of file names, No. Filenames are treated as byte sequences.
+Does Git convert encodings of comments and committer names or file content, A Git repository can store a flag to register the encoding supposedly used for comments (including author names). File content is not converted unless you are inclined to want to shoot yourself in the foot in which case use the filtering mechanism described above
+Does Git track all file data and metadata, No. Git has a specific notion of tracked "content", which is basically just the file data. It is thus not directly suitable for tracking directories where additional filesystem information is significant such as "/etc" or home directories
+How do I untrack a file, If you want to keep a file but not have it in the next revision then do this: git rm --cached <filename>
+How can I add a diff of the commit into the commit message window, Just call git commit with the -v flag: git commit -v
+How to create the first project, Please refer to Git tutorial in this link (www.gittutorial.com) !
+How do I obtain a list of files which have changed in a given commit, git diff --name-only <commit>^!  or (to get also the commit message): git show --name-only <commit>
+Which is smarter Git protocol SSH:// or Git:// ,In both the git:// and ssh:// protocols a git upload-pack process (which is not a daemon) is forked on the server that communicates with the client who's running git fetch-pack. In both ssh:// and git:// you get "smart" communication
+How do I rename the current Git branch, git branch -m <newname>
+How to rename a branch while I'm in another branch, git branch -m <oldname> <newname>
+How to undo git add before commit, git reset <file> or git reset
+What is the difference between 'git pull' and 'git fetch' ,In the simplest terms git pull does a git fetch followed by a git merge
+How to amend the most recent commit message, git commit --amend or git commit --amend -m "New commit message"
+How do I force “git pull” to overwrite local files , git reset --hard HEAD  git pull
+How can I add an empty directory to a Git repository, Create an empty file called .gitkeep in the directory and add that
