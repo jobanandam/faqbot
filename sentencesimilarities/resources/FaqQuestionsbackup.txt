@@ -269,3 +269,57 @@ What is the difference between 'git pull' and 'git fetch'
 How to amend the most recent commit message
 How do I force “git pull” to overwrite local files
 How can I add an empty directory to a Git repository
+How to run ansible playbook
+What is ansible
+Is ansible a replacement for functional testing automation
+What is the runtime for ansible
+Does Ansible work for deployment of all application server types
+How can I set the PATH or any other environment variable for a task or entire playbook
+How do I handle different machines needing different user accounts or ports to log in with
+How do I get ansible to reuse connections enable Kerberized SSH or have Ansible pay attention to my local SSH config file
+How do I configure a jump host to access servers that I have no direct access to
+How do I speed up management inside EC2
+How do I handle python pathing not having a Python 2.X in /usr/bin/python on a remote machine
+What is the best way to make content reusable/redistributable
+Where does the configuration file live and what can I configure in it
+How do I disable cowsay
+How do I see a list of all of the ansible_ variables
+How do I see all the inventory vars defined for my host
+How do I loop over a list of hosts in a group inside of a template
+How do I access a variable name programmatically
+How do I access a variable of the first host in a group
+How do I copy files recursively onto a target host
+How do I access shell environment variables
+How do I generate crypted passwords for the user module
+Can I get training on Ansible
+Is there a web interface / REST API / etc
+How do I submit a change to the documentation
+How do I keep secret data in my playbook
+When should I use {{ }}? Also how to interpolate variables or dynamic variable names
+Why don't you ship in X format
+What is Kubernetes
+How is Kubernetes related to Docker
+What is Container Orchestration
+What is the need for Container Orchestration
+How does Kubernetes simplify containerized Deployment
+What do you know about clusters in Kubernetes
+What is Google Container Engine
+What is Heapster
+What is Minikube
+What is Kubectl
+What is Kubelet
+What are the different components of Kubernetes Architecture
+What do you understand by Kube-proxy
+Can you brief on the working of the master node in Kubernetes
+What is the role of kube-apiserver and kube-scheduler
+Can you brief about the Kubernetes controller manager
+What is ETCD
+What do you understand by load balancer in Kubernetes
+What is Ingress network and how does it work
+What do you understand by Cloud controller manager
+What is Container resource monitoring
+What is the difference between a replica set and replication controller
+What is a Headless Service
+What are federated clusters
+What are minions in Kubernetes cluster
+Where Kubernetes cluster data is stored
