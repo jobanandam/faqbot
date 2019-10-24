@@ -269,3 +269,35 @@ What is the difference between 'git pull' and 'git fetch'
 How to amend the most recent commit message
 How do I force “git pull” to overwrite local files
 How can I add an empty directory to a Git repository
+How can I create my agile central account
+I can't login to Agile Central. Can you help
+How to create a new user story
+How to estimate a user story
+What is the minimum and maximum estimation I can provide
+How to decide when story points are different
+How to create a task
+How to create and assign a task to my colleague
+How to estimate a task
+I can't see my name under my team name in agile central. How to get it updated
+Name of a colleague is missing proposed list of names. Why
+How to assign a user story to another team
+How to move a user story to another iteration
+How to create a custom view of my team's tasks
+How to split a partially completed user story
+Is there a link between tasks estimation user story estimation
+Are there any graphical representations available to track iterations
+How can I mark my task as completed
+Can I reopen a closed task
+Can I reopen a closed user story
+Do you have a guide for agile central
+How to create a filter in my task board
+How to search for a user story
+How to search for a feature
+How to link a user story to a feature
+How to create a feature
+Can everyone create features and user stories
+Can I link a user story to more than one feature
+How to add my photo in my user profile
+How to create a tag
+Can I add more than one tag to a user story
+How can I add a tag to a user story
