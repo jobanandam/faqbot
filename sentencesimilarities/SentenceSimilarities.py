@@ -69,7 +69,10 @@ def sentence_similarity(sentence1, sentence2):
 
     # Tokenize and tag
     sentence1 = pos_tag(word_tokenize(sentence1))
+    print(sentence1)
+
     sentence2 = pos_tag(word_tokenize(sentence2))
+    print(sentence2)
 
     # Get the synsets for the tagged words
 
@@ -174,7 +177,7 @@ def get_the_answer(print_answers, best_sentence, best_score, question):
     import csv
     answers = ""
 
-    with open('FaqQuestionsAndAnswers.csv') as csvfile:
+    with open('resources/FaqQuestionsAndAnswers.csv') as csvfile:
         csv_content = csv.reader(csvfile, delimiter=',')
         for row in csv_content:
             if row[0] == best_sentence:
@@ -187,5 +190,5 @@ def get_the_answer(print_answers, best_sentence, best_score, question):
 
 
 if __name__ == '__main__':
-    sentences = read_content_from_file("FaqQuestions.txt")
-    get_questions_from_user(False)
+    sentences = read_content_from_file("resources/FaqQuestions.txt")
+    get_questions_from_user(True)
