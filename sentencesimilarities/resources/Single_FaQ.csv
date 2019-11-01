@@ -16,9 +16,7 @@ Veracode	"How do I run an API scan if there are ""unsupported frameworks"" warni
 Veracode	How do I use the API to query tags in the Results API?	If you want to query tags in applications, you can add unique tags as metadata when creating your applications. You can then query your applications based on any of the metadata. Usecreateapp.doto create an application with metadata. Use the following calls of theResults APIto get the scan results of applications:getapplist.doto get the full list of your applicationsand thengetappinfo.doto get information for a specific application, including any metadata, if applicable. To get a detailed report for any application, calldetailedreport.do, which returns the results in an XML document.
 Veracode	Why does Veracode use passwords for API integrations? I thought passwords were inherently insecure.	Veracode recommends that you change to using theVeracode API ID and keywithHMAC signing, where possible, because this method provides maximum protection againstman-in-the-middleand session replay attacks. User credential authentication using username and password is only supported on the Veracode XML APIs, which are the legacy APIs, while the REST APIs are the newer APIs that Veracode offers.
 Octane	Why does my run history show updated records when I did not update any records, but only created records?	"New field values created in a destination endpoint during synchronization are automatically sent back the record in the source endpoint.
-
-So, for example, when you create a record in ALM and synchronize it to ALM Octane, that new record is created in ALM Octane, and assigned an ALM Octane ID.
-
+Octane	So, for example, when you create a record in ALM and synchronize it to ALM Octane, that new record is created in ALM Octane, and assigned an ALM Octane ID.
 ALM Octane Synchronizer recognizes this new ID field value, and sends it back to ALM, adding it to the source record.
 
 This last step is the update you see in your run history."
