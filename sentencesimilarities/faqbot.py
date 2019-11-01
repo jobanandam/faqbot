@@ -2,7 +2,9 @@ from nltk import word_tokenize, pos_tag
 from nltk.corpus import wordnet as wn
 from nltk.stem.snowball import SnowballStemmer
 from nltk.stem import WordNetLemmatizer
+import nltk
 import re
+import DataLoader as dl
 
 stem_obj = SnowballStemmer('english')
 word_net_lemma = WordNetLemmatizer()
@@ -55,9 +57,9 @@ def sentence_similarity(sentence1, sentence2):
     """ compute the sentence similarity using Wordnet """
     # Tokenize and tag
     sentence1 = pos_tag(word_tokenize(sentence1))
-    print(sentence1)
+    # print(sentence1)
     sentence2 = pos_tag(word_tokenize(sentence2))
-    print(sentence2)
+    # print(sentence2)
     # Get the synsets for the tagged words
     syn_sets_1 = [tagged_to_syn_set(*tagged_word) for tagged_word in sentence1]
     syn_sets_2 = [tagged_to_syn_set(*tagged_word) for tagged_word in sentence2]
@@ -146,15 +148,23 @@ def get_questions_from_user(detailed_logging):
 def get_the_answer(print_answers, best_sentence, best_score, question):
     import csv
     answers = ""
-    with open('resources/FaqQuestionsAndAnswers.csv') as csvfile:
-        csv_content = csv.reader(csvfile, delimiter=',')
+    with open('resources/Single_FaQ.csv') as csvfile:
+        csv_content = csv.reader(csvfile, delimiter='\t')
         for row in csv_content:
-            if row[0] == best_sentence:
-                answers = row[1]
+            if row[1] == best_sentence:
+                answers = row[2]
     if print_answers:
         print_question_answer(question, answers, best_score)
     return answers
 
 if __name__ == '__main__':
-    # sentences = read_content_from_file("resources/FaqQuestions.txt")
-    # get_questions_from_user(True)
+    print(dl)
+    loader = dl.DataLoader('resources/Single_FaQ.csv')
+    feature_set = loader.get_feature_set()
+    train_set = feature_set[:100]
+    test_set = feature_set[100:]
+    classifier = nltk.NaiveBayesClassifier.train(train_set)
+    print("Classifier accuracy percent:",(nltk.classify.accuracy(classifier, test_set))*100)
+    # print(classifier.show_most_informative_features(15))
+    sentences = loader.get_questions()
+    get_questions_from_user(False)
