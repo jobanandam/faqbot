@@ -221,7 +221,7 @@ def get_the_answer(print_answers, best_sentence, best_score, question):
 def get_the_answer_unclassified(print_answers, best_sentence, best_score, question):
     import csv
     answers = ""
-    with open('resources/FaqQuestionsAndAnswersbackup.csv') as csvfile:
+    with open('resources/FaqQuestionsAndAnswersbackup.txt') as csvfile:
         csv_content = csv.reader(csvfile, delimiter='\t')
         for row in csv_content:
             if row[0] == best_sentence:
