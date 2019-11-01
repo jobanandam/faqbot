@@ -47,8 +47,8 @@ class DataLoader:
         return self.documents
 
     def get_feature_set(self, question=None):
-        self.get_documents()
         if question == None:
+            self.get_documents()
             all_words = nltk.FreqDist(self.all_words)
             dictionary = list(all_words.keys())
             feature_set = [(self.get_feature(c, dictionary), d) for c, d in self.documents]
