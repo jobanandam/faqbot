@@ -99,6 +99,9 @@ def calculate_similarity(print_possible_matches, question):
     best_score = 0.0
     best_sentence = ""
     score_array = []
+    cat = classifier.classify(loader.get_feature_set(question=question))
+    sentences = loader.get_questions(category=cat)
+    print(len(sentences))
     if print_possible_matches:
         print("----Possible Matches ---")
         print("Matched Sentence , Matched Score")
@@ -161,10 +164,11 @@ if __name__ == '__main__':
     print(dl)
     loader = dl.DataLoader('resources/Single_FaQ.csv')
     feature_set = loader.get_feature_set()
-    train_set = feature_set[:100]
-    test_set = feature_set[100:]
+    train_set = feature_set[:len(feature_set)-2]
+    test_set = feature_set[len(feature_set)-2:]
     classifier = nltk.NaiveBayesClassifier.train(train_set)
-    print("Classifier accuracy percent:",(nltk.classify.accuracy(classifier, test_set))*100)
-    # print(classifier.show_most_informative_features(15))
-    sentences = loader.get_questions()
+    print('Actual Value: ' +test_set[0][1])
+    print ('Predicted Value: '  +classifier.classify(test_set[0][0]))
+    #print("Classifier accuracy percent:",(nltk.classify.accuracy(classifier, test_set))*100)
+    #print(classifier.show_most_informative_features(15))
     get_questions_from_user(False)
