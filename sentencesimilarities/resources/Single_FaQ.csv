@@ -30,16 +30,16 @@ To ensure that records that ran with errors are re-synchronized in the next upco
 
 For details, see Re-synchronizing records with fixed errors (automatic mode only)."
 Octane	Why is the Search Links box in the link tree disabled?	You cannot search in the link tree when a link is in edit mode. Save any changes or click Cancel Edit to enable the search box.
-Octane	"Why can’t I access Synchronizer? I keep getting to a login page.
+Octane	"Why can't I access Synchronizer? I keep getting to a login page.
 "	In certain cases you may try to open Synchronizer and a login page appears but you cannot log in. In this case you need to modify your authentication cookies setting, as described in Install the Synchronizer.
 Octane	Why can't I edit mapped requirement types in my synchronization link?	After a link is synchronized, you can no longer remove mapped requirement types. You can still add types that are not yet mapped.
 Octane	"Synchronization failed due to unmapped users. What should I do?
 "	"When synchronization fails because of unmapped users, check if the missing users exist. If they do not, you can create them in ALM Octane (either as active users, or inactive). When you run synchronization again, the ALM users that were missing will be mapped to the newly-created users in ALM Octane. For details on adding or activating users in ALM Octane, see Assign roles and permissions and Assign roles and permissions.
 "
-Octane	During synchronization I received an error: “Some of the mapped fields were deleted from ALM Octane.”	"This error indicates that user defined fields were removed from ALM Octane, which were mapped in a synchronization link. The list of missing fields is displayed in the UI.
+Octane	During synchronization I received an error: “Some of the mapped fields were deleted from ALM Octane."	"This error indicates that user defined fields were removed from ALM Octane, which were mapped in a synchronization link. The list of missing fields is displayed in the UI.
 
 Edit the relevant link within the Synchronizer UI, and click Refresh fields and field values in the Field mapping tab. All the removed fields will be removed from field mapping. Run an integrity check to verify that records will be synchronized correctly."
-Octane	During synchronization I received an error: “Some of the fields used in the filter were deleted from ALM Octane.”	"This error indicates that you removed user defined fields from ALM Octane, which were used in a Synchronizer filter within a particular synchronization link.
+Octane	During synchronization I received an error: “Some of the fields used in the filter were deleted from ALM Octane."	"This error indicates that you removed user defined fields from ALM Octane, which were used in a Synchronizer filter within a particular synchronization link.
 
 Either edit the existing filter, or create a new filter without the user defined fields that no longer exist. If you create a new filter, within the Synchronizer UI edit the appropriate link and change the Synchronizer filter in the General tab. Run an integrity check to verify that records will be synchronized correctly."
 Octane	Why is ALM Octane Synchronizer failing to find a custom field that was OK in the past?	"Check the list of custom fields defined in ALM Octane:
@@ -51,14 +51,14 @@ Octane	Why is the synchronization adding attachments named attachment.url to the
 
 Workaround: On ALM Octane, remove the added attachment. On ALM, rename the attachment so that it does not contain special characters."
 Fortify	Why am I not receiving emails after configuring Issue notifications?	If you configured Issue notifications but you are not receiving emails as expected, define values for FROM_EMAIL_ADDRESS & MAIL_SERVER_HOST in the sync_sa schema.
-Fortify	What does my basic subscription include?	You will be able to track your daily victories and setbacks, lifestyle contributors on a weekly level, and your overall well being on a monthly basis (depression, anxiety, connectedness, etc.) - each of which provide some basic summary stats. You can also access a portion of the training (Week 1) - and progress in the gamified levels. Along with being able to participate in a “daily discussion,” you can access SOS anytime (for immediate support), and a place to journal thoughts and create your own Freedom Plan (aiming for longer-term progress). In addition to being able to participate in monthly “Fortify chats,” you’ll be able to explore our professional directory as well.
+Fortify	What does my basic subscription include?	You will be able to track your daily victories and setbacks, lifestyle contributors on a weekly level, and your overall well being on a monthly basis (depression, anxiety, connectedness, etc.) - each of which provide some basic summary stats. You can also access a portion of the training (Week 1) - and progress in the gamified levels. Along with being able to participate in a “daily discussion," you can access SOS anytime (for immediate support), and a place to journal thoughts and create your own Freedom Plan (aiming for longer-term progress). In addition to being able to participate in monthly “Fortify chats," you'll be able to explore our professional directory as well.
 Fortify	How long does Fortify take?	There is no set amount of time to move through Fortify. The training can be explored in whatever time frame feels comfortable. We provide a 12-week pathway as one option. We encourage people to take whatever time they need - and not to rush or go too fast. Participation in the Daily Tracker, webinars, forums, groups and in personalized coaching are open-ended – and can go as long as someone needs.
 Fortify	"How can I know if Fortify is right for me?
 "	Try it out for yourself! One of the purposes of the free basic access is to give people a chance to experience Fortify directly for themselves and see if it feels like a good fit. We respect that there are many other kinds of supports that may also be very helpful. In fact, we mention many of them within Fortify to encourage people to look around for anything that can be personally impactful. We definitely want you to go with what is right for you!
 Fortify	"How do I get in touch with the Fortify team?
-"	Send us a note! We’re reachable at info@joinfortify.com. After logging in, you can also find us in the bottom left corner anytime you need. We look forward to hearing from you.
-Fortify	How does Fortify ensure that my subscription is anonymous?	Fortify does not, nor would not, share any user information – with industry standard data security protections in place. At sign-up, all we need connected to you personally is a working email address. You can use a pseudonym if you prefer. The username you create upon signing up also doesn’t have to identify you in any way and will be the only way the community will see you. If you sign-up for a Fortify group or coach, they will only know you by your custom username as well. Lastly, your bank statements will show charges from Impact Collective, LLC not Fortify.
-Fortify	How do I speed up management inside EC2?	Don’t try to manage a fleet of EC2 machines from your laptop. Connect to a management node inside EC2 first and run Ansible from there.
+"	Send us a note! We're reachable at info@joinfortify.com. After logging in, you can also find us in the bottom left corner anytime you need. We look forward to hearing from you.
+Fortify	How does Fortify ensure that my subscription is anonymous?	Fortify does not, nor would not, share any user information – with industry standard data security protections in place. At sign-up, all we need connected to you personally is a working email address. You can use a pseudonym if you prefer. The username you create upon signing up also doesn't have to identify you in any way and will be the only way the community will see you. If you sign-up for a Fortify group or coach, they will only know you by your custom username as well. Lastly, your bank statements will show charges from Impact Collective, LLC not Fortify.
+Fortify	How do I speed up management inside EC2?	Don't try to manage a fleet of EC2 machines from your laptop. Connect to a management node inside EC2 first and run Ansible from there.
 Ansible	"Can I get training on Ansible or find commercial support?
 "	Yes! See our Guru offering for online support, and support is also included with Ansible Tower. You can also read our service page and email info@ansible.com for further details.
 Ansible	"Is there a web interface / REST API / etc?
@@ -84,12 +84,12 @@ UrbanCode	How is UrbanCode Velocity installed?	UrbanCode Velocity has been conta
 UrbanCode	How does UrbanCode Velocity help improve team performance?	UrbanCode Velocity provides reports showing the time required to get a new build into production. The reports highlight bottlenecks by identifying which environments the build spent time in, slowing delivery to production. This can help teams address those bottlenecks to speed delivery.
 UrbanCode	What information is provided by the audit reports?	The audit reports include the name of the deployed application, the components deployed, the application version, the component versions, the process used for deployment, the target environment, the result, the requester, the approver and the timing data.
 Kubernetes	What is Kubernetes?	    Kubernetes is an open-source container management tool which holds the responsibilities of container deployment
-Kubernetes	How is Kubernetes related to Docker?	    It’s a known fact that Docker provides the lifecycle management of containers and a Docker image builds the runtime containers. But
+Kubernetes	How is Kubernetes related to Docker?	    It's a known fact that Docker provides the lifecycle management of containers and a Docker image builds the runtime containers. But
 Kubernetes	What is Container Orchestration?	    Consider a scenario where you have 5-6 microservices for an application. Now
 Kubernetes	What is the need for Container Orchestration?	    Consider you have 5-6 microservices for a single application performing various tasks
 Kubernetes	How does Kubernetes simplify containerized Deployment?	    As a typical application would have a cluster of containers running across multiple hosts
 Kubernetes	What do you know about clusters in Kubernetes?	    The fundamental behind Kubernetes is that we can enforce the desired state management
-Kubernetes	What is Google Container Engine?	    Google Container Engine (GKE) is an open source management platform for Docker containers and the clusters. This Kubernetes based engine supports only those clusters which run within the Google’s public cloud services.
+Kubernetes	What is Google Container Engine?	    Google Container Engine (GKE) is an open source management platform for Docker containers and the clusters. This Kubernetes based engine supports only those clusters which run within the Google's public cloud services.
 Kubernetes	What is Heapster?	    Heapster is a cluster-wide aggregator of data provided by Kubelet running on each node. This container management tool is supported natively on Kubernetes cluster and runs as a pod
 Kubernetes	What is Minikube?	    Minikube is a tool that makes it easy to run Kubernetes locally. This runs a single-node Kubernetes cluster inside a virtual machine.
 Kubernetes	What is Kubectl?	    Kubectl is the platform using which you can pass commands to the cluster. So
@@ -105,7 +105,7 @@ Kubernetes	What is Ingress network	 and how does it work?
 Kubernetes	What do you understand by Cloud controller manager?	    The Cloud Controller Manager is responsible for persistent storage
 Kubernetes	What is Container resource monitoring?	    As for users
 Kubernetes	What is the difference between a replica set and replication controller?	    Replica Set and Replication Controller do almost the same thing. Both of them ensure that a specified number of pod replicas are running at any given time. The difference comes with the usage of selectors to replicate pods. Replica Set use Set-Based selectors while replication controllers use Equity-Based selectors.
-Kubernetes	What is a Headless Service?	    Headless Service is similar to that of a ‘Normal’ services but does not have a Cluster IP. This service enables you to directly reach the pods without the need of accessing it through a proxy.
+Kubernetes	What is a Headless Service?	    Headless Service is similar to that of a ‘Normal' services but does not have a Cluster IP. This service enables you to directly reach the pods without the need of accessing it through a proxy.
 Kubernetes	What are federated clusters?	    Multiple Kubernetes clusters can be managed as a single cluster with the help of federated clusters. So
 Kubernetes	What are minions in Kubernetes cluster?	    They are the work-horse / worker node of the cluster.
 Kubernetes	Kubernetes cluster data is stored in which of the following?	    Etcd.
@@ -140,17 +140,17 @@ Ansible	How can I set the PATH or any other environment variable for a task or e
 Ansible	How do I handle different machines needing different user accounts or ports to log in with?	    Setting inventory variables in the inventory file is the easiest way.You may also wish to keep these in group variables instead
 Ansible	How do I get ansible to reuse connections	 enable Kerberized SSH
 Ansible	How do I configure a jump host to access servers that I have no direct access to?	    With Ansible 2
-Ansible	How do I speed up management inside EC2?	    Don’t try to manage a fleet of EC2 machines from your laptop. Connect to a management node inside EC2 first and run Ansible from there.
+Ansible	How do I speed up management inside EC2?	    Don't try to manage a fleet of EC2 machines from your laptop. Connect to a management node inside EC2 first and run Ansible from there.
 Ansible	How do I handle python pathing not having a Python 2.X in /usr/bin/python on a remote machine?	    While you can write ansible modules in any language
 Ansible	What is the best way to make content reusable/redistributable?	    If you have not done so already
 Ansible	Where does the configuration file live and what can I configure in it?	    See Configuration file at https://docs.ansible.com/ansible/2.3/intro_configuration.html.
 Ansible	How do I disable cowsay?	    If cowsay is installed
-Ansible	How do I see a list of all of the ansible_ variables?	    Ansible by default gathers “facts” about the machines under management
+Ansible	How do I see a list of all of the ansible_ variables?	    Ansible by default gathers “facts" about the machines under management
 Ansible	How do I see all the inventory vars defined for my host?	"    You can see the resulting vars you define in inventory running the following command: ansible -m debug -a ""var=hostvars['hostname']"" localhost."
 Ansible	How do I loop over a list of hosts in a group	 inside of a template?
 Ansible	How do I access a variable name programmatically?	    An example may come up where we need to get the ipv4 address of an arbitrary interface
 Ansible	How do I access a variable of the first host in a group?	    Here is a small trick: {{ hostvars[groups['webservers'][0]]['ansible_eth0']['ipv4']['address'] }}.
-Ansible	How do I copy files recursively onto a target host?	    The “copy” module has a recursive parameter
+Ansible	How do I copy files recursively onto a target host?	    The “copy" module has a recursive parameter
 Ansible	How do I access shell environment variables?	    If you just need to access existing variables
 Ansible	How do I generate crypted passwords for the user module?	    The mkpasswd utility that is available on most Linux systems is a great option: mkpasswd --method=sha-512.
 Ansible	Can I get training on Ansible?	    Yes! See our services page for information on our services and training offerings. Email info@ansible.com for further details.
@@ -158,7 +158,7 @@ Ansible	Is there a web interface / REST API / etc?	    Yes! Ansible
 Ansible	How do I submit a change to the documentation?	    Great question! Documentation for Ansible is kept in the main project git repository
 Ansible	How do I keep secret data in my playbook?	    If you would like to keep secret data in your Ansible content and still share it publicly or keep things in source control
 Ansible	When should I use {{ }}? Also	 how to interpolate variables or dynamic variable names?
-Ansible	Why don’t you ship in X format?	    Several reasons
+Ansible	Why don't you ship in X format?	    Several reasons
 HP ALM	What is HP ALM (Quality Center) used for? Or What are the benefits and features of Quality Center?	HP ALM/ Quality Center is a comprehensive test management tool. It is a web-based tool and supports high level of communication and association among various stakeholders (Business Analyst, Developers , Testers etc. ) , driving a more effective and efficient global application-testing process.
 HP ALM	What is the difference between TestDirector andQualityCenter?	Quality Center is upgraded version of Test Director built by the same vendor Mercury (Now acquired by HP).Test Director Version 8.2 onwards is know as Quality Center.QualityCenteris has enhanced Security/Test management /Defect management features when compared to Test Director.
 HP ALM	What is the difference betweenQualityCenterand Bugzilla?	QualityCenteris a test management tool which can also manage Defects apart from other features. BugZilla is Defect Management tool only.
