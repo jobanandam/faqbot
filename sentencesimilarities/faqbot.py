@@ -79,21 +79,22 @@ def sentence_similarity(sentence1, sentence2):
 
     for tagged_word in sentence1:
         result_returned = tagged_to_syn_set(*tagged_word)
-        if type(result_returned) is list:
-            syn_sets_1.append(result_returned)
-        elif type(result_returned) is tuple:
-            non_dict_set_sets_1.append(result_returned)
+        if result_returned is not None:
+            if type(result_returned) is tuple:
+                non_dict_set_sets_1.append(result_returned)
+            else:
+                syn_sets_1.append(result_returned)
 
     for tagged_word in sentence2:
         result_returned = tagged_to_syn_set(*tagged_word)
-        if type(result_returned) is list:
-            syn_sets_2.append(result_returned)
-        elif type(result_returned) is tuple:
-            non_dict_set_sets_2.append(result_returned)
+        if result_returned is not None:
+            if type(result_returned) is tuple:
+                non_dict_set_sets_2.append(result_returned)
+            else:
+                syn_sets_2.append(result_returned)
 
     # Filter out the Nones
     syn_sets_1 = [ss for ss in syn_sets_1 if ss]
-
     syn_sets_2 = [ss for ss in syn_sets_2 if ss]
     synset_score, count = 0.0, 0
     # For each word in the first sentence
@@ -136,7 +137,7 @@ def read_content_from_file(file_name):
     file = open(file_name, "r")
     doc_list = [line for line in file]
     doc_str = ''.join(doc_list)
-    faq_sentences = re.split(r'[\n\r.!?]', doc_str)
+    faq_sentences = re.split(r'[\n\r]', doc_str)
     return faq_sentences
 
 
@@ -146,6 +147,7 @@ def calculate_similarity(print_possible_matches, question):
     score_array = []
     cat = classifier.classify(loader.get_feature_set(question=question))
     sentences = loader.get_questions(category=cat)
+    sentences = read_content_from_file("resources/FaqQuestionsbackup.txt")
     print(len(sentences))
     if print_possible_matches:
         print("----Possible Matches ---")
@@ -193,7 +195,7 @@ def get_questions_from_user(detailed_logging):
         else:
             possible_sentences = calculate_similarity(detailed_logging, question)
             for best_sentence, question, best_score in possible_sentences:
-                answer = get_the_answer(detailed_logging, best_sentence, best_score, question)
+                answer = get_the_answer_unclassified(detailed_logging, best_sentence, best_score, question)
                 if not answer:
                     print("Please ask questions related to DevOps")
                 else:
@@ -216,6 +218,18 @@ def get_the_answer(print_answers, best_sentence, best_score, question):
     return answers
 
 
+def get_the_answer_unclassified(print_answers, best_sentence, best_score, question):
+    import csv
+    answers = ""
+    with open('resources/FaqQuestionsAndAnswersbackup.csv') as csvfile:
+        csv_content = csv.reader(csvfile, delimiter='\t')
+        for row in csv_content:
+            if row[0] == best_sentence:
+                answers = row[1]
+    if print_answers:
+        print_question_answer(question, answers, best_score)
+    return answers
+
 if __name__ == '__main__':
     print(dl)
     loader = dl.DataLoader('resources/Single_FaQ.csv')
@@ -228,4 +242,4 @@ if __name__ == '__main__':
     print('Predicted Value: ' + classifier.classify(test_set[0][0]))
     # print("Classifier accuracy percent:",(nltk.classify.accuracy(classifier, test_set))*100)
     # print(classifier.show_most_informative_features(15))
-    get_questions_from_user(False)
+    get_questions_from_user(True)
