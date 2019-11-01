@@ -357,3 +357,35 @@ What is a Headless Service, Headless Service is similar to that of a â€˜Normalâ€
 What are federated clusters, Multiple Kubernetes clusters can be managed as a single cluster with the help of federated clusters. So you can create multiple Kubernetes clusters within a data center/cloud and use federation to control/manage them all at one place.
 What are minions in Kubernetes cluster, They are the work-horse / worker node of the cluster.
 Where Kubernetes cluster data is stored, Etcd.
+How can I create my agile central account, Let me do it for you! Give me a second.
+I can't login to Agile Central. Can you help, Oh oh! Your password is expired. Can you follow this link to do a reset? http://some-link
+How to create a new user story, Open the Release Backlog or Iteration in which you need to create user story. Now click on the 'Add User Story' button and fill in necessary information. Finally click 'Ok'. Tada!! Your user story is created. :-)
+How to estimate a user story, Starting from 1 following Fibonacci series (1 2 3 5 8 13....) you can choose a number based on your work load
+What is the minimum and maximum estimation I can provide, Always keep 1 as a minimum story point. Maximum can be any Fibonacci number.
+How to decide when story points are different, Let the colleagues estimated minimum and maximum discuss and come to a conclusion. :-)
+How to create a task, Open the user story you want to estimate. Click on "Add new task" button and fill in the information. Now click on "Ok". Tada!! Your task is created.
+How to create and assign a task to my colleague, Open the task you want to reassign to your colleague. Now click on the current assignee name; choose your colleague name from list. And it is assigned to your colleague now :-)
+How to estimate a task, A task can estimated on a hourly basis.
+I can't see my name under my team name in agile central. How to get it updated, I can do it for you. Can you provide your team name?
+Name of a colleague is missing proposed list of names. Why, I can check that for you. What is your colleague's user id?
+How to assign a user story to another team, Open the user story you want to assign to different team. Choose the responsible team in "Team" dropdown. Click "Ok". Its done!! :-)
+How to move a user story to another iteration, Open the user story you want to move to iteration. Choose the responsible iteration in "Iteration" dropdown. Click "Ok". Its done!! :-)
+How to create a custom view of my team's tasks, Click "Add view" button under "Plan" section on top left. Now choose the view and customize as you wish. Once it is done,click "Create" button :-)
+How to split a partially completed user story, Open the user story and click on 3 vertical dots at end of the description. Click on "Split". Now choose new iteration in the popup and click "Split" button. Its done!! :-)
+Is there a link between tasks estimation user story estimation, Not directly. But,efforts of tasks can not beyond the user story points (1 SP ~ 1.3 MD)
+Are there any graphical representations available to track iterations, Yes,click on "Views" under "Track" section on your top left. Click on "New" view to create a new one. Or click on previously created view from available view names.
+How can I mark my task as completed, Change the property "Progress" from "In Progress" to "Completed"
+Can I reopen a closed task, Change the property "Progress" from "Completed" to "In Progress"/"Defined"
+Can I reopen a closed user story, Yes,you can. But keep in mind that it affects your team velocity and story burn down rate on your plan. :-)
+Do you have a guide for agile central, Yes,here it is: http://some-link
+How to create a filter in my task board, Click "Add Filter" button on your task board. Choose the property in the left and provide proper value in the right.
+How to search for a user story, Click on the "Search" icon on top right; enter user story number and hit "Enter"
+How to search for a feature, Click on the "Search" icon on top right; enter feature number and hit "Enter"
+How to link a user story to a feature, Open the user story and choose appropriate feature under "Feature" dropdown. Click "Save" button to save the changes
+How to create a feature, Goto "Features" under "Plan" and click on "Add new feature" button. Fill in the form and click "Create". Done :-)
+Can everyone create features and user stories, No,feature is restricted from everyone; only a EPIC owner can create it. But it is possible for everyone to create a new user story
+Can I link a user story to more than one feature, No,strictly one user story should be linked to only one feature
+How to add my photo in my user profile, Open your profile. Click on "Add photo" button; now choose your photo file and click ok to get it uploaded
+How to create a tag, Goto "Tags" under "Track". Now click on "Add Tag" button and provide a name of the tag. Click "Ok" to complete action
+Can I add more than one tag to a user story, Yes,you can!
+How can I add a tag to a user story, Open the user story. Under "Tags" label,start typing our tag name. Choose the appropriate tag from suggestions. Click "Save" to complete the action
