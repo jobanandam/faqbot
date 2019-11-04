@@ -134,10 +134,12 @@ def sentence_similarity(sentence1, sentence2):
 
 
 def read_content_from_file(file_name):
-    file = open(file_name, "r")
-    doc_list = [line for line in file]
-    doc_str = ''.join(doc_list)
-    faq_sentences = re.split(r'[\n\r]', doc_str)
+    import csv
+    faq_sentences = []
+    with open(file_name) as file:
+        csv_reader = csv.reader(file, delimiter='\t')
+        for each_line in csv_reader:
+            faq_sentences.append(each_line[1])
     return faq_sentences
 
 
@@ -147,7 +149,7 @@ def calculate_similarity(print_possible_matches, question):
     score_array = []
     cat = classifier.classify(loader.get_feature_set(question=question))
     sentences = loader.get_questions(category=cat)
-    sentences = read_content_from_file("resources/FaqQuestionsbackup.txt")
+    sentences = read_content_from_file("resources/Single_FaQ.csv")
     print(len(sentences))
     if print_possible_matches:
         print("----Possible Matches ---")
@@ -160,7 +162,7 @@ def calculate_similarity(print_possible_matches, question):
             score_array.append(score_class)
             if print_possible_matches:
                 print("%s , %s  " % (sentence, score))
-            if score > 0.8:
+            if score > 0.6:
                 print(sentence, question, score)
                 matched_sent_tuple = (sentence, question, score)
                 matched_sentences.append(matched_sent_tuple)
@@ -221,11 +223,11 @@ def get_the_answer(print_answers, best_sentence, best_score, question):
 def get_the_answer_unclassified(print_answers, best_sentence, best_score, question):
     import csv
     answers = ""
-    with open('resources/FaqQuestionsAndAnswersbackup.txt') as csvfile:
+    with open('resources/Single_FaQ.csv') as csvfile:
         csv_content = csv.reader(csvfile, delimiter='\t')
         for row in csv_content:
-            if row[0] == best_sentence:
-                answers = row[1]
+            if row[1] == best_sentence:
+                answers = row[2]
     if print_answers:
         print_question_answer(question, answers, best_score)
     return answers

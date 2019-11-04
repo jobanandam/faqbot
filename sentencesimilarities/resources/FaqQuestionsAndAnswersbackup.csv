@@ -1,7 +1,7 @@
 What is your Name, Myself FAQ BOT How can i help you
 What are the code quality tools available, We have Sonar Qube and HP Fortify for Security check Please find the links for more details https://confluencebnnpparibasfortiscom/sonar and https://confluencebnnpparibasfortiscom/nexus
-What are the devops tool available, Please refer link https://confluencebnnpparibasfortiscom/devopstools
-where can i get the architecture of DevOps, Please refer link https://confluencebnnpparibasfortiscom/devops/architect
+What are the devops tool available, Please refer link https://confluence/devopstools
+where can i get the architecture of DevOps, Please refer link https://confluence/devops/architect
 How can you help me, Myself FAQ BOT you can ask your DevOps Questions to me i can help answering you
 Where india Located, Please ask questions related to DevOps
 How do I deploy my application to DEV/Test , You can do it through Jenkins Pipeline & then through CDD Detailed documentation can be found here!
@@ -66,7 +66,7 @@ Can an Issue be assigned to two different people Explain Cloning issue then what
 Adding Gadgets to JIRA dashboard, Several gadgets can be added to JIRA personal dashboards The JIRA admin is responsible for adding a gadget to a default dashboard of a JIRA application
 What languages and platforms does your static scanner support,Veracode allows you to scan Java, JSP, NET- C#, NET - VBNET, ASPNET, NET - C+/CLI, C/C+, PHP, ColdFusion, iOS, Android, J2ME, Ruby, Classic ASP, VBScript, VB6, Flash (using Dynamic), COBOL, and JavaScript for mobile and web applications! Our list of supported platforms and languages is always growing
 What email notifications will I get from Veracode,Veracode keeps customers up to date with scan and overall service status via email Veracode users will receive emails when: Password is changed, Pre-scan verification is complete, Scan is submitted, and Scan has completed
-What is pre-scan verification,The Veracode platform performs a preliminary analysis, or Pre-Scan, of your binaries to validate that they can be analyzed and to give you an opportunity to fix problems with the uploaded files before submitting your scan request The results of the Pre-Scan verification are given as messages in the module table; summary information appears as you select modules to be scanned
+What is pre-scan verification,The Veracode platform performs a preliminary analysis, or Pre-Scan, of your binaries to validate that they can be analyzed and to give you an opportunity to fix problems with the uploaded files before submitting your scan request The results of the Pre-Scan verification are given as messages in the module table, summary information appears as you select modules to be scanned
 I received an email saying there was an issue scanning my application What should I do, Veracode will send a scan failure email if issues are encountered scanning your application Our engineering team will work with you to resolve any issues like this and ensure scan success
 What is the difference between a Flaw and a Vulnerability, Veracode scan highlights flaws discovered in a submitted binary It is important to understand that not all flaws will be exploitable vulnerabilities A flaw is a potential vulnerability A flaw is a pattern that is flagged in the analyzed binary that is indicative of a vulnerability A vulnerability is a hole within the security of a system caused by software flaws, incorrect configurations and/or insecure user behavior 
 What flaw categories do you look for,Input Validation, Memory Corruption, Numeric Errors, Cryptographic Issues
@@ -150,7 +150,7 @@ I'm getting the error stated MYSQL/JDBC issues Communication Link Failure (Forti
 How can I crawl application using proxy to IE or Firefox with step mode,login macro with a manual/step mode scan as authentication should be captured during the recording of the manual scan
 My application does not allow concurrent logins When I run a scan with WI I get error messages which i suspect is due to concurrent login attempts Is there any way by which I enable WI to manage concurrent sessions in my application,A solution to this problem is to convert the recorded credentials in a login macro to parameters and use multiple login accounts with the same application privileges You can use the Multi-user Login option in the Scan Settings: Authentication window to parameterize the username and password in a login macro, and define multiple username and password pairs to use in a scan This approach allows the scan to run across multiple threads Each thread has a different login session, resulting in faster scan times
 Is there a way to clear the SSC logs,execute the following query against the SSC database to delete entries older than 120 days: DELETE FROM eventlogentry WHERE eventDate < DATEADD(day, -120, GETDATE())
-I have forgotten administrator SSC password and the user has been blocked after 3 trials how can I log in again into SSC ,Please run this update on SSC database with correct admin  username  UPDATE fortifyuser SET requirePasswordChange='Y', failedLoginAttempts=0, dateFrozen=NULL, suspended='N', secPass='b0521d842e68c870af598b81aa8cd6d1728611b1e5568397e420b2d026172b74', salt='P7D4co4mI/4=' WHERE username='<admin_user>';
+I have forgotten administrator SSC password and the user has been blocked after 3 trials how can I log in again into SSC ,Please run this update on SSC database with correct admin  username  UPDATE fortifyuser SET requirePasswordChange='Y', failedLoginAttempts=0, dateFrozen=NULL, suspended='N', secPass='b0521d842e68c870af598b81aa8cd6d1728611b1e5568397e420b2d026172b74', salt='P7D4co4mI/4=' WHERE username='<admin_user>',
  getting the error WebInspect is not a valid scan database  Choose another database ,use WIConfig tool to initialize the database This would create a database in your server by itself
 I installed 1910 today and it doesn't seem like it successfully installed the VS 2017 plugin I cant figure out how to modify the installation to remove and reinstall the plugin Is that possible without uninstalling and reinstalling all of Fortify ,Looking at the Fortify Marketplace, I think the extension doesn't have a new version
 Unable to start hp webinspect trusted certificate web server,After installing WebInspect, it is important to open the MSIE browser and accept the certificate/plugin prompted  This adds a WebInspect certificate to the browser, for use later when using Web Proxy for a variety of recording tasks  One of those tasks does happen to include the Native Mobile app scanning, where WebInspect essentially turns itself into an intercept proxy to capture the mobile application's activity
@@ -330,7 +330,7 @@ How to estimate a user story, Starting from 1 following Fibonacci series (1 2 3 
 What is the minimum and maximum estimation I can provide, Always keep 1 as a minimum story point. Maximum can be any Fibonacci number.
 How to decide when story points are different, Let the colleagues estimated minimum and maximum discuss and come to a conclusion. :-)
 How to create a task, Open the user story you want to estimate. Click on Add new task button and fill in the information. Now click on Ok. Tada!! Your task is created.
-How to create and assign a task to my colleague, Open the task you want to reassign to your colleague. Now click on the current assignee name; choose your colleague name from list. And it is assigned to your colleague now :-)
+How to create and assign a task to my colleague, Open the task you want to reassign to your colleague. Now click on the current assignee name, choose your colleague name from list. And it is assigned to your colleague now :-)
 How to estimate a task, A task can estimated on a hourly basis.
 I can't see my name under my team name in agile central. How to get it updated, I can do it for you. Can you provide your team name?
 Name of a colleague is missing proposed list of names. Why, I can check that for you. What is your colleague's user id?
@@ -345,13 +345,13 @@ Can I reopen a closed task, Change the property Progress from Completed to In Pr
 Can I reopen a closed user story, Yes,you can. But keep in mind that it affects your team velocity and story burn down rate on your plan. :-)
 Do you have a guide for agile central, Yes,here it is: http://some-link
 How to create a filter in my task board, Click Add Filter button on your task board. Choose the property in the left and provide proper value in the right.
-How to search for a user story, Click on the Search icon on top right; enter user story number and hit Enter
-How to search for a feature, Click on the Search icon on top right; enter feature number and hit Enter
+How to search for a user story, Click on the Search icon on top right, enter user story number and hit Enter
+How to search for a feature, Click on the Search icon on top right, enter feature number and hit Enter
 How to link a user story to a feature, Open the user story and choose appropriate feature under Feature dropdown. Click Save button to save the changes
 How to create a feature, Goto Features under Plan and click on Add new feature button. Fill in the form and click Create. Done :-)
-Can everyone create features and user stories, No,feature is restricted from everyone; only a EPIC owner can create it. But it is possible for everyone to create a new user story
+Can everyone create features and user stories, No,feature is restricted from everyone, only a EPIC owner can create it. But it is possible for everyone to create a new user story
 Can I link a user story to more than one feature, No,strictly one user story should be linked to only one feature
-How to add my photo in my user profile, Open your profile. Click on Add photo button; now choose your photo file and click ok to get it uploaded
+How to add my photo in my user profile, Open your profile. Click on Add photo button, now choose your photo file and click ok to get it uploaded
 How to create a tag, Goto Tags under Track. Now click on Add Tag button and provide a name of the tag. Click Ok to complete action
 Can I add more than one tag to a user story, Yes,you can!
 How can I add a tag to a user story, Open the user story. Under Tags label,start typing our tag name. Choose the appropriate tag from suggestions. Click Save to complete the action
