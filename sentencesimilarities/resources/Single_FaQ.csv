@@ -225,6 +225,33 @@ Git	My commits in Git doesn't trigger builds in Jenkins automatically 	You probl
 Git	My merge to the master branch is getting rejected 	I've just checked your permissions and it looks good Your issue is reported to the concerned team & you should receive the feedback soon
 Git	Can you grant me access to the application repo AABB 	Your request has been submitted for approval by the maintainer You'll receieve the updates as soon as there's a change in status
 Git	I'm unable to connect to Git with SSH 	I'm sorry You're allowed to connect only by means of https at this moment
+Git	What language is used in Git	C Programming
+Git	What is Git	Git is a software used for version control
+Git	What is the function of Git Push	GIT PUSH updates remote refs along with associated objects
+Git	What is Staging Area or Index in GIT?	Before completing the commits it can be formatted and reviewed in an intermediate area known as ‘Staging Area’ or ‘Index’
+Git	What is the function of git clone	The git clone command creates a copy of an existing Git repository
+Git	What is the function of git config	The git config command is a convenient way to set configuration options for your Git installation
+Git	What is the purpose of branching in GIT	It will allow you to go to your previous work keeping your recent work intact
+Git	How can you bring a new feature in the main branch	Use a command git merge or git pull
+Git	What is a conflict in git	A conflict arises when the commit that has to be merged has some change in one place and the current commit also has a change at the same place
+Git	What is another option for merging in git	Rebasing is an alternative to merging in git
+Git	What is the syntax for Rebasing in Git	The syntax used for rebase is git rebase [new-commit]
+Git	What is the difference between git remote and git clone	git remote add  just creates an entry in your git config that specifies a name for a particular URL!  While, ‘git clone’ creates a new git repository by copying and existing one located at the URI
+Git	What is ‘git status’ is used for	Git Status shows you the difference between the working directory and the index
+Git	What is the function of git rm	To remove the file from the staging area and also off your disk git rm is used
+Git	What is git add is used for	git add adds file changes in your existing directory to your index
+Git	What is git Is-tree	git Is-tree represents a tree object including the mode and the name of each item and the SHA-1 value of the blob or the tree
+Git	How git instaweb is used	Git Instaweb automatically directs a web browser and runs webserver with an interface into your local repository
+Git	How can you fix a broken commit	Use the command git commit—amend
+Git	what is commit message	Feature of git which appears when you commit a change
+Git	What is a repository in GIT	A repository contains a directory named .git where git keeps all of its metadata for the repository
+Git	Difference between GIT and SVN	GIT is referred to as distributed control version system and SVN is referred as centralized version system
+Git	Explain head in git	Master is referred to as the default head in every repository. The repository can contain any number of head
+Git	What is rebase in git	Rebasing is defined as the process of moving a branch to a new base commit
+Git	What is a staging area	Developers can format and review commits in an intermediate area referred to as staging area
+Git	Explain the use of ‘Git diff’ command in Git	The command Git diff is used to show changes between commits, commit, and working tree
+Git	What is the use of ‘Git Rm’ command	Git Rm is used to remove file from both the staging area and the disk
+Git	What is the use of the function ‘Git log’	Git Log function is used to find specific commits in the project’s evolution, sorted by author, date, content, or history
 Nexus	What's the nexus URL 	https://inet-prodnexus/nexus
 Generic	What is your Name	 Myself FAQ BOT How can i help you
 Generic	What are the code quality tools available	 We have Sonar Qube and HP Fortify for Security check Please find the links for more details https://confluencebnnpparibasfortiscom/sonar and https://confluencebnnpparibasfortiscom/nexus
