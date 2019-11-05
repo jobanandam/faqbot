@@ -1,24 +1,25 @@
 What is your Name?, Myself FAQ BOT How can i help you,1.0
-Who are you ?, Myself FAQ BOT How can i help you,1.0
-What is Jenkins?, Myself FAQ BOT How can i help you,0.75
+What is Jenkins?,Youmusthave a connection to SSC and upload the FPR to SSC in order to see the results in Jenkins,0.6479166666666667
+What is Jenkins?,You must have a connection to SSC and upload the FPR to SSC in order to see the results in Jenkins,0.6479166666666667
 How can you help me?, Myself FAQ BOT you can ask your DevOps Questions to me i can help answering you,1.0
 Where india Located?, Please ask questions related to DevOps,1.0
-what is Agile?, Myself FAQ BOT How can i help you,0.75
-What is DevOps, Myself FAQ BOT How can i help you,0.75
+what is Agile?,Please ask questions related to DevOps,0.0
+What is devops, Please refer link https://confluence/devopstools,0.75
 What is Ansible,   Ansible is an Enterprise automation tool that can automate deployment,1.0
 What is Ansible,   Ansible is an Enterprise automation tool that can automate deployment,1.0
 how can i create user story in agile central, Let me do it for you! Give me a second.,0.6547619047619048
 how to estimate the story, Starting from 1 following Fibonacci series (1 2 3 5 8 13....) you can choose a number based on your work load,0.8333333333333333
-my deployment is failing, Myself FAQ BOT How can i help you,0.7222222222222222
-my jenkins build is failing, Myself FAQ BOT How can i help you,0.6979166666666666
+my deployment is failing,Please ask questions related to DevOps,0.0
+my jenkins build is failing,Please ask questions related to DevOps,0.0
 where can i see deployment logs,Please ask questions related to DevOps,0.0
-sonar report is not generating, Myself FAQ BOT How can i help you,0.625
+sonar report is not generating,Please ask questions related to DevOps,0.0
 where can i see my sonar report,Please ask questions related to DevOps,0.0
-What is HP Fortify, Myself FAQ BOT How can i help you,0.6666666666666666
-what deployment tool being used, Myself FAQ BOT How can i help you,0.6666666666666666
+What is HP Fortify,Try it out for yourself! One of the purposes of the free basic access is to give people a chance to experience Fortify directly for themselves and see if it feels like a good fit. We respect that there are many other kinds of supports that may also be very helpful. In fact: we mention many of them within Fortify to encourage people to look around for anything that can be personally impactful. We definitely want you to go with what is right for you!,0.625
+What is HP Fortify,Try it out for yourself! One of the purposes of the free basic access is to give people a chance to experience Fortify directly for themselves and see if it feels like a good fit We respect that there are many other kinds of supports that may also be very helpful In fact we mention many of them within Fortify to encourage people to look around for anything that can be personally impactful We definitely want you to go with what is right for you!,0.625
+what deployment tool being used, Atlassian JIRA is basically an issue and project tracking tool which allows us to track any project related work by following a proper workflow,0.5833333333333333
 how to create an API,If you want to query tags in applications: you can add unique tags as metadata when creating your applications. You can then query your applications based on any of the metadata. Usecreateapp.doto create an application with metadata. Use the following calls of theResults APIto get the scan results of applications:getapplist.doto get the full list of your applicationsand thengetappinfo.doto get information for a specific application: including any metadata: if applicable. To get a detailed report for any application: calldetailedreport.do: which returns the results in an XML document.,0.7827380952380952
 how to create an API,If you want to query tags in applications you can add unique tags as metadata when creating your applications You can then query your applications based on any of the metadata Use createappdo to create an application with metadata Use the following calls of the Results API to get the scan results of applications: getapplistdo to get the full list of your applications and then getappinfodo to get information for a specific application including any metadata if applicable To get a detailed report for any application,0.7827380952380952
 how to push the artifacts to nexus,Please ask questions related to DevOps,0.0
-what is maven artifacts, Myself FAQ BOT How can i help you,0.6666666666666666
+what is maven artifacts,Please ask questions related to DevOps,0.0
 how to build and package my ios App,Please ask questions related to DevOps,0.0
 ,"Can you please give some more details, so that i can try to answer",0.0
