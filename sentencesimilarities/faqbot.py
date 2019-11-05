@@ -118,7 +118,7 @@ def sentence_similarity(sentence1, sentence2):
     for non_dict_word_sent1, non_dict_word_pos_sent1 in non_dict_set_sets_1:
         non_dict_score_array = []
         for non_dict_word_sent2, non_dict_word_pos_sent2 in non_dict_set_sets_2:
-            if non_dict_word_sent1 == non_dict_word_sent2:
+            if str(non_dict_word_sent1).lower().__eq__(str(non_dict_word_sent2).lower()):
                 if non_dict_word_pos_sent1 == non_dict_word_pos_sent2:
                     non_dict_score_array.append(1.0)
                 else:
@@ -143,18 +143,37 @@ def read_content_from_file(file_name):
     return faq_sentences
 
 
+def filter_matched_sentences(cumulative_average_score, matched_sentences, print_possible_matches, max_score_array):
+    filtered_matched_sentences = []
+    if print_possible_matches:
+        print("************************************************")
+        print("Best match before Filter")
+        print("Asked Question, Matched Sentence , Matched Score")
+    for sentence_matched, question, score in matched_sentences:
+        if print_possible_matches:
+            print("%s, %s, %s  " % (question, sentence_matched, score))
+        if max_score_array.__eq__(1.0):
+            if score == 1.0:
+                filter_matched_sentence_tuple = (sentence_matched, question, score)
+                filtered_matched_sentences.append(filter_matched_sentence_tuple)
+        elif cumulative_average_score <= score <= 1.0:
+            filter_matched_sentence_tuple = (sentence_matched, question, score)
+            filtered_matched_sentences.append(filter_matched_sentence_tuple)
+    return filtered_matched_sentences
+
+
 def calculate_similarity(print_possible_matches, question):
     best_score = 0.0
     best_sentence = ""
     score_array = []
-    cat = classifier.classify(loader.get_feature_set(question=question))
-    sentences = loader.get_questions(category=cat)
+    # cat = classifier.classify(loader.get_feature_set(question=question))
+    # sentences = loader.get_questions(category=cat)
     sentences = read_content_from_file("resources/Single_FaQ.csv")
-    print(len(sentences))
     if print_possible_matches:
         print("----Possible Matches ---")
         print("Matched Sentence , Matched Score")
-    matched_sentences = []
+    matched_sentences, matched_score_array = [], []
+    overall_score, training_data_count = 0.0, 0
     for sentence in sentences:
         if sentence:
             score = symmetric_sentence_similarity(sentence, question)
@@ -162,13 +181,28 @@ def calculate_similarity(print_possible_matches, question):
             score_array.append(score_class)
             if print_possible_matches:
                 print("%s , %s  " % (sentence, score))
-            if score > 0.6:
-                print(sentence, question, score)
+            if score > 0.56:
+                # print(sentence, question, score)
                 matched_sent_tuple = (sentence, question, score)
+                matched_score_array.append(score)
+                overall_score += score
+                training_data_count += 1
                 matched_sentences.append(matched_sent_tuple)
+
+    if training_data_count != 0:
+        cumulative_average_score = overall_score / training_data_count
+        if print_possible_matches:
+            print("Cumulative Average score", cumulative_average_score)
+            print("Max Score", max(matched_score_array))
+
+        filtered_matched_sentences = filter_matched_sentences(cumulative_average_score, matched_sentences,
+                                                              print_possible_matches, max(matched_score_array))
+    else:
+        filtered_matched_sentences = matched_sentences
+
     if print_possible_matches:
-        print_match_results(matched_sentences)
-    return matched_sentences
+        print_match_results(filtered_matched_sentences)
+    return filtered_matched_sentences
 
 
 def print_match_results(matched_sentences):
@@ -201,7 +235,7 @@ def get_questions_from_user(detailed_logging):
                 if not answer:
                     print("Please ask questions related to DevOps")
                 else:
-                    print(answer)
+                    print(answer, best_score)
             if not possible_sentences:
                 print("Please ask questions related to DevOps")
     pass
@@ -232,8 +266,9 @@ def get_the_answer_unclassified(print_answers, best_sentence, best_score, questi
         print_question_answer(question, answers, best_score)
     return answers
 
-if __name__ == '__main__':
-    print(dl)
+
+def classifier_changes():
+    global loader, classifier
     loader = dl.DataLoader('resources/Single_FaQ.csv')
     feature_set = loader.get_feature_set()
     train_set_length = round(len(feature_set) / 2)
@@ -242,6 +277,51 @@ if __name__ == '__main__':
     classifier = nltk.NaiveBayesClassifier.train(train_set)
     print('Actual Value: ' + test_set[0][1])
     print('Predicted Value: ' + classifier.classify(test_set[0][0]))
+
+
+def read_questions_from_file(file_name):
+    file = open(file_name, "r")
+    questions_from_file = file.read().split("\n")
+    return questions_from_file
+
+
+def write_the_results(results):
+    import csv
+    with open('test\FAQResults.csv', 'w', newline='') as out:
+        csv_out = csv.writer(out)
+        for row in results:
+            csv_out.writerow(row)
+
+
+def get_questions_from_file(detailed_logging):
+    print("Hi Welcome to FAQ BOT !!!!")
+    questions = read_questions_from_file("test\questions.txt")
+    results = []
+    for question in questions:
+        if question.split(" ").__len__().__le__(1):
+            print("Can you please give some more details, so that i can try to answer")
+            results.append((question, "Can you please give some more details, so that i can try to answer", "0.0"))
+        else:
+            possible_sentences = calculate_similarity(detailed_logging, question)
+            for best_sentence, question, best_score in possible_sentences:
+                answer = get_the_answer_unclassified(detailed_logging, best_sentence, best_score, question)
+                if not answer:
+                    print("Please ask questions related to DevOps")
+                    results.append((question, "Please ask questions related to DevOps", "0.0"))
+                else:
+                    print(answer, best_score)
+                    results.append((question, answer, best_score))
+            if not possible_sentences:
+                print("Please ask questions related to DevOps")
+                results.append((question, "Please ask questions related to DevOps", "0.0"))
+    write_the_results(results)
+    pass
+
+
+if __name__ == '__main__':
+    # print(dl)
+    # classifier_changes()
     # print("Classifier accuracy percent:",(nltk.classify.accuracy(classifier, test_set))*100)
     # print(classifier.show_most_informative_features(15))
-    get_questions_from_user(True)
+    #get_questions_from_user(True)
+    get_questions_from_file(False)

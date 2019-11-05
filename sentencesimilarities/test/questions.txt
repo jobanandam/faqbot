@@ -1,0 +1,20 @@
+What is your Name?
+What is Jenkins?
+How can you help me?
+Where india Located?
+what is Agile?
+What is devops
+What is Ansible
+how can i create user story in agile central
+how to estimate the story
+my deployment is failing
+my jenkins build is failing
+where can i see deployment logs
+sonar report is not generating
+where can i see my sonar report
+What is HP Fortify
+what deployment tool being used
+how to create an API
+how to push the artifacts to nexus
+what is maven artifacts
+how to build and package my ios App
