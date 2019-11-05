@@ -225,6 +225,33 @@ Git	My commits in Git doesn't trigger builds in Jenkins automatically 	You probl
 Git	My merge to the master branch is getting rejected 	I've just checked your permissions and it looks good Your issue is reported to the concerned team & you should receive the feedback soon
 Git	Can you grant me access to the application repo AABB 	Your request has been submitted for approval by the maintainer You'll receieve the updates as soon as there's a change in status
 Git	I'm unable to connect to Git with SSH 	I'm sorry You're allowed to connect only by means of https at this moment
+Git	What language is used in Git	C Programming
+Git	What is Git	Git is a software used for version control
+Git	What is the function of Git Push	GIT PUSH updates remote refs along with associated objects
+Git	What is Staging Area or Index in GIT?	Before completing the commits it can be formatted and reviewed in an intermediate area known as ‘Staging Area’ or ‘Index’
+Git	What is the function of git clone	The git clone command creates a copy of an existing Git repository
+Git	What is the function of git config	The git config command is a convenient way to set configuration options for your Git installation
+Git	What is the purpose of branching in GIT	It will allow you to go to your previous work keeping your recent work intact
+Git	How can you bring a new feature in the main branch	Use a command git merge or git pull
+Git	What is a conflict in git	A conflict arises when the commit that has to be merged has some change in one place and the current commit also has a change at the same place
+Git	What is another option for merging in git	Rebasing is an alternative to merging in git
+Git	What is the syntax for Rebasing in Git	The syntax used for rebase is git rebase [new-commit]
+Git	What is the difference between git remote and git clone	git remote add  just creates an entry in your git config that specifies a name for a particular URL!  While, ‘git clone’ creates a new git repository by copying and existing one located at the URI
+Git	What is ‘git status’ is used for	Git Status shows you the difference between the working directory and the index
+Git	What is the function of git rm	To remove the file from the staging area and also off your disk git rm is used
+Git	What is git add is used for	git add adds file changes in your existing directory to your index
+Git	What is git Is-tree	git Is-tree represents a tree object including the mode and the name of each item and the SHA-1 value of the blob or the tree
+Git	How git instaweb is used	Git Instaweb automatically directs a web browser and runs webserver with an interface into your local repository
+Git	How can you fix a broken commit	Use the command git commit—amend
+Git	what is commit message	Feature of git which appears when you commit a change
+Git	What is a repository in GIT	A repository contains a directory named .git where git keeps all of its metadata for the repository
+Git	Difference between GIT and SVN	GIT is referred to as distributed control version system and SVN is referred as centralized version system
+Git	Explain head in git	Master is referred to as the default head in every repository. The repository can contain any number of head
+Git	What is rebase in git	Rebasing is defined as the process of moving a branch to a new base commit
+Git	What is a staging area	Developers can format and review commits in an intermediate area referred to as staging area
+Git	Explain the use of ‘Git diff’ command in Git	The command Git diff is used to show changes between commits, commit, and working tree
+Git	What is the use of ‘Git Rm’ command	Git Rm is used to remove file from both the staging area and the disk
+Git	What is the use of the function ‘Git log’	Git Log function is used to find specific commits in the project’s evolution, sorted by author, date, content, or history
 Nexus	What's the nexus URL 	https://inet-prodnexus/nexus
 Generic	What is your Name	 Myself FAQ BOT How can i help you
 Generic	What are the code quality tools available	 We have Sonar Qube and HP Fortify for Security check Please find the links for more details https://confluencebnnpparibasfortiscom/sonar and https://confluencebnnpparibasfortiscom/nexus
@@ -430,3 +457,23 @@ Docker	How can you run multiple containers using a single service	 By using dock
 Docker	What are the three components of Docker Architecture	 1Client 2Docker-Host 3Registry
 Docker	What is the purpose of Docker_Host	 It contains container/ images / Docker daemon It offers a complete environment to execute and run your application
 Docker	Does Docker offer support for IPV6	 Yes! Docker provides support IPv6 IPv6 networking is supported only on Docker daemons runs on Linux hosts However if you want to enable IPv6 support in the Docker daemon you need to modify /etc/docker/daemonjson and set the ipv6 key to true
+Docker	What are Docker Namespaces	The Namespaces in Docker is a technology which provides isolated workspaces called the Container. Namespaces provide a layer of isolation for the Docker containers
+Docker	What is a Docker Swarm	Docker Swarm as the way of orchestrating the Docker containers
+Docker	Is it possible to use JSON instead of YAML for Docker Compose	Yes! It's possible
+Docker	What are the most common instructions in Dockerfile	FROM, LABEL, RUN, CMD
+Docker	How to monitor the docker in production environments	Docker stats and Docker Events
+Docker	Where does the docker daemon store the Docker images	Docker Registry
+Docker	What are the various states of the Docker container	Four States: Running, Paused, Restarting and Exited
+Docker	Where the docker volumes are stored	/var/lib/docker/volumes
+Docker	How to start containers automatically	We need to use restart policy …example …docker run always
+Docker	What is Docker object labels	These are the mechanism for applying metadata to docker objects including, images, containers, Local daemons, volumes, network, swam nodes,swarm services
+Docker	How to publish the image	docker push username/repository:tag
+Docker	How to scale the app	By changing the replicas value in docker compose.yml and re run the command docker stack deploy
+Docker	How to install Docker	yum install docker
+Docker	What is the docker inspect do	It will give the more information about container in json format
+Docker	How to start Docker daemon	dockerd [options]
+Docker	How to check the container status	docker ps
+Docker	How you create jenkins image using Docker	Docker pull jenkins
+Docker	What is the Docker container life cycle	Build, Pull and Run
+Docker	How to clean up Docker objects	docker image prune and docker container prune
+Docker	How to push the new image to Docker registry	docker push myorg/myimg
