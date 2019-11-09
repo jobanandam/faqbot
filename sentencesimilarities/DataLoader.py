@@ -22,6 +22,7 @@ class DataLoader:
         self.all_words = []
         self.questions = []
         self.answers = []
+        self.categories = []
         self.questions_and_answer = []
 
     # doc - document words and dictionary - corpus words
@@ -42,6 +43,7 @@ class DataLoader:
                 for w in words:
                     self.all_words.append(w)
                 self.documents.append((words, each_line[0]))
+                self.categories.append(each_line[0])
                 self.questions_and_answer.append((each_line[0], each_line[1]))
         random.shuffle(self.documents)
         return self.documents

@@ -1,3 +1,10 @@
+import numpy as np
+from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
+from sklearn.metrics import classification_report
+from sklearn.metrics import accuracy_score
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.model_selection import train_test_split
+from sklearn import preprocessing
 from nltk import word_tokenize, pos_tag
 from nltk.corpus import wordnet as wn
 from nltk.stem.snowball import SnowballStemmer
@@ -5,6 +12,7 @@ from nltk.stem import WordNetLemmatizer
 import nltk
 import re
 import DataLoader as dl
+
 
 stem_obj = SnowballStemmer('english')
 word_net_lemma = WordNetLemmatizer()
@@ -168,6 +176,7 @@ def calculate_similarity(print_possible_matches, question):
     score_array = []
     # cat = classifier.classify(loader.get_feature_set(question=question))
     # sentences = loader.get_questions(category=cat)
+    vec = get_vector(loader.questions, question)
     sentences = read_content_from_file("resources/Single_FaQ.csv")
     if print_possible_matches:
         print("----Possible Matches ---")
@@ -266,7 +275,9 @@ def get_the_answer_unclassified(print_answers, best_sentence, best_score, questi
         print_question_answer(question, answers, best_score)
     return answers
 
-
+"""
+    Inbuild NLTK classifier
+"""
 def classifier_changes():
     global loader, classifier
     loader = dl.DataLoader('resources/Single_FaQ.csv')
@@ -317,6 +328,48 @@ def get_questions_from_file(detailed_logging):
     write_the_results(results)
     pass
 
+def get_vector(questions, sample):
+    cv = CountVectorizer()
+    word_count_vector = cv.fit_transform(questions)
+    tf_idf_transformer = TfidfTransformer(smooth_idf=True, use_idf=True)
+    tf_idf_transformer.fit(word_count_vector)
+    tf_idf_vector = tf_idf_transformer.transform(word_count_vector)
+
+    vector = tf_idf_transformer.transform(cv.transform([sample]))
+    vector = np.squeeze(np.asarray(vector.T.todense()))
+    vector = np.array(vector)
+    vector = model.predict([vector])
+    vector = le.inverse_transform(vector)
+    return vector[0]
+
+"""
+    Naive bayes classifier
+"""
+def classifier(questions, categories):
+    global model, le, tf_idf_vector
+    model = MultinomialNB()
+    cv = CountVectorizer()
+    word_count_vector = cv.fit_transform(questions)
+    tf_idf_transformer = TfidfTransformer(smooth_idf=True, use_idf=True)
+    tf_idf_transformer.fit(word_count_vector)
+    tf_idf_vector = tf_idf_transformer.transform(word_count_vector)
+    vector = [np.squeeze(np.asarray(v.T.todense())) for v in tf_idf_vector]
+    vector = np.array(vector)
+    le = preprocessing.LabelEncoder()
+    le.fit(categories)
+    categories = le.transform(categories)
+    X_train, X_test, y_train, y_test = train_test_split(vector, categories, test_size=0.2, random_state=109,
+                                                        stratify=categories)
+    model.fit(X_train, y_train)
+    pred = model.predict(X_test)
+    print(accuracy_score(y_test, pred))
+    return model
+
+def create_model():
+    loader = dl.DataLoader('resources/Single_FaQ.csv')
+    documents = loader.get_documents()
+    classifier(loader.questions, loader.categories)
+    #get_vector(loader.questions, 'what is svn ?')
 
 if __name__ == '__main__':
     # print(dl)
@@ -324,4 +377,5 @@ if __name__ == '__main__':
     # print("Classifier accuracy percent:",(nltk.classify.accuracy(classifier, test_set))*100)
     # print(classifier.show_most_informative_features(15))
     #get_questions_from_user(True)
-    get_questions_from_file(False)
+    create_model()
+    #get_questions_from_file(False)
