@@ -78,6 +78,9 @@ Kubernetes	What are federated clusters?	    Multiple Kubernetes clusters can be 
 Kubernetes	What are minions in Kubernetes cluster?	    They are the work-horse / worker node of the cluster.
 Kubernetes	Kubernetes cluster data is stored in which of the following?	    Etcd.
 Kubernetes	Which of them is a Kubernetes Controller?	    Both ReplicaSet and Deployment.
+Agile Central	how can i create user story in agile central	You can create a user story in CA Agile Central from several locations. This flexibility allows you to progress through work activities and create a user story whenever you need it from logical positions within the CA Agile Central application.
+Agile Central	how to estimate the story	You can use several different techniques to estimate work. Whichever method you prefer, make sure the actions are collaborative. Such as Planning Poker, Examples and comparisons.
+Agile Central	what is Agile?	Agile methodology is a type of project management process, mainly used for software development, where demands and solutions evolve through the collaborative effort of self-organizing and cross-functional teams and their customers.
 Agile Central	How can I create my agile central account	 Let me do it for you! Give me a second.
 Agile Central	I can't login to Agile Central. Can you help	 Oh oh! Your password is expired. Can you follow this link to do a reset? http://some-link
 Agile Central	How to create a new user story	 Open the Release Backlog or Iteration in which you need to create user story. Now click on the 'Add User Story' button and fill in necessary information. Finally click 'Ok'. Tada!! Your user story is created. :-)
@@ -217,6 +220,8 @@ Generic	where can i get the architecture of DevOps	 Please refer link https://co
 Generic	How can you help me	 Myself FAQ BOT you can ask your DevOps Questions to me i can help answering you
 Generic	You're not answering well	I'm just a kid Learning from you
 Generic	Where india Located	 Please ask questions related to DevOps
+Generic	What is your Name?	My name is FAQBot, I am here to answer your DevOps related queries.
+Generic	How can you help me?	I can answer your DevOps related queries such as CDD, Agile Central, SVN, Nexus, etc.
 CDD	How do I deploy my application to DEV/Test 	 You can do it through Jenkins Pipeline & then through CDD Detailed documentation can be found here!
 CDD	How to report my CDD issue 	You can ask me !If we don't have any match for that answer then we can ask if Bot can log a issue to CDD Team on behalf of user
 HP ALM	What is HP ALM (Quality Center) used for? Or What are the benefits and features of Quality Center?	HP ALM/ Quality Center is a comprehensive test management tool. It is a web-based tool and supports high level of communication and association among various stakeholders (Business Analyst: Developers : Testers etc. ) : driving a more effective and efficient global application-testing process.
@@ -271,6 +276,7 @@ Fortify	How do I get in touch with the Fortify team	Send us a note! We're reacha
 Fortify	How does Fortify ensure that my subscription is anonymous	Fortify does not nor would not share any user information – with industry standard data security protections in place At sign-up all we need connected to you personally is a working email address You can use a pseudonym if you prefer The username you create upon signing up also doesn't have to identify you in any way and will be the only way the community will see you If you sign-up for a Fortify group or coach
 Fortify	Getting the error WebInspect is not a valid scan database	Choose another database 	use WIConfig tool to initialize the database This would create a database in your server by itself
 Fortify	How to sort reports in descending order	This seems to be wor0king: https://fortifydellcom/ssc/api/v1/dataExportslimit=10&start=0&orderby=-exportDate
+Fortify	What is HP Fortify	Micro Focus Fortify Static Code Analyzer reduces software risk by identifying security vulnerabilities that pose the biggest threats to your organization. It pinpoints the root cause of the vulnerability, correlates and prioritizes results, and provides best practices so developers can develop code more securely.
 Ansible	How can I set the PATH or any other environment variable for a task or entire playbook	Setting environment variables can be done with the environment keyword. It can be used at task or play level.
 Ansible	How do I handle different machines needing different user accounts or ports to log in with	Setting inventory variables in the inventory file is the easiest way.You may also wish to keep these in group variables instead, or file them in a group_vars/<groupname> file. See the rest of the documentation for more information about how to organize variables.
 Ansible	How do I get ansible to reuse connections, enable Kerberized SSH, or have Ansible pay attention to my local SSH config file	Switch your default connection type in the configuration file to 'ssh', or use '-c ssh' to use Native OpenSSH for connections instead of the python paramiko library. In Ansible 1.2.1 and later, 'ssh' will be used by default if OpenSSH is new enough to support ControlPersist as an option.
@@ -318,6 +324,7 @@ Ansible	Which is better Ansible or puppet	Puppet is more of a configuration mana
 Ansible	What is privilege escalation in Ansible	Ansible can use existing privilege esccalation systems to allow a user to execute tasks as another.
 Ansible	What user does Ansible run as	Ansible does not require a master node. It can be run from any host that has the Ansible package installed and sufficient SSH access.
 Ansible	Is ansible free Yes, Ansible is absolutely free and open source tool.
+Ansible	What is Ansible	Ansible is an open-source software provisioning, configuration management, and application-deployment tool. It runs on many Unix-like systems, and can configure both Unix-like systems as well as Microsoft Windows. It includes its own declarative language to describe system configuration.
 SVN	Do I need Admin privileges to install TortoiseSVN?	Yes: you need to have Admin privileges to install TortoiseSVN: or at least have the rights to install with Admin privileges.
 SVN	Do I need to install Subversion before I can use TortoiseSVN?	No. TortoiseSVN comes with everything you need to access a repository. Only if you want to set up a server then you will need the Subversion package.
 SVN	What is Fork a repo	A fork is a copy of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project.
@@ -420,6 +427,7 @@ Nexus	How do I change nexus port?	To change the NEXUS default port:Stop Nexus.Ed
 Nexus	What is hosted repository in Nexus?	A Hosted Repository is a repository that is hosted by the repository manager. Nexus Repository Manager ships with the following configured hosted repositories: 3rd Party. This hosted repository can be used for third-party dependencies not available in the public Maven repositories.
 Nexus	What is raw repository in Nexus?	Introduction. Nexus Repository Manager Pro and Nexus Repository Manager OSS include support for hosting, proxying and grouping static websites - the raw format. ... The raw format can also be used for other resources than HTML files exposed by straight HTTP-like browsable directory structures.
 Nexus	What's the nexus URL 	https://inet-prodnexus/nexus
+Nexus	how to push the artifacts to nexus	In order for Maven to be able to deploy the artifacts it creates in the package phase of the build, it needs to define the repository information where the packaged artifacts will be deployed, via the distributionManagement element
 Gradle	What Is a Gradle Framework?     Gradle is an open-source build automation system that builds based on the concepts of Apache Ant and Apache Maven.
 Gradle	Advantages Of Using Gradle?     Gradle combines both Ant and Maven, taking the best from both of these frameworks; Flexibility from Ant tool and convention over configuration, dependency management and plugins from Maven.
 Gradle	What Is Gradle Wrapper?     A wrapper is a batch script and it is one of the ways to perform Gradle build. When executed the first time, it automatically downloads Gradle and then initiates the build.
@@ -482,3 +490,12 @@ Maven	 What is the use of optional dependency?     Any transitive dependency can
 Maven	 What is dependency exclusion ?	Any transitive dependency can be exclude using "exclusion" element. As example, A depends upon B and B depends upon C then A can mark C as excluded.
 Maven	 How can you run the clean plugin automatically during the build?	  You can put the clean plugin inside the execution tag in pom.xml file.
 Maven	 How to stop the propagation of plugins to child POMs?	 set <inherited> to false.
+Maven what is maven artifacts An artifact is a file, usually a JAR, that gets deployed to a Maven repository.
+DevOps	my deployment is failing	You can check for the reasons of failure in the deployment logs provided and act accordingly.
+DevOps	What is devops	DevOps is a set of practices that combines software development and information-technology operations which aims to shorten the systems development life cycle and provide continuous delivery with high software quality.
+DevOps	where can i see deployment logs	Usually during deployment a log file is created and the logs are logged accordingly, the file loaction varies based on the tools used.
+DevOps	what deployment tool being used	Jenkins, CDD, IBM UrbanCode, AWS CodeDeploy.
+Sonar	sonar report is not generating	By failed I assume you mean test case failure, not an error in the sonar upload process. Check that sonar-scanner completed successfully when you ran it
+Sonar	where can i see my sonar report	The Issues Report plugin provides the ability to generate HTML report on issues. The main use case is for developers to check the code they have added or changed before pushing it back to the SCM.
+Jenkins	my jenkins build is failing	You can use the Build Failure Analyzer, This plugin analyzes the causes of failed builds and presents the causes on the build page. It does this by using a knowledge base of build failure causes that is built up from scratch.
+Jenkins	What is Jenkins?	Jenkins is an open source automation tool written in Java with plugins built for Continuous Integration purpose. It is used for build and deploying of the applications.
