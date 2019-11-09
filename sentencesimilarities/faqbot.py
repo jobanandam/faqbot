@@ -13,7 +13,6 @@ import nltk
 import re
 import DataLoader as dl
 
-
 stem_obj = SnowballStemmer('english')
 word_net_lemma = WordNetLemmatizer()
 
@@ -176,7 +175,7 @@ def calculate_similarity(print_possible_matches, question):
     score_array = []
     # cat = classifier.classify(loader.get_feature_set(question=question))
     # sentences = loader.get_questions(category=cat)
-    vec = get_vector(loader.questions, question)
+    # vec = get_vector(loader.questions, question)
     sentences = read_content_from_file("resources/Single_FaQ.csv")
     if print_possible_matches:
         print("----Possible Matches ---")
@@ -275,9 +274,12 @@ def get_the_answer_unclassified(print_answers, best_sentence, best_score, questi
         print_question_answer(question, answers, best_score)
     return answers
 
+
 """
     Inbuild NLTK classifier
 """
+
+
 def classifier_changes():
     global loader, classifier
     loader = dl.DataLoader('resources/Single_FaQ.csv')
@@ -300,6 +302,7 @@ def write_the_results(results):
     import csv
     with open('test\FAQResults.csv', 'w', newline='') as out:
         csv_out = csv.writer(out)
+        csv_out.writerow(("Quesion asked","Question Matched", "Answers", "Score"))
         for row in results:
             csv_out.writerow(row)
 
@@ -311,22 +314,23 @@ def get_questions_from_file(detailed_logging):
     for question in questions:
         if question.split(" ").__len__().__le__(1):
             print("Can you please give some more details, so that i can try to answer")
-            results.append((question, "Can you please give some more details, so that i can try to answer", "0.0"))
+            results.append((question, "No Question Matched","Can you please give some more details, so that i can try to answer", "0.0"))
         else:
             possible_sentences = calculate_similarity(detailed_logging, question)
             for best_sentence, question, best_score in possible_sentences:
                 answer = get_the_answer_unclassified(detailed_logging, best_sentence, best_score, question)
                 if not answer:
                     print("Please ask questions related to DevOps")
-                    results.append((question, "Please ask questions related to DevOps", "0.0"))
+                    results.append((question, "No Question Matched" ,"Please ask questions related to DevOps", "0.0"))
                 else:
                     print(answer, best_score)
-                    results.append((question, answer, best_score))
+                    results.append((question, best_sentence, answer, best_score))
             if not possible_sentences:
                 print("Please ask questions related to DevOps")
-                results.append((question, "Please ask questions related to DevOps", "0.0"))
+                results.append((question, "No Question Matched" ,"Please ask questions related to DevOps", "0.0"))
     write_the_results(results)
     pass
+
 
 def get_vector(questions, sample):
     cv = CountVectorizer()
@@ -342,9 +346,12 @@ def get_vector(questions, sample):
     vector = le.inverse_transform(vector)
     return vector[0]
 
+
 """
     Naive bayes classifier
 """
+
+
 def classifier(questions, categories):
     global model, le, tf_idf_vector
     model = MultinomialNB()
@@ -365,17 +372,19 @@ def classifier(questions, categories):
     print(accuracy_score(y_test, pred))
     return model
 
+
 def create_model():
     loader = dl.DataLoader('resources/Single_FaQ.csv')
     documents = loader.get_documents()
     classifier(loader.questions, loader.categories)
-    #get_vector(loader.questions, 'what is svn ?')
+    # get_vector(loader.questions, 'what is svn ?')
+
 
 if __name__ == '__main__':
     # print(dl)
     # classifier_changes()
     # print("Classifier accuracy percent:",(nltk.classify.accuracy(classifier, test_set))*100)
     # print(classifier.show_most_informative_features(15))
-    #get_questions_from_user(True)
-    create_model()
-    #get_questions_from_file(False)
+    #get_questions_from_user(False)
+    #create_model()
+    get_questions_from_file(False)

@@ -18,3 +18,7 @@ how to create an API
 how to push the artifacts to nexus
 what is maven artifacts
 how to build and package my ios App
+What is kubernetes
+What is Maven
+what is Maven build lifecycle
+how to push to git
