@@ -1,0 +1,35 @@
+Quesion asked,Question Matched,Answers,Score
+What is your Name?,No Question Matched,Please ask questions related to DevOps,0.0
+What is Jenkins?,No Question Matched,Please ask questions related to DevOps,0.0
+How can you help me?,How can you help me, Myself FAQ BOT you can ask your DevOps Questions to me i can help answering you,1.0
+Where india Located?,Where india Located, Please ask questions related to DevOps,1.0
+what is Agile?,No Question Matched,Please ask questions related to DevOps,0.0
+What is devops,What is continuous delivery DevOps,Continuous deliveryis a software development practice where code changes are automatically prepared for a release to production. ...Continuous deliverylets developers automate testing beyond just unit tests so they can verify application updates across multiple dimensions before deploying to customers.,0.5625
+What is devops,What is continuous delivery in DevOps,Continuous delivery is a software development practice where code changes are automatically prepared for a release to production. ... Continuous delivery lets developers automate testing beyond just unit tests so they can verify application updates across multiple dimensions before deploying to customers.,0.5625
+What is Ansible,Is Ansible written in Python,Ansible is written in Python,0.775
+What is Ansible,What is the latest version of Ansible,Please refer official Ansible website for this information.,0.75
+What is Ansible,What is Ansible galaxy,Ansible Galaxy refers to the Galaxy website where users can share roles and to a command line tool for installing creating and managing roles.,0.8333333333333333
+What is Ansible,What is .retry file in Ansible,When Ansible has problems running play against a host,0.75
+What is Ansible,Where are Ansible Playbooks stored,All hosts are stored in a local Ansible inventory file called /etc/ansible/hosts.,0.775
+What is Ansible,What is notify in Ansible,Handlers are just like regular tasks in an Ansible playbook,0.8571428571428572
+What is Ansible,Which is better Ansible or puppet,Puppet is more of a configuration management tool,0.75
+What is Ansible,What is privilege escalation in Ansible,Ansible can use existing privilege esccalation systems to allow a user to execute tasks as another.,0.75
+What is Ansible,Is ansible free,Yes,0.8333333333333333
+how can i create user story in agile central,How can I create my agile central account, Let me do it for you! Give me a second.,0.6547619047619048
+how to estimate the story,How to estimate a user story, Starting from 1 following Fibonacci series (1 2 3 5 8 13....) you can choose a number based on your work load,0.8333333333333333
+my deployment is failing,my deployment is failing,You can check for the reasons of failure in the deployment logs provided and act accordingly.,1.0
+my jenkins build is failing,my jenkins build is failing,You can use the Build Failure Analyzer,1.0
+where can i see deployment logs,where can i see deployment logs,Usually during deployment a log file is created and the logs are logged accordingly,1.0
+sonar report is not generating,sonar report is not generating,Please check the jenkins Build log for more reason for the failure,1.0
+where can i see my sonar report,where can i see my sonar report,The Issues Report plugin provides the ability to generate HTML report on issues. The main use case is for developers to check the code they have added or changed before pushing it back to the SCM.,1.0
+What is HP Fortify,How can I know if Fortify is right for me,Try it out for yourself! One of the purposes of the free basic access is to give people a chance to experience Fortify directly for themselves and see if it feels like a good fit We respect that there are many other kinds of supports that may also be very helpful In fact we mention many of them within Fortify to encourage people to look around for anything that can be personally impactful We definitely want you to go with what is right for you!,0.625
+what deployment tool being used,what deployment tool being used,Please refer link https://confluence/devopstools,1.0
+how to create an API,No Question Matched,Please ask questions related to DevOps,0.0
+how to push the artifacts to nexus,how to push the artifacts to nexus,Please follow the link http://confluence/howtopushtonexus,1.0
+what is maven artifacts,What Is Maven Artifact,"An artifact is a file, usually a JAR, that gets deployed to a Maven repository. A Maven build produces one or more artifacts, such as a compiled JAR and a ""sources"" JAR. Each artifact has a group ID (usually a reversed domain name, like com.example.foo), an artifact ID (just a name), and a version string.",0.8333333333333334
+how to build and package my ios App,how to build and package my ios App,Please refer link https://confluence/howtobuidandpackage,1.0
+What is kubernetes,What is Kubernetes,Kubernetes is an open-source container management tool which holds the responsibilities of container deployment,1.0
+What is Maven,What is Maven,Maven provides developers a whole build lifecycle framework. Gather necessities,1.0
+what is Maven build lifecycle,What Is Maven Build Lifecycle,A Build Lifecycle is a well-defined sequence of phases that outline the order in which the goals are to be executed,0.7613636363636364
+what is Maven build lifecycle,What Are the Phases of a Maven Build Lifecycle,Validate,0.6931818181818181
+how to push to git,How do I push my changes to Git,git push origin branch-name,0.78125
