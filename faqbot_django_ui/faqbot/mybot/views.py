@@ -1,7 +1,5 @@
-from django.views import generic
+from django.http import HttpResponse
 from .models import ChatModel
-from django.http import HttpResponseRedirect
-from django.urls import reverse
 from django.views import generic
 
 
@@ -14,10 +12,7 @@ class IndexView(generic.ListView):
 
 
 def get_human_ques(request):
-    input_text = request.POST['humanentry']
-    print(input_text)
-    activeChat = ChatModel.objects.filter(
-        bot_reply__contains="restart"
-    ).update(human_ques = input_text);
-    ChatModel.objects.create(bot_reply="Happy helping you, see you soon :)",human_ques="")
-    return HttpResponseRedirect(reverse('mybot:index'))
+    input_text = request.POST['question']
+    ChatModel.objects.create(type="HUMAN", text=input_text)
+    ChatModel.objects.create(type="BOT", text="Here's my reply")
+    return HttpResponse("{}", content_type='application/json')
