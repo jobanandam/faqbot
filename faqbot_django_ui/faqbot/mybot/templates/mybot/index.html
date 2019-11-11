@@ -1,49 +1,112 @@
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'myapp/css/custom.css' %}">
+
+
 <link rel="stylesheet" type="text/css" href="{% static 'myapp/css/bootstrap.min.css' %}">
-<script type="text/javascript" src="{% static 'myapp/js/jquery.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'myapp/js/bootstrap.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'myapp/js/bot.js' %}"></script>
-{% csrf_token %}
-    <div class="chat_window">
-        <div class="top_menu">
-            <div class="title">DevOps - FAQ BOT</div>
-        </div>
-        <ul class="messages">
+<link rel="stylesheet" type="text/css" href="{% static 'myapp/css/resume.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'myapp/css/all.min.css' %}">
 
-            {% for chat in chat_history %}
+<script src="{% static 'myapp/js/jquery.min.js' %}"></script>
+<script src="{% static 'myapp/js/jquery.easing.min.js' %}"></script>
+<script src="{% static 'myapp/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'myapp/js/resume.min.js' %}"></script>
+<script src="{% static 'myapp/js/bot.js' %}"></script>
 
-                {% if chat.type == "BOT" %}
-                <li class="message left appeared">
-                    <div class="avatar">
-                        <img class="bot-logo rounded-circle">
-                    </div>
-                    <div class="text_wrapper">
-                        <div class="text">{{ chat.text }}</div>
-                    </div>
-                </li>
-                {% endif %}
-
-                {% if chat.type == "HUMAN" %}
-                <li class="message right appeared">
-                    <div class="avatar">
-                        <img class="bot-logo rounded-circle">
-                    </div>
-                    <div class="text_wrapper">
-                        <div class="text">{{ chat.text }}</div>
-                    </div>
-                </li>
-                {% endif %}
-
-            {% endfor %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <span class="d-block d-lg-none">FAQBOT</span>
+        <span class="d-none d-lg-block">
+        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{% static 'myapp/images/profile.jpg' %}" alt="FAQBOT" />
+      </span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#about">About Me</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#chatbot">Chat</a>
+            </li>
         </ul>
-        <div class="bottom_wrapper clearfix">
-            <div class="message_input_wrapper">
-                <input class="message_input" placeholder="Ask your question here...">
-            </div>
-            <div class="faqbot_send send_message">
-                <div class="icon"></div>
-                <div class="text">Send</div>
+    </div>
+</nav>
+
+<div class="container-fluid p-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about">
+        <div class="w-100">
+            <h1 class="mb-0">DEVOPS
+                <span class="text-primary">FAQBOT</span>
+            </h1>
+            <div class="subheading mb-5">Trained at devops questions to help you better.</div>
+            <p class="lead mb-5">I am new child bot trained to help you on various issues you face in DevOps. You may ask your problems related to
+            any DevOps related question related to Veracode, SVN, Jenkins and much more. Let me help you, Start with a Hi below.</p>
+        </div>
+    </section>
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="chatbot">
+        <div class="w-100">
+            <h2 class="mb-5">What's on your mind ?</h2>
+            <div class="row">
+                <div class="col-md-auto w-100">
+                    <div class="card  mb-3">
+                      <div class="card-header bg-primary-modified ">
+                          <h3 class="mb-0">FAQBOT</h3>
+                      </div>
+                      <div id="chat_box_faqbot" class="card-body card-body-modified">
+
+
+                         {% for chat in chat_history %}
+
+                            {% if chat.type == "BOT" %}
+                                <div class="row mb-2">
+                                    <div class="col-md-0 ml-2">
+                                      <img class="img-fluid img-profile img-profile-modified rounded-circle mx-auto mb-2" src="{% static 'myapp/images/profile.jpg' %}" alt="FAQBOT" />
+                                    </div>
+                                    <div class="col-md-10">
+                                      <div class="messages bot">
+                                        <p>{{ chat.text }}</p>
+                                        <p class="timestamp">Today. 5.30am</p>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-1 ml-2"></div>
+                                </div>
+                            {% endif %}
+
+                            {% if chat.type == "HUMAN" %}
+                                 <div class="row mb-2">
+                                    <div class="col-md-1 ml-2"></div>
+                                    <div class="col-md-10">
+                                      <div class="messages">
+                                        <p>{{ chat.text }}</p>
+                                        <p class="timestamp">Today. 5.31am</p>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-0 ml-2">
+                                      <img class="img-fluid img-profile img-profile-modified rounded-circle mx-auto mb-2" src="{% static 'myapp/images/user.jpg' %}" alt="FAQBOT" />
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                        {% endfor %}
+
+                      </div>
+                      <div class="card-footer bg-transparent ">
+                          <div class="input-group">
+                                <input id="btn-input" type="text" class="message_input form-control input-sm chat_input" placeholder="Write your message here...">
+                                <span class="input-group-append">
+                                <button class="faqbot_send btn btn-primary btn-sl"><i class="fas fa-paper-plane"></i></button>
+                                </span>
+                          </div>
+                      </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+    <hr class="m-0">
+</div>

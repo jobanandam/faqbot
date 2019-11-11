@@ -37,12 +37,14 @@ function  getbotans(el){
         },
         success:  function (data) {
             location.reload();
+            $("#chat_box_faqbot").animate({ scrollTop: $('#chat_box_faqbot').prop("scrollHeight")}, 1000);
         }
     });
 }
 
 $(function () {
     console.log("Hello!");
+    $("#chat_box_faqbot").animate({ scrollTop: $('#chat_box_faqbot').prop("scrollHeight")}, 1000);
     $(".faqbot_send").on("click", function() {
       getbotans();
     });
