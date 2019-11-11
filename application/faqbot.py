@@ -3,10 +3,11 @@ from nltk.corpus import wordnet as wn
 from nltk.stem.snowball import SnowballStemmer
 from nltk.stem import WordNetLemmatizer
 
-from classifier.core import DevopsClassifier
+from classifier import DevopsClassifier
 
 stem_obj = SnowballStemmer('english')
 word_net_lemma = WordNetLemmatizer()
+
 
 class myClass():
     def __init__(self, sentence_score, value):
@@ -63,12 +64,7 @@ def sentence_similarity(sentence1, sentence2):
     """ compute the sentence similarity using Wordnet """
     # Tokenize and tag
     sentence1 = pos_tag(word_tokenize(sentence1))
-    # print(sentence1)
     sentence2 = pos_tag(word_tokenize(sentence2))
-    # print(sentence2)
-    # Get the synsets for the tagged words
-    # syn_sets_1 = [tagged_to_syn_set(*tagged_word) for tagged_word in sentence1]
-    # syn_sets_2 = [tagged_to_syn_set(*tagged_word) for tagged_word in sentence2]
 
     syn_sets_1 = []
     syn_sets_2 = []
@@ -111,7 +107,7 @@ def sentence_similarity(sentence1, sentence2):
         if new_score is not None:
             synset_score += new_score
             count += 1
-    # Average the values
+
     non_dict_score, sum_non_dict_score = 0.0, 0.0
     for non_dict_word_sent1, non_dict_word_pos_sent1 in non_dict_set_sets_1:
         non_dict_score_array = []
@@ -126,6 +122,8 @@ def sentence_similarity(sentence1, sentence2):
             non_dict_score += sum_non_dict_score
             count += 1
     final_score = synset_score + non_dict_score
+
+    # Average the values
     if count > 0:
         final_score /= count
     return final_score
@@ -161,8 +159,6 @@ def filter_matched_sentences(cumulative_average_score, matched_sentences, print_
 
 
 def calculate_similarity(print_possible_matches, question):
-    best_score = 0.0
-    best_sentence = ""
     score_array = []
     cat = dc.get_devops_category(question)
     sentences = dc.get_questions(category=cat)
@@ -239,19 +235,6 @@ def get_questions_from_user(detailed_logging):
     pass
 
 
-def get_the_answer(print_answers, best_sentence, best_score, question):
-    import csv
-    answers = ""
-    with open('resources/Single_FaQ.csv') as csvfile:
-        csv_content = csv.reader(csvfile, delimiter='\t')
-        for row in csv_content:
-            if row[1] == best_sentence:
-                answers = row[2]
-    if print_answers:
-        print_question_answer(question, answers, best_score)
-    return answers
-
-
 def get_the_answer_unclassified(print_answers, best_sentence, best_score, question):
     import csv
     answers = ""
@@ -273,9 +256,9 @@ def read_questions_from_file(file_name):
 
 def write_the_results(results):
     import csv
-    with open('test\FAQResults.csv', 'w', newline='') as out:
+    with open('test/FAQResults.csv', 'w', newline='') as out:
         csv_out = csv.writer(out)
-        csv_out.writerow(("Quesion asked","Question Matched", "Answers", "Score"))
+        csv_out.writerow(("Quesion asked", "Question Matched", "Answers", "Score"))
         for row in results:
             csv_out.writerow(row)
 
@@ -289,20 +272,21 @@ def get_questions_from_file(detailed_logging):
     for question in questions:
         if question.split(" ").__len__().__le__(1):
             print("Can you please give some more details, so that i can try to answer")
-            results.append((question, "No Question Matched","Can you please give some more details, so that i can try to answer", "0.0"))
+            results.append((question, "No Question Matched",
+                            "Can you please give some more details, so that i can try to answer", "0.0"))
         else:
             possible_sentences = calculate_similarity(detailed_logging, question)
             for best_sentence, question, best_score in possible_sentences:
                 answer = get_the_answer_unclassified(detailed_logging, best_sentence, best_score, question)
                 if not answer:
                     print("Please ask questions related to DevOps")
-                    results.append((question, "No Question Matched" ,"Please ask questions related to DevOps", "0.0"))
+                    results.append((question, "No Question Matched", "Please ask questions related to DevOps", "0.0"))
                 else:
                     print(answer, best_score)
                     results.append((question, best_sentence, answer, best_score))
             if not possible_sentences:
                 print("Please ask questions related to DevOps")
-                results.append((question, "No Question Matched" ,"Please ask questions related to DevOps", "0.0"))
+                results.append((question, "No Question Matched", "Please ask questions related to DevOps", "0.0"))
     write_the_results(results)
     pass
 
@@ -310,5 +294,5 @@ def get_questions_from_file(detailed_logging):
 if __name__ == '__main__':
     dc = DevopsClassifier('resources/Single_FaQ.csv')
     dc.initialize_models()
-    #get_questions_from_user(False)
+    # get_questions_from_user(False)
     get_questions_from_file(False)

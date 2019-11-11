@@ -3,8 +3,16 @@ from .models import ChatModel
 from django.views import generic
 
 
-class IndexView(generic.ListView):
-    template_name = 'mybot/index.html'
+class VersionOne(generic.ListView):
+    template_name = 'versionOne/index.html'
+    context_object_name = 'chat_history'
+
+    def get_queryset(self):
+        return ChatModel.objects.all()
+
+
+class VersionTwo(generic.ListView):
+    template_name = 'versionTwo/index.html'
     context_object_name = 'chat_history'
 
     def get_queryset(self):
