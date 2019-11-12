@@ -162,11 +162,13 @@ class SentenceSimilarities:
         return filtered_matched_sentences
 
     @staticmethod
-    def calculate_similarity(print_possible_matches, question):
+    def calculate_similarity(print_possible_matches, question, perform_classification):
         score_array = []
-        cat = SentenceSimilarities.dc.get_devops_category(question)
-        sentences = SentenceSimilarities.dc.get_questions(category=cat)
-        # sentences = read_content_from_file("resources/Single_FaQ.csv")
+        if perform_classification:
+            cat = SentenceSimilarities.dc.get_devops_category(question)
+            sentences = SentenceSimilarities.dc.get_questions(category=cat)
+        else:
+            sentences = SentenceSimilarities.read_content_from_file("resources/Single_FaQ.csv")
         if print_possible_matches:
             print("----Possible Matches ---")
             print("Matched Sentence , Matched Score")
@@ -220,14 +222,14 @@ class SentenceSimilarities:
         print("************************************************")
 
     @staticmethod
-    def get_questions_from_user(detailed_logging):
+    def get_questions_from_user(detailed_logging, perform_classification):
         print("Hi Welcome to FAQ BOT !!!!  Ctrl+C to Exit from FAQ BOT \n")
         while True:
             question = input("Please ask your Questions? \n")
             if question.split(" ").__len__().__le__(1):
                 print("Can you please give some more details, so that i can try to answer")
             else:
-                possible_sentences = SentenceSimilarities.calculate_similarity(detailed_logging, question)
+                possible_sentences = SentenceSimilarities.calculate_similarity(detailed_logging, question, perform_classification)
                 for best_sentence, question, best_score in possible_sentences:
                     answer = SentenceSimilarities.get_the_answer_unclassified(detailed_logging, best_sentence, best_score, question)
                     if not answer:
@@ -243,7 +245,7 @@ class SentenceSimilarities:
         if question.split(" ").__len__().__le__(1):
             return "Can you please give some more details, so that i can try to answer"
         else:
-            possible_sentences = SentenceSimilarities.calculate_similarity(detailed_logging, question)
+            possible_sentences = SentenceSimilarities.calculate_similarity(detailed_logging, question, False)
             for best_sentence, question, best_score in possible_sentences:
                 answer = SentenceSimilarities.get_the_answer_unclassified(detailed_logging, best_sentence,
                                                                           best_score, question)
@@ -283,7 +285,7 @@ class SentenceSimilarities:
                 csv_out.writerow(row)
 
     @staticmethod
-    def get_questions_from_file(detailed_logging):
+    def get_questions_from_file(detailed_logging, perform_classification):
         print("Hi Welcome to FAQ BOT !!!!")
         questions = SentenceSimilarities.read_questions_from_file("test/questions.txt")
         results = []
@@ -293,7 +295,7 @@ class SentenceSimilarities:
                 results.append((question, "No Question Matched",
                                 "Can you please give some more details, so that i can try to answer", "0.0"))
             else:
-                possible_sentences = SentenceSimilarities.calculate_similarity(detailed_logging, question)
+                possible_sentences = SentenceSimilarities.calculate_similarity(detailed_logging, question,perform_classification)
                 for best_sentence, question, best_score in possible_sentences:
                     answer = SentenceSimilarities.get_the_answer_unclassified(detailed_logging, best_sentence, best_score, question)
                     if not answer:
@@ -313,8 +315,24 @@ class SentenceSimilarities:
     def perform_classification_on_test_data():
         SentenceSimilarities.dc.initialize_models()
 
+    @staticmethod
+    def perform_classification_and_sent_similarities():
+        SentenceSimilarities.dc.initialize_models()
+        SentenceSimilarities.get_questions_from_user(True, True)
 
-# if __name__ == '__main__':
-#     SentenceSimilarities.perform_classification_on_test_data()
-#     SentenceSimilarities.get_questions_from_user(False)
-#     SentenceSimilarities.get_questions_from_file(False)
+    @staticmethod
+    def perform_classification_and_sent_similarities_on_file():
+        SentenceSimilarities.dc.initialize_models()
+        SentenceSimilarities.get_questions_from_file(False, False)
+
+    @staticmethod
+    def perform_sent_similarities():
+        SentenceSimilarities.get_questions_from_user(False, False)
+
+
+if __name__ == '__main__':
+    SentenceSimilarities.perform_classification_and_sent_similarities_on_file()
+    # SentenceSimilarities.perform_classification_and_sent_similarities()
+    # SentenceSimilarities.perform_sent_similarities()
+    # SentenceSimilarities.get_questions_from_user(False)
+    # SentenceSimilarities.get_questions_from_file(False)

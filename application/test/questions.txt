@@ -1,7 +1,5 @@
 What is your Name?
 What is Jenkins?
-How can you help me?
-Where india Located?
 what is Agile?
 What is devops
 What is Ansible
@@ -22,3 +20,17 @@ What is kubernetes
 What is Maven
 what is Maven build lifecycle
 how to push to git
+Hello
+How are you ?
+What is GIT?
+What are git Protocols
+what is Docker
+what is user story
+what is agile
+how is kubernetes and docker related.
+what is JIRA
+can you answer questions regarding nexus
+when are you born
+do you answer about devops
+how to fetch from git repo
+what format is the docker compose file
