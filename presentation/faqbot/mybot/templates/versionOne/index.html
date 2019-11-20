@@ -43,63 +43,26 @@
             </h1>
             <div class="subheading mb-5">Trained at devops questions to help you better.</div>
             <p class="lead mb-5">I am new child bot trained to help you on various issues you face in DevOps. You may ask your problems related to
-            any DevOps related question related to Veracode, SVN, Jenkins and much more. Let me help you, Start with a Hi below.</p>
+            Devops regarding Veracode, SVN, Jenkins and much more. Let me help you, Start with a Hi below.</p>
         </div>
     </section>
     <hr class="m-0">
 
     <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="chatbot">
         <div class="w-100">
-            <h2 class="mb-5">What's on your mind ?</h2>
             <div class="row">
                 <div class="col-md-auto w-100">
                     <div class="card  mb-3">
                       <div class="card-header bg-primary-modified ">
-                          <h3 class="mb-0">FAQBOT</h3>
+                          <h3 class="mb-0 text-white">FAQBOT</h3>
                       </div>
                       <div id="chat_box_faqbot" class="card-body card-body-modified">
-
-
-                         {% for chat in chat_history %}
-
-                            {% if chat.type == "BOT" %}
-                                <div class="row mb-2">
-                                    <div class="col-md-0 ml-2">
-                                      <img class="img-fluid img-profile img-profile-modified rounded-circle mx-auto mb-2" src="{% static 'myapp/images/profile.jpg' %}" alt="FAQBOT" />
-                                    </div>
-                                    <div class="col-md-10">
-                                      <div class="messages bot">
-                                        <p>{{ chat.text }}</p>
-                                        <p class="timestamp">Today. 5.30am</p>
-                                      </div>
-                                    </div>
-                                    <div class="col-md-1 ml-2"></div>
-                                </div>
-                            {% endif %}
-
-                            {% if chat.type == "HUMAN" %}
-                                 <div class="row mb-2">
-                                    <div class="col-md-1 ml-2"></div>
-                                    <div class="col-md-10">
-                                      <div class="messages">
-                                        <p>{{ chat.text }}</p>
-                                        <p class="timestamp">Today. 5.31am</p>
-                                      </div>
-                                    </div>
-                                    <div class="col-md-0 ml-2">
-                                      <img class="img-fluid img-profile img-profile-modified rounded-circle mx-auto mb-2" src="{% static 'myapp/images/user.jpg' %}" alt="FAQBOT" />
-                                    </div>
-                                </div>
-                            {% endif %}
-
-                        {% endfor %}
-
                       </div>
                       <div class="card-footer bg-transparent ">
                           <div class="input-group">
                                 <input id="btn-input" type="text" class="message_input form-control input-sm chat_input" placeholder="Write your message here...">
                                 <span class="input-group-append">
-                                <button class="faqbot_send btn btn-primary btn-sl"><i class="fas fa-paper-plane"></i></button>
+                                <button class="faqbot_send btn btn-primary btn-sl" onclick="onEnter()"><i class="fas fa-paper-plane"></i></button>
                                 </span>
                           </div>
                       </div>
@@ -109,4 +72,42 @@
         </div>
     </section>
     <hr class="m-0">
+</div>
+
+<div id="bot_chat" class="d-none">
+    <div class="row mb-2">
+        <div class="col-md-0 ml-2">
+          <img class="img-fluid img-profile img-profile-modified rounded-circle mx-auto mb-2" src="{% static 'myapp/images/profile.jpg' %}" alt="FAQBOT" />
+        </div>
+        <div class="col-md-10">
+          <div class="messages bot">
+            <p class="text mb-0"></p>
+            <p class="timestamp"></p>
+          </div>
+        </div>
+        <div class="col-md-1 ml-2"></div>
+    </div>
+</div>
+
+<div id="human_chat" class="d-none">
+    <div class="row mb-2">
+        <div class="col-md-1 ml-2"></div>
+        <div class="col-md-10">
+          <div class="messages">
+            <p class="text mb-0"></p>
+            <p class="timestamp"></p>
+          </div>
+        </div>
+        <div class="col-md-0 ml-2">
+          <img class="img-fluid img-profile img-profile-modified rounded-circle mx-auto mb-2" src="{% static 'myapp/images/user.jpg' %}" alt="FAQBOT" />
+        </div>
+    </div>
+</div>
+
+<div id="spinner" class="d-none">
+    <div class="spinner pl-1">
+        <div class="spinner-grow spinner-grow-sm text-primary" role="status">
+            <span class="sr-only"></span>
+        </div>
+    </div>
 </div>
