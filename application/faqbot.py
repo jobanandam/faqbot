@@ -329,6 +329,20 @@ class SentenceSimilarities:
     def perform_sent_similarities():
         SentenceSimilarities.get_questions_from_user(False, False)
 
+    @staticmethod
+    def test_classifier(save_result=False, accuracy=False):
+        SentenceSimilarities.dc.initialize_models()
+        tot = len(SentenceSimilarities.dc.raw_category_question)
+        cur = 0
+        for cat, question in SentenceSimilarities.dc.raw_category_question:
+            result = SentenceSimilarities.dc.get_devops_category(question)
+            if (result != cat):
+                cur = cur + 1
+                print('[Test] Question: {}'.format(question))
+                print('[Test] True: {} <====> Predicted: {}'.format(cat, result))
+                print()
+        print('[Test]: Accuracy: {:.2f}%'.format(((tot - cur) / tot) * 100))
+        print('[Test]: Completed ! ! !')
 
 if __name__ == '__main__':
     SentenceSimilarities.perform_classification_and_sent_similarities_on_file()
