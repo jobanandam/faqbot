@@ -14,7 +14,7 @@ def sentiment_index(question):
     SentenceSimilarities.perform_classification_on_test_data()
     print("Hi Welcome to FAQ BOT ")
     print("Question asked --> ", question)
-    result = SentenceSimilarities.get_questions_from_user_interface(question, False)
+    result = SentenceSimilarities.get_questions_from_user_interface(question, False, True)
     print(result)
     return result
 
