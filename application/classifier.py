@@ -15,7 +15,7 @@ class DevopsClassifier:
         self.stop_words = set(stopwords.words('english'))
         self.stem_obj = SnowballStemmer('english')
         self.le = preprocessing.LabelEncoder()
-        self.cv = CountVectorizer()
+        self.cv = CountVectorizer(ngram_range=(1, 3), lowercase=True)
         self.tf_idf_transformer = TfidfTransformer(smooth_idf=True, use_idf=True)
         self.clf = MultinomialNB(alpha=0.6, fit_prior=False)
         self.raw_questions = []

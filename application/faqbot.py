@@ -162,6 +162,21 @@ class SentenceSimilarities:
         return filtered_matched_sentences
 
     @staticmethod
+    def test_classifier(save_result=False, accuracy=False):
+        SentenceSimilarities.dc.initialize_models()
+        tot = len(SentenceSimilarities.dc.raw_category_question)
+        cur = 0
+        for cat, question in SentenceSimilarities.dc.raw_category_question:
+            result = SentenceSimilarities.dc.get_devops_category(question)
+            if(result != cat):
+                cur = cur + 1
+                print('[Test] Question: {}'.format(question))
+                print('[Test] True: {} <====> Predicted: {}'.format(cat, result))
+                print()
+        print('[Test]: Accuracy: {:.2f}%'.format(((tot - cur)/tot)*100))
+        print('[Test]: Completed ! ! !')
+
+    @staticmethod
     def calculate_similarity(print_possible_matches, question, perform_classification):
         score_array = []
         if perform_classification:
@@ -318,12 +333,12 @@ class SentenceSimilarities:
     @staticmethod
     def perform_classification_and_sent_similarities():
         SentenceSimilarities.dc.initialize_models()
-        SentenceSimilarities.get_questions_from_user(True, True)
+        SentenceSimilarities.get_questions_from_user(False, True)
 
     @staticmethod
     def perform_classification_and_sent_similarities_on_file():
         SentenceSimilarities.dc.initialize_models()
-        SentenceSimilarities.get_questions_from_file(False, False)
+        SentenceSimilarities.get_questions_from_file(False, True)
 
     @staticmethod
     def perform_sent_similarities():
@@ -331,8 +346,9 @@ class SentenceSimilarities:
 
 
 if __name__ == '__main__':
-    SentenceSimilarities.perform_classification_and_sent_similarities_on_file()
+    # SentenceSimilarities.perform_classification_and_sent_similarities_on_file()
     # SentenceSimilarities.perform_classification_and_sent_similarities()
     # SentenceSimilarities.perform_sent_similarities()
     # SentenceSimilarities.get_questions_from_user(False)
     # SentenceSimilarities.get_questions_from_file(False)
+    SentenceSimilarities.test_classifier()
