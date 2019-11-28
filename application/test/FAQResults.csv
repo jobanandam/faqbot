@@ -3,17 +3,23 @@ What is your Name?,What is your Name, Myself FAQ BOT How can i help you,1.0
 What is Jenkins?,What is Jenkins,Jenkins is an open source automationtool written in Javawith plugins built for Continuous Integration purpose. It is used for build and deploying of the applications.,1.0
 what is Agile?,No Question Matched,Please ask questions related to DevOps,0.0
 What is devops,What is devops,DevOps is a set of practices that combines software development and information-technology operations which aims to shorten the systems development life cycle and provide continuous delivery with high software quality.,1.0
+What is Ansible,Is Ansible written in Python,Ansible is written in Python,0.775
+What is Ansible,What is the latest version of Ansible,Please refer official Ansible website for this information.,0.75
 What is Ansible,What is Ansible galaxy,Ansible Galaxy refers to the Galaxy website where users can share roles and to a command line tool for installing creating and managing roles.,0.8333333333333333
+What is Ansible,What is .retry file in Ansible,When Ansible has problems running play against a host,0.75
+What is Ansible,Where are Ansible Playbooks stored,All hosts are stored in a local Ansible inventory file called /etc/ansible/hosts.,0.775
 What is Ansible,What is notify in Ansible,Handlers are just like regular tasks in an Ansible playbook,0.8571428571428572
+What is Ansible,Which is better Ansible or puppet,Puppet is more of a configuration management tool,0.75
+What is Ansible,What is privilege escalation in Ansible,Ansible can use existing privilege esccalation systems to allow a user to execute tasks as another.,0.75
 What is Ansible,Is ansible free,Yes,0.8333333333333333
-how can i create user story in agile central,No Question Matched,Please ask questions related to DevOps,0.0
+how can i create user story in agile central,How can I create my agile central account, Let me do it for you! Give me a second.,0.6547619047619048
 how to estimate the story,How to estimate a user story, Starting from 1 following Fibonacci series (1 2 3 5 8 13....) you can choose a number based on your work load,0.8333333333333333
 my deployment is failing,my deployment is failing,You can check for the reasons of failure in the deployment logs provided and act accordingly.,1.0
 my jenkins build is failing,my jenkins build is failing,You can use the Build Failure Analyzer,1.0
 where can i see deployment logs,where can i see deployment logs,Usually during deployment a log file is created and the logs are logged accordingly,1.0
 sonar report is not generating,sonar report is not generating,Please check the jenkins Build log for more reason for the failure,1.0
 where can i see my sonar report,where can i see my sonar report,The Issues Report plugin provides the ability to generate HTML report on issues. The main use case is for developers to check the code they have added or changed before pushing it back to the SCM.,1.0
-What is HP Fortify,No Question Matched,Please ask questions related to DevOps,0.0
+What is HP Fortify,How can I know if Fortify is right for me,Try it out for yourself! One of the purposes of the free basic access is to give people a chance to experience Fortify directly for themselves and see if it feels like a good fit We respect that there are many other kinds of supports that may also be very helpful In fact we mention many of them within Fortify to encourage people to look around for anything that can be personally impactful We definitely want you to go with what is right for you!,0.625
 what deployment tool being used,what deployment tool being used,Please refer link https://confluence/devopstools,1.0
 how to create an API,How do I use the API to query tags in the Results API,If you want to query tags in applications: you can add unique tags as metadata when creating your applications. You can then query your applications based on any of the metadata. Usecreateapp.doto create an application with metadata. Use the following calls of theResults APIto get the scan results of applications:getapplist.doto get the full list of your applicationsand thengetappinfo.doto get information for a specific application: including any metadata: if applicable. To get a detailed report for any application: calldetailedreport.do: which returns the results in an XML document.,0.7827380952380952
 how to push the artifacts to nexus,how to push the artifacts to nexus,Please follow the link http://confluence/howtopushtonexus,1.0
@@ -22,24 +28,151 @@ how to build and package my ios App,how to build and package my ios App,Please r
 What is kubernetes,What is Kubernetes,Kubernetes is an open-source container management tool which holds the responsibilities of container deployment,1.0
 What is Maven,What is Maven,Maven provides developers a whole build lifecycle framework. Gather necessities,1.0
 what is Maven build lifecycle,What Is Maven Build Lifecycle,A Build Lifecycle is a well-defined sequence of phases that outline the order in which the goals are to be executed,0.7613636363636364
+what is Maven build lifecycle,What Are the Phases of a Maven Build Lifecycle,Validate,0.6931818181818181
 how to push to git,How do I push my changes to Git,git push origin branch-name,0.78125
 Hello,No Question Matched,"Can you please give some more details, so that i can try to answer",0.0
-How are you ?,No Question Matched,Please ask questions related to DevOps,0.0
+How are you ?,What is pre-scan verification,The Veracode platform performs a preliminary analysis: or Pre-Scan: of your binaries to validate that they can be analyzed and to give you an opportunity to fix problems with the uploaded files before submitting your scan request. The results of the Pre-Scan verification are given as messages in the module table; summary information appears as you select modules to be scanned.,0.6666666666666666
+How are you ?,What is Kubernetes,Kubernetes is an open-source container management tool which holds the responsibilities of container deployment,0.75
+How are you ?,What is Container Orchestration,Consider a scenario where you have 5-6 microservices for an application. Now,0.6666666666666666
+How are you ?,What is Heapster,Heapster is a cluster-wide aggregator of data provided by Kubelet running on each node. This container management tool is supported natively on Kubernetes cluster and runs as a pod,0.75
+How are you ?,What is Minikube,Minikube is a tool that makes it easy to run Kubernetes locally. This runs a single-node Kubernetes cluster inside a virtual machine.,0.75
+How are you ?,What is Kubectl,Kubectl is the platform using which you can pass commands to the cluster. So,0.75
+How are you ?,What is Kubelet,This is an agent service which runs on each node and enables the slave to communicate with the master. So,0.75
+How are you ?,What is ETCD,Etcd is written in Go programming language and is a distributed key-value store used for coordinating between distributed work. So,0.75
+How are you ?,What is Ingress network, and how does it work,0.6666666666666666
+How are you ?,What is a Headless Service,Headless Service is similar to that of a ‘Normal' services but does not have a Cluster IP. This service enables you to directly reach the pods without the need of accessing it through a proxy.,0.6666666666666666
+How are you ?,What are federated clusters,Multiple Kubernetes clusters can be managed as a single cluster with the help of federated clusters. So,0.6904761904761905
+How are you ?,How is UrbanCode Velocity installed,UrbanCode Velocity has been containerized and provides a Helm chart for installation into a Kubernetes cluster: in addition to instructions for deploying as a Docker Compose application.,0.65
+How are you ?,Why is JIRA used, Atlassian JIRA is basically an issue and project tracking tool which allows us to track any project related work by following a proper workflow,0.7222222222222222
+How are you ?,How is an issue linked in JIRA, There are two fields available in JIRA: Linked issues and Issues Linked issue section contains the dropdown for the options to be selected as the reason for linking the issue,0.65625
+How are you ?,What are issues types that are created and tracked via JIRA, JIRA has some defined set of default issue types which are displayed under Issue Type section Other issue types can be added# edited and deleted as per requirement of the project Some of the common issue types are Bug# Task# Sub-task# Epic# Story# etc,0.6845238095238095
+How are you ?,How is a sub-task created in JIRA, Sub-task is the way of splitting up of parent issue into a number of small tasks which are tracked and worked on separately,0.6666666666666666
+How are you ?,What is origin, Origin is the default name for the remote server Remotes can be named anything You can see the names of all your remotes with the command remote,0.75
+How are you ?,What language is used in Git,C Programming,0.6666666666666666
+How are you ?,What is Git,Git is a software used for version control,0.75
+How are you ?,What is the purpose of branching in GIT,It will allow you to go to your previous work keeping your recent work intact,0.6428571428571428
+How are you ?,What is a conflict in git,A conflict arises when the commit that has to be merged has some change in one place and the current commit also has a change at the same place,0.6666666666666666
+How are you ?,What is another option for merging in git,Rebasing is an alternative to merging in git,0.6458333333333334
+How are you ?,What is ‘git status’ is used for,Git Status shows you the difference between the working directory and the index,0.7333333333333334
+How are you ?,What is git add is used for,git add adds file changes in your existing directory to your index,0.7333333333333334
+How are you ?,What is git Is-tree,git Is-tree represents a tree object including the mode and the name of each item and the SHA-1 value of the blob or the tree,0.6666666666666666
+How are you ?,How git instaweb is used,Git Instaweb automatically directs a web browser and runs webserver with an interface into your local repository,0.6666666666666666
+How are you ?,what is commit message,Feature of git which appears when you commit a change,0.6666666666666666
+How are you ?,What is a repository in GIT,A repository contains a directory named .git where git keeps all of its metadata for the repository,0.6666666666666666
+How are you ?,What is rebase in git,Rebasing is defined as the process of moving a branch to a new base commit,0.6666666666666666
+How are you ?,What is a staging area,Developers can format and review commits in an intermediate area referred to as staging area,0.6666666666666666
+How are you ?,What is your Name, Myself FAQ BOT How can i help you,0.75
+How are you ?,What is Agile ,Agile software development comprises various approaches to software development under which requirements and solutions evolve through the collaborative effort of self-organizing and cross-functional teams and their customer/end user,0.75
+How are you ?,What is Test Lab,In order to execute a Test Case (Developed in the Test Plan Module) either manual or automated it needs to imported into Test Lab Module. In sum: Test Cases are created in Test Plan Module while they are executed in Test Lab Module.,0.6666666666666666
+How are you ?,What is meant by Instance,A Test Case imported from Test Plan module to Test Lab module is called anInstanceof that test case. It is possible to have multiple instances of the same Test Case in the Test Lab Module.,0.6833333333333333
+How are you ?,Is 'Not covered' and 'Not run' status the same,Not Covered status means all those requirements for which the test cases are not written whereas Not Run status means all those requirements for which test cases are written but are not run.,0.6533333333333333
+How are you ?,What is Business Component,Quality Center provides Business Component for Business Process Testing (BPT). Many Enterprise Applications are a) complex and b) require extensive test scripts/case. A Test /Automation Engineer can not handle both complexity of Application Under Test as well as extensive test script/test case creation.,0.6666666666666666
+How are you ?,what is Sprinter in HP-Alm,Sprinter offers advanced functionality and tools to make manual testing more effective and efficiently. It allows you to accomplish these tasks without disrupting your test flow. With the help of sprinter: you can execute many of the repetitive and tedious tasks of manual testing automatically. It includes many tools that can help you to detect and submit defects.,0.6666666666666666
+How are you ?,what is ALM workflow,Release Specification. Requirement Specification. Test Planning. Test Execution. Defect Tracking.,0.6666666666666666
+How are you ?,How can I know if Fortify is right for me,Try it out for yourself! One of the purposes of the free basic access is to give people a chance to experience Fortify directly for themselves and see if it feels like a good fit We respect that there are many other kinds of supports that may also be very helpful In fact we mention many of them within Fortify to encourage people to look around for anything that can be personally impactful We definitely want you to go with what is right for you!,0.6666666666666666
+How are you ?,What is Cowsay in Ansible,ansible. Most systems management programs do not have super-cow powers. ... Ansible has a small easter egg that solves this problem. First off,0.6666666666666666
+How are you ?,Is Ansible written in Python,Ansible is written in Python,0.65
+How are you ?,What is Ansible galaxy,Ansible Galaxy refers to the Galaxy website where users can share roles and to a command line tool for installing creating and managing roles.,0.6666666666666666
+How are you ?,Where are Ansible Playbooks stored,All hosts are stored in a local Ansible inventory file called /etc/ansible/hosts.,0.65
+How are you ?,What is notify in Ansible,Handlers are just like regular tasks in an Ansible playbook,0.6904761904761905
+How are you ?,Is ansible free,Yes,0.6666666666666666
+How are you ?,What is Fork a repo,A fork is a copy of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project.,0.7
+How are you ?,What is the command to see what is inside the repository, Command svn list file:///home/mysurface/repo/programming_repo is used to see what is inside the repository,0.725
+How are you ?,What is Dockerapp, Dockerapp is Docker for Mac which is a bundle of Docker client and Docker Engine,0.75
+How are you ?,What is HyperKit, HyperKit is a hypervisor built on top of the Hypervisorframework in macOS,0.75
+How are you ?,What is the benefit of HyperKit, It is thinner than VirtualBox and VMWare fusion and the version we include is tailor made for Docker workloads on the Mac,0.6666666666666666
+How are you ?,What is a Docker image, Docker image is the source of Docker container In other words Docker images are used to create containers,0.6666666666666666
+How are you ?,What is Docker container, Docker containers include the application and all of its dependencies but share the kernel with other containers running as isolated processes in user space on the host operating system Docker containers are not tied to any specific infrastructure: they run on any computer on any infrastructure and in any cloud,0.6666666666666666
+How are you ?,What is Docker Swarm, Docker Swarm is native clustering for Docker It turns a pool of Docker hosts into a single & virtual Docker host,0.6666666666666666
+How are you ?,Where the docker volumes are stored, You need to navigate:  /var/lib/docker/volumes,0.65
+How are you ?,What is the purpose of Docker_Host, It contains container/ images / Docker daemon It offers a complete environment to execute and run your application,0.6666666666666666
+How are you ?,What are Docker Namespaces,The Namespaces in Docker is a technology which provides isolated workspaces called the Container. Namespaces provide a layer of isolation for the Docker containers,0.6666666666666666
+How are you ?,What is a Docker Swarm,Docker Swarm as the way of orchestrating the Docker containers,0.6666666666666666
+How are you ?,What is the docker inspect do,It will give the more information about container in json format,0.6666666666666666
+How are you ?,What is a nexus repository,Nexus is a repository manager. It allows you to proxy,0.6666666666666666
+How are you ?,What is Nexus tool,Nexus Repository OSS is an open source repository that supports many artifact formats,0.6666666666666666
+How are you ?,What is the purpose of Nexus,Nexus is a framework for developing and sustaining scaled product and software delivery initiatives. It uses Scrum as its building block. This Guide contains the definition of Nexus. This definition consists of Nexus roles,0.6666666666666666
+How are you ?,What is Nexus lifecycle,In just minutes,0.6666666666666666
+How are you ?,What is a artifact repository,An artifact repository manages your end-to-end artifact lifecycle and supports different software package management systems while providing consistency to your CI/CD workflow. An artifact repository is both a source for artifacts needed for a build,0.6666666666666666
+How are you ?,What is Nexus platform,Sonatype Nexus Platform is comprised of multiple products which contribute to the Sonatype Nexus security capabilities. ... In the application security space,0.6666666666666666
+How are you ?,What is Nexus proxy,A Nexus installation brings you such a repository for your company. So you can host your own repositories,0.6666666666666666
+How are you ?,What is hosted repository in Nexus,A Hosted Repository is a repository that is hosted by the repository manager. Nexus Repository Manager ships with the following configured hosted repositories: 3rd Party. This hosted repository can be used for third-party dependencies not available in the public Maven repositories.,0.6428571428571428
+How are you ?,When is Nexus 2 down during the week, Saturday 1 AM to 5 AM,0.6666666666666666
+How are you ?,what is GAV?, Group Artifact and Version that uniquely identifies an artifact under Nexus,0.75
+How are you ?,What Is a Gradle Framework,Gradle is an open-source build automation system that builds based on the concepts of Apache Ant and Apache Maven.,0.6666666666666666
+How are you ?,What Is Gradle Wrapper,A wrapper is a batch script and it is one of the ways to perform Gradle build. When executed the first time,0.6666666666666666
+How are you ?,Why Are Compile-time Warnings Suppressed,The reason for this is that the framework currently has many warnings,0.640625
+How are you ?,What is Gradle Daemon,The Daemon is a long-lived process that helps with the faster build process,0.6666666666666666
+How are you ?,What is Gradle Motto,"The Gradle tool has chosen an idealistic slogan which makes the user believe in a composite framework and the quote says ""Make the impossible possible",0.6666666666666666
+How are you ?,What is Maven,Maven provides developers a whole build lifecycle framework. Gather necessities,0.75
+How are you ?,What Are the Aspects Maven Managed,Builds,0.65625
+How are you ?,What Is Maven Artifact,"An artifact is a file, usually a JAR, that gets deployed to a Maven repository. A Maven build produces one or more artifacts, such as a compiled JAR and a ""sources"" JAR. Each artifact has a group ID (usually a reversed domain name, like com.example.foo), an artifact ID (just a name), and a version string.",0.6666666666666666
+How are you ?,What is a Maven Repository,A Maven repository is a location where all the plugins,0.6666666666666666
+How are you ?,What is Maven snapshot,A snapshot version of Maven is not a real version and that will not have been released. An equivalent version might get several updates.,0.6666666666666666
+How are you ?,How do you know the version of mvn you are using,mvn --version,0.6666666666666666
+How are you ?,What is Build Profile,A Build profile is a set of configuration values which can be used to set or override default values of Maven build. Using a build profile,0.6666666666666666
+How are you ?,What is Archetype,Archetype is a Maven plugin whose task is to create a project structure as per its template.,0.75
+How are you ?,What is SNAPSHOT in Maven,SNAPSHOT is a special version that indicates a current development copy. Unlike regular versions,0.6666666666666666
+How are you ?,Why profile is used in Maven,To give portability to projects ( e.g. windows,0.6666666666666666
+How are you ?,What is a system dependency,Dependency with scope system are always available and are not looked up in repository,0.6666666666666666
+How are you ?,What is dependency exclusion ,"Any transitive dependency can be exclude using ""exclusion"" element. As example",0.6666666666666666
+How are you ?,my deployment is failing,You can check for the reasons of failure in the deployment logs provided and act accordingly.,0.7222222222222222
+How are you ?,What is devops,DevOps is a set of practices that combines software development and information-technology operations which aims to shorten the systems development life cycle and provide continuous delivery with high software quality.,0.75
+How are you ?,what deployment tool being used,Please refer link https://confluence/devopstools,0.6666666666666666
+How are you ?,what is the tool you provide to support Mobile,"We provide Centralized CIP to help build,release and sign and upload Android and IOS to respective Stores.",0.6533333333333333
+How are you ?,my jenkins build is failing,You can use the Build Failure Analyzer,0.6979166666666666
+How are you ?,What is Jenkins,Jenkins is an open source automationtool written in Javawith plugins built for Continuous Integration purpose. It is used for build and deploying of the applications.,0.75
+How are you ?,Why Jenkins Build is failing,Please provide the error message,0.6666666666666666
+How are you ?,what is CDD,Continuous Deployment is a software development practice in which every code change goes through the entire pipeline and is put into production,0.75
+How are you ?,What is meant by continuous deployment,Continuous deploymentis a strategy for software releases wherein any code commit that passes theautomatedtesting phase is automatically released into the production environment,0.6375
+How are you ?,What are the benefits of deployment,These include post deployment health benefits,0.6666666666666666
+How are you ?,what is junit,JUnit is a unit testing framework for the Java programming language. JUnit has been important in the development of test-driven development,0.75
+How are you ?,What is the use of JUnit,JUnit is an open source framework,0.6666666666666666
+How are you ?,What is the JUnit in Java,JUnitis an open source Unit Testing Framework forJAVA. It is useful forJavaDevelopers to write and run repeatable tests. Erich Gamma and Kent Beck initially develop it. It is an instance of xUnit architecture. As the name implies,0.6666666666666666
+How are you ?,What is JUnit and Mockito,Mockito is a popular mock framework which can be used in conjunction with JUnit. Mockito allows you to create and configure mock objects. Using Mockito greatly simplifies the development of tests for classes with external dependencies. If you use Mockito in tests you typically: ... Execute the code under test.,0.6666666666666666
+How are you ?,What is mean by JUnit,JUnit is a unit testing framework for the Java programming language. JUnit has been important in the development of test-driven development,0.6833333333333333
+How are you ?,Why is JUnit important,JUnit is a unit testing framework for the Java Programming Language. It is important in the test driven development,0.6666666666666666
+How are you ?,What is JUnit and how do you use it,JUnit is a unit testing framework for the Java programming language that plays a big role in regression testing. As an open-source framework,0.7083333333333333
+How are you ?,What is JUnit in Maven,JUnit( http://junit.org/ ) is open source software,0.6666666666666666
+How are you ?,What is annotation in JUnit,What is JUnit Annotations Annotation is a special form of syntactic meta-data that can be added to Java source code for better code readability and structure. Variables,0.6666666666666666
+How are you ?,Why JUnit is used in selenium,JUnitis an open-source unit testing tool that helps to test units of code. It is mainlyusedfor unit testing Java projects,0.6666666666666666
+How are you ?,What is JUnit and NUnit,NUnit is an evolving,0.6666666666666666
+How are you ?,What is JUnit and TestNG,BothTestngandJunitare Testing framework used for Unit Testing.TestNGis similar toJUnit. Few more functionalities are added to it that makesTestNGmore powerful thanJUnit. ... Here is the table that shows the features supported byJUnitandTestNG.,0.6666666666666666
+How are you ?,Why TestNG is preferred over JUnit,Advantages & Benefits ofTestNG over Junitframework!TestNGremoves most of the limitations of the older framework and gives the developer the facility to write more powerful and flexible tests with help of easy grouping,0.65625
+How are you ?,What are the advantages of JUnit,This procedure increases productivity and stability of program code and reduce the time for debugging.JUnitcan catch bugs better than the programmers. Unit testing can prove to be useful. Sometimes a bug is introduced when new features are added or when existing code is changed.,0.6666666666666666
 What is GIT?,What is Git,Git is a software used for version control,1.0
-What are git Protocols,No Question Matched,Please ask questions related to DevOps,0.0
+What are git Protocols,What is git add is used for,git add adds file changes in your existing directory to your index,0.6871794871794872
+What are git Protocols,What is git Is-tree,git Is-tree represents a tree object including the mode and the name of each item and the SHA-1 value of the blob or the tree,0.6666666666666666
+what is Docker,How is Kubernetes related to Docker,It's a known fact that Docker provides the lifecycle management of containers and a Docker image builds the runtime containers. But,0.75
 what is Docker,What is a Docker image, Docker image is the source of Docker container In other words Docker images are used to create containers,0.8444444444444446
 what is Docker,What is Docker container, Docker containers include the application and all of its dependencies but share the kernel with other containers running as isolated processes in user space on the host operating system Docker containers are not tied to any specific infrastructure: they run on any computer on any infrastructure and in any cloud,0.8472222222222223
 what is Docker,What is Docker Swarm, Docker Swarm is native clustering for Docker It turns a pool of Docker hosts into a single & virtual Docker host,0.8444444444444446
+what is Docker,What is the command to stop the docker container, $ sudo docker stop container name,0.7483333333333333
+what is Docker,Where the docker volumes are stored, You need to navigate:  /var/lib/docker/volumes,0.7854166666666667
+what is Docker,What are the three components of Docker Architecture, 1Client 2Docker-Host 3Registry,0.7669683257918551
 what is Docker,What are Docker Namespaces,The Namespaces in Docker is a technology which provides isolated workspaces called the Container. Namespaces provide a layer of isolation for the Docker containers,0.8333333333333333
 what is Docker,What is a Docker Swarm,Docker Swarm as the way of orchestrating the Docker containers,0.8444444444444446
+what is Docker,What is Docker object labels,These are the mechanism for applying metadata to docker objects including,0.7717013888888888
+what is Docker,What is the docker inspect do,It will give the more information about container in json format,0.7916666666666667
+what is user story,How to estimate a user story, Starting from 1 following Fibonacci series (1 2 3 5 8 13....) you can choose a number based on your work load,0.7222222222222223
+what is user story,How to assign a user story to another team, Open the user story you want to assign to different team. Choose the responsible team in Team dropdown. Click Ok. Its done!! :-),0.6701388888888888
+what is user story,How to move a user story to another iteration, Open the user story you want to move to iteration. Choose the responsible iteration in Iteration dropdown. Click Ok. Its done!! :-),0.6961805555555555
+what is user story,Is there a link between tasks estimation user story estimation, Not directly. Butefforts of tasks can not beyond the user story points (1 SP ~ 1.3 MD),0.7392857142857143
 what is user story,How to search for a user story, Click on the Search icon on top right enter user story number and hit Enter,0.7777777777777777
+what is user story,How to link a user story to a feature, Open the user story and choose appropriate feature under Feature dropdown. Click Save button to save the changes,0.6676136363636364
 what is agile,What is Agile ,Agile software development comprises various approaches to software development under which requirements and solutions evolve through the collaborative effort of self-organizing and cross-functional teams and their customer/end user,1.0
 how is kubernetes and docker related.,What is Kubernetes,Kubernetes is an open-source container management tool which holds the responsibilities of container deployment,0.78125
 how is kubernetes and docker related.,How is Kubernetes related to Docker,It's a known fact that Docker provides the lifecycle management of containers and a Docker image builds the runtime containers. But,0.78125
 what is JIRA,Why is JIRA used, Atlassian JIRA is basically an issue and project tracking tool which allows us to track any project related work by following a proper workflow,0.8888888888888888
+what is JIRA,How is an issue linked in JIRA, There are two fields available in JIRA: Linked issues and Issues Linked issue section contains the dropdown for the options to be selected as the reason for linking the issue,0.78125
+what is JIRA,What is the purpose of JIRA dashboard, The first page which is displayed whenever we get logged in to JIRA application is Dashboard which is basically the default or system dashboard,0.75
+what is JIRA,What are issues types that are created and tracked via JIRA, JIRA has some defined set of default issue types which are displayed under Issue Type section Other issue types can be added# edited and deleted as per requirement of the project Some of the common issue types are Bug# Task# Sub-task# Epic# Story# etc,0.7559523809523809
+what is JIRA,How is a sub-task created in JIRA, Sub-task is the way of splitting up of parent issue into a number of small tasks which are tracked and worked on separately,0.7916666666666666
 what is JIRA,What is Jira Core and its uses and who are Jira core project administrators, It is an efficient workflow management system which allows formulating unique process this utility allows to both increase and decreases the complexity of the workflows this allows implying more importance on the process involved,0.9722222222222222
 can you answer questions regarding nexus,No Question Matched,Please ask questions related to DevOps,0.0
 when are you born,No Question Matched,Please ask questions related to DevOps,0.0
 do you answer about devops,No Question Matched,Please ask questions related to DevOps,0.0
 how to fetch from git repo,No Question Matched,Please ask questions related to DevOps,0.0
-what format is the docker compose file,No Question Matched,Please ask questions related to DevOps,0.0
+what format is the docker compose file,What is a Docker image, Docker image is the source of Docker container In other words Docker images are used to create containers,0.5690909090909091
+what format is the docker compose file,What is Docker Swarm, Docker Swarm is native clustering for Docker It turns a pool of Docker hosts into a single & virtual Docker host,0.5690909090909091
+what format is the docker compose file,What is a Docker Swarm,Docker Swarm as the way of orchestrating the Docker containers,0.5690909090909091
