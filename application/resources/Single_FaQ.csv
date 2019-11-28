@@ -367,6 +367,9 @@ Docker	How you create jenkins image using Docker	Docker pull jenkins
 Docker	What is the Docker container life cycle	Build
 Docker	How to clean up Docker objects	docker image prune and docker container prune
 Docker	How to push the new image to Docker registry	docker push myorg/myimg
+Docker	Image java.io.IOException docker invalid reference format	Please check the image reference could be an obsolete version
+Docker	No Space left	Check http://confluence/CleanUpDiskSpace
+Docker	Libz.so.1	sudo moung /tmp-o remount,execute
 Nexus	What is a nexus repository	Nexus is a repository manager. It allows you to proxy
 Nexus	how to push the artifacts to nexus	Please follow the link http://confluence/howtopushtonexus
 Nexus	Is Nexus repository free	If so
@@ -387,7 +390,15 @@ Nexus	What is Nexus proxy	A Nexus installation brings you such a repository for 
 Nexus	How do I change nexus port	To change the NEXUS default port:Stop Nexus.Edit the nexus.properties file. In this example
 Nexus	What is hosted repository in Nexus	A Hosted Repository is a repository that is hosted by the repository manager. Nexus Repository Manager ships with the following configured hosted repositories: 3rd Party. This hosted repository can be used for third-party dependencies not available in the public Maven repositories.
 Nexus	What is raw repository in Nexus	Introduction. Nexus Repository Manager Pro and Nexus Repository Manager OSS include support for hosting
-Nexus	What's the nexus URL 	https://inet-prodnexus/nexus
+Nexus   Is Nexus 2 High Available   No
+Nexus   Is there a scheduled downtime for Nexus 2 Yes
+Nexus   When is Nexus 2 down during the week    Saturday 1 AM to 5 AM
+Nexus   Is Nexus 2 and Nexus 3 same?     No, Nexus 2 is production instance while Nexus 3 is target
+Nexus   Can I store docker images in Nexus  Yes Nexus 3 (central repo) is capable of hosting docker registry
+Nexus   Can i upload artifacts to Nexus?    No you can upload only via a technical user via one of the automation tools
+Nexus   Can i get access to Nexus?  No,Individual access is not granted, however Nexus 2 provides anonymous access to download artifacts however
+Nexus	What's the nexus URL    https://inet-prodnexus/nexus
+Nexus   what is GAV?    Group Artifact and Version that uniquely identifies an artifact under Nexus
 Gradle	What Is a Gradle Framework	Gradle is an open-source build automation system that builds based on the concepts of Apache Ant and Apache Maven.
 Gradle	Advantages Of Using Gradle	Gradle combines both Ant and Maven
 Gradle	What Is Gradle Wrapper	A wrapper is a batch script and it is one of the ways to perform Gradle build. When executed the first time
@@ -454,10 +465,29 @@ DevOps	my deployment is failing	You can check for the reasons of failure in the 
 DevOps	What is devops	DevOps is a set of practices that combines software development and information-technology operations which aims to shorten the systems development life cycle and provide continuous delivery with high software quality.
 DevOps	where can i see deployment logs	Usually during deployment a log file is created and the logs are logged accordingly
 DevOps	what deployment tool being used	Please refer link https://confluence/devopstools
+DevOps	Our team wants to shift left, how do we do it ?	Good to see your team is alligning with DevOps ideology, please raise a JIRA ticket so to get an devops coach assigned to assist you
+DevOps	What is the Procedure to subscibe a CIPaaS	to begin please create an JIRA ticket, make sure you have an buisness justification for the same.
+Devops	what is the tool you provide to support code quality	Sonar,please contact Secure Development team
+Devops	what is the tool you provide to support code Security	Fortify,please contact Secure Development team
+Devops	what is the tool you provide to support Continous Integration	Jenkins,please contact CIP Squad team
+Devops	what is the tool you provide to support Continous Deployment	CDD is the supported tool,please contact RODA team
+Devops	what is the tool you provide to support Mobile	We provide Centralized CIP to help build,release and sign and upload Android and IOS to respective Stores.
 Sonar	sonar report is not generating	Please check the jenkins Build log for more reason for the failure
 Sonar	where can i see my sonar report	The Issues Report plugin provides the ability to generate HTML report on issues. The main use case is for developers to check the code they have added or changed before pushing it back to the SCM.
 Jenkins	my jenkins build is failing	You can use the Build Failure Analyzer
 Jenkins	What is Jenkins	Jenkins is an open source automationtool written in Javawith plugins built for Continuous Integration purpose. It is used for build and deploying of the applications.
+Jenkins	Why Jenkins Build is failing	Please provide the error message
+Jenkins	Filter Not available	Please use the correct Filter for deploy contact WebHosting team
+Jenkins	Param Not Available	Please use the correct Paran for deploy contact WebHosting team
+Jenkins	m4.3:release-finish:Error Finishing release	This is possibly due to your Jgit plugin refer the KEDB https://confluence/DevOps/KEDB/Jgit
+Jenkins	I am not able to login to Jenkins spaw2479	make sure your INT credentials has not expired, it does once every 3 months
+Jenkins	I am not able to login to Jenkins spaw2479	Try both capital and small case of your Int Id to login.
+Jenkins	I don't see my project anymore	try to login using both upper and lower case INT id , if it still fails create a JIRA ticket
+Jenkins	I can't see my application anymore	try to login using both upper and lower case INT id , if it still fails create a JIRA ticket
+Jenkins	500 Bad Gateway when accessing	Your instance possibly is down,Please create an JIRA ticket for the same
+Jenkins	Unable to release using JGIT	This is possibly due to your Jgit plugin refer the KEDB https://confluence/DevOps/KEDB/Jgit
+Jenkins	Jenkins fails stating Return Code is 400 Reason Phrase:BadRequest	This is possibly your artifact your are uploading already exists in Nexus else you are trying to push a SNAPSHOT to Releases repo which is prohibited
+Jenkins	Jenkins fails due to PKIX path building failed unable to find valid certificaiton path to requested target	image used could now be obsolete please use the latest version
 CDD	what is CDD	Continuous Deployment is a software development practice in which every code change goes through the entire pipeline and is put into production
 CDD	What is meant by continuous deployment	Continuous deploymentis a strategy for software releases wherein any code commit that passes theautomatedtesting phase is automatically released into the production environment
 CDD	What is the difference between continuous delivery and continuous deployment in DevOps	Continuous deliveryis an approach which incorporates the conceptsof continuous integration
