@@ -1,9 +1,14 @@
+import uuid
+from uuid import uuid4
+
 from nltk import word_tokenize, pos_tag
 from nltk.corpus import wordnet as wn
 from nltk.stem.snowball import SnowballStemmer
 from nltk.stem import WordNetLemmatizer
 
 from classifier import DevopsClassifier
+
+from application.file_writer import write_file
 
 stem_obj = SnowballStemmer('english')
 word_net_lemma = WordNetLemmatizer()
@@ -242,19 +247,43 @@ class SentenceSimilarities:
 
     @staticmethod
     def get_questions_from_user_interface(question, detailed_logging, perform_classification):
+        user_id = str(uuid4())
+        prompt_feedback = "N"
+        suggestible_questions = []
+
         if question.split(" ").__len__().__le__(1):
             return "Can you please give some more details, so that i can try to answer"
         else:
             possible_sentences = SentenceSimilarities.calculate_similarity(detailed_logging, question, perform_classification)
+
+            SentenceSimilarities.write_possible_questions(detailed_logging, possible_sentences, suggestible_questions,
+                                                          user_id)
+
             for best_sentence, question, best_score in possible_sentences:
                 answer = SentenceSimilarities.get_the_answer_unclassified(detailed_logging, best_sentence,
                                                                           best_score, question)
                 if not answer:
                     return "Please ask questions related to DevOps"
                 else:
-                    return answer
+                    if best_score < 0.75:
+                        prompt_feedback = "Y"
+                    return {"user_id": user_id, "answer": answer, "promptFeedback": prompt_feedback}
             if not possible_sentences:
                 return "Please ask questions related to DevOps"
+
+    @staticmethod
+    def write_possible_questions(detailed_logging, possible_sentences, suggestible_questions, user_id):
+        for best_sentence, question, best_score in possible_sentences:
+            answer = SentenceSimilarities.get_the_answer_unclassified(detailed_logging, best_sentence,
+                                                                                   best_score, question)
+            suggestible_questions.append({
+                "question": question,
+                "answer": answer,
+                "score": best_score,
+                "processed": "N"
+            })
+            # suggestible_questions.sort(key="score", reverse=True)
+        write_file("./resources/test.txt", {"user_id": user_id, "suggestible_questions": suggestible_questions}, "a")
 
     @staticmethod
     def get_the_answer_unclassified(print_answers, best_sentence, best_score, question):
@@ -345,8 +374,8 @@ class SentenceSimilarities:
         print('[Test]: Completed ! ! !')
 
 if __name__ == '__main__':
-    SentenceSimilarities.perform_classification_and_sent_similarities_on_file()
+    # SentenceSimilarities.perform_classification_and_sent_similarities_on_file()
     # SentenceSimilarities.perform_classification_and_sent_similarities()
     # SentenceSimilarities.perform_sent_similarities()
-    # SentenceSimilarities.get_questions_from_user(False)
+    SentenceSimilarities.get_questions_from_user_interface("What is git?", False, False)
     # SentenceSimilarities.get_questions_from_file(False)
