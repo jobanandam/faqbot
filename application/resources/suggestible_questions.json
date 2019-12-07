@@ -1,1 +1,20 @@
-{"23106de5-097f-4d6a-9a91-12dfb3a68c1a": [{"index": 0, "question": "What is git?", "answer": "git add adds file changes in your existing directory to your index", "score": 0.6583333333333333, "processed": "N", "accepted": "N"}]}
+{
+  "4186950e-3c72-40fa-88c5-28aa278fccd6": [
+    {
+      "index": 0,
+      "question": "What is git?",
+      "answer": "git add adds file changes in your existing directory to your index",
+      "score": 0.6583333333333333,
+      "processed": "N",
+      "accepted": "Y"
+    },
+    {
+      "index": 1,
+      "question": "What is git?",
+      "answer": "git Is-tree represents a tree object including the mode and the name of each item and the SHA-1 value of the blob or the tree",
+      "score": 0.625,
+      "processed": "N",
+      "accepted": "N"
+    }
+  ]
+}
