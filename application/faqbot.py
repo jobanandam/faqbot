@@ -7,7 +7,7 @@ from nltk.stem import WordNetLemmatizer
 
 from classifier import DevopsClassifier
 
-from application.file_writer import write_file
+from application.file_writer import write_file, append_json_into_array_file
 
 stem_obj = SnowballStemmer('english')
 word_net_lemma = WordNetLemmatizer()
@@ -282,7 +282,9 @@ class SentenceSimilarities:
                 "processed": "N"
             })
             # suggestible_questions.sort(key="score", reverse=True)
-        write_file("./resources/test.txt", {user_id: {"suggestible_questions": suggestible_questions}}, "a")
+        suggestible_questions_json_file = "./resources/suggestible_questions.json"
+        user_suggestible_questions = {user_id: {"suggestible_questions": suggestible_questions}}
+        append_json_into_array_file(user_suggestible_questions, suggestible_questions_json_file)
 
     @staticmethod
     def get_the_answer_unclassified(print_answers, best_sentence, best_score, question):
