@@ -25,8 +25,25 @@ def mark_question_as_processed(sorted_suggestible_question):
 
 def main():
     user_id = "4186950e-3c72-40fa-88c5-28aa278fccd6"
-    next_suggestible_question = get_next_suggestible_question_for(user_id)
+    # next_suggestible_question = get_next_suggestible_question_for(user_id)
+    # main_run_feedback_system(next_suggestible_question, user_id)
 
+    accepted_question_index = 1
+    update_positive_feedback(user_id, accepted_question_index)
+
+
+def update_positive_feedback(user_id, accepted_question_index):
+    suggestible_questions = get_user_specific_suggestible_questions(user_id)
+
+    for index in range(len(suggestible_questions)):
+        question = suggestible_questions[index]
+        if question.get("index") == accepted_question_index:
+            question["accepted"] = "Y"
+            suggestible_questions[index] = question
+            update_user_suggestible_questions(user_id, suggestible_questions)
+
+
+def main_run_feedback_system(next_suggestible_question, user_id):
     while next_suggestible_question.get("question") is not None:
         print("Is this what you are looking for?")
         print(next_suggestible_question.get("question"))
