@@ -5,14 +5,16 @@
       "question": "What is git?",
       "answer": "git add adds file changes in your existing directory to your index",
       "score": 0.6583333333333333,
-      "processed": "Y"
+      "processed": "N",
+      "accepted": "Y"
     },
     {
       "index": 1,
       "question": "What is git?",
       "answer": "git Is-tree represents a tree object including the mode and the name of each item and the SHA-1 value of the blob or the tree",
       "score": 0.625,
-      "processed": "Y"
+      "processed": "N",
+      "accepted": "N"
     }
   ]
 }
