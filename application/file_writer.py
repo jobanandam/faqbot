@@ -12,12 +12,10 @@ def write_file(target, content, mode):
     file.close()
 
 
-def append_json_into_array_file(data, file_name):
-    tuples = read_json_file(file_name)
-    obj_list = list(tuples)
-    obj_list.append(data)
-    tuples = tuple(obj_list)
-    write_json_file(tuples, file_name)
+def append_user_suggestible_questions_in_file(data, file_name):
+    root_json_obj = read_json_file(file_name)
+    root_json_obj[data["user_id"]] = data["suggestible_questions"]
+    write_json_file(root_json_obj, file_name)
 
 
 def write_json_file(json_data, target_file):
@@ -26,13 +24,13 @@ def write_json_file(json_data, target_file):
 
 
 def main():
-    data = {str(uuid4()): {"suggestible_questions": [
+    data = {"user_id": str(uuid4()), "suggestible_questions": [
                 {"answer": "How are you1?", "processed": "N"},
                 {"answer": "How are you2?", "processed": "N"},
                 {"answer": "How are you3?", "processed": "N"},
                 {"answer": "How are you4?", "processed": "N"}
-            ]}}
-    append_json_into_array_file(data, "./resources/test.txt")
+            ]}
+    append_user_suggestible_questions_in_file(data, "./resources/suggestible_questions.json")
 
     # print(write_file("./resources/test.txt", data, "a"))
 
