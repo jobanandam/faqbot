@@ -272,10 +272,13 @@ class SentenceSimilarities:
 
     @staticmethod
     def write_possible_questions(detailed_logging, possible_sentences, suggestible_questions, user_id):
+        index = -1
         for best_sentence, question, best_score in possible_sentences:
+            index += 1
             answer = SentenceSimilarities.get_the_answer_unclassified(detailed_logging, best_sentence,
                                                                                    best_score, question)
             suggestible_questions.append({
+                "index": index,
                 "question": question,
                 "answer": answer,
                 "score": best_score,
