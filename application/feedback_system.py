@@ -1,7 +1,7 @@
 from operator import itemgetter
 
 
-def get_next_suggestible_question(user_id, suggestible_questions):
+def get_next_suggestible_question(suggestible_questions):
     sorted_suggestible_questions = sorted(suggestible_questions, key=itemgetter(1), reverse=True)
 
     for index in range(len(sorted_suggestible_questions)):
@@ -26,7 +26,7 @@ def main():
                                   ("How do you feel?", 3, "N"), ("How you are doing?", 4, "N")]
     user_id = "b029199e-2214-45e9-bcf4-62c90b377b00"
 
-    next_suggestible_question, suggestible_test_questions = get_next_suggestible_question(user_id, suggestible_test_questions)
+    next_suggestible_question, suggestible_test_questions = get_next_suggestible_question(suggestible_test_questions)
 
     while next_suggestible_question != ():
         print("Is this what you are looking for?")
@@ -36,7 +36,8 @@ def main():
             print("Suggestion accepted: ", next_suggestible_question[0])
             break
         else:
-            next_suggestible_question, suggestible_test_questions = get_next_suggestible_question(user_id, suggestible_test_questions)
+            next_suggestible_question, suggestible_test_questions = get_next_suggestible_question(
+                suggestible_test_questions)
 
 
 if __name__ == '__main__':
