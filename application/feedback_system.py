@@ -1,43 +1,48 @@
-from operator import itemgetter
+from application.file_reader import read_json_file
+from application.questions_io import update_user_suggestible_questions
 
 
 def get_next_suggestible_question(suggestible_questions):
-    sorted_suggestible_questions = sorted(suggestible_questions, key=itemgetter(1), reverse=True)
+    sorted_suggestible_questions = sorted(suggestible_questions, key=lambda record: record["score"], reverse=True)
+    sorted_suggestible_questions = list(sorted_suggestible_questions)
 
     for index in range(len(sorted_suggestible_questions)):
-        sorted_suggestible_question = sorted_suggestible_questions[index]
-        if sorted_suggestible_question[2] == "N":
-            sorted_suggestible_question = mark_question_as_processed(sorted_suggestible_question)
-            sorted_suggestible_questions[index] = sorted_suggestible_question
-            return sorted_suggestible_question, sorted_suggestible_questions
+        next_suggestible_question = sorted_suggestible_questions[index]
+        if next_suggestible_question["processed"] == "N":
+            next_suggestible_question = mark_question_as_processed(next_suggestible_question)
+            sorted_suggestible_questions[index] = next_suggestible_question
+            return next_suggestible_question, sorted_suggestible_questions
 
     return (), []
 
 
 def mark_question_as_processed(sorted_suggestible_question):
-    sorted_suggestible_question_properties = list(sorted_suggestible_question)
-    sorted_suggestible_question_properties[2] = "Y"
-    sorted_suggestible_question = tuple(sorted_suggestible_question_properties)
+    sorted_suggestible_question["processed"] = "Y"
     return sorted_suggestible_question
 
 
 def main():
-    suggestible_test_questions = [("How is it going?", 1, "N"), ("Are you ok?", 2, "N"),
-                                  ("How do you feel?", 3, "N"), ("How you are doing?", 4, "N")]
-    user_id = "b029199e-2214-45e9-bcf4-62c90b377b00"
-
-    next_suggestible_question, suggestible_test_questions = get_next_suggestible_question(suggestible_test_questions)
+    user_id = "4186950e-3c72-40fa-88c5-28aa278fccd6"
+    user_suggestible_questions = get_user_specific_suggestible_questions(user_id)
+    next_suggestible_question, user_suggestible_questions = get_next_suggestible_question(user_suggestible_questions)
 
     while next_suggestible_question != ():
+        update_user_suggestible_questions(user_id, user_suggestible_questions)
         print("Is this what you are looking for?")
         print(next_suggestible_question)
         feedback = input()
         if feedback == "Y":
-            print("Suggestion accepted: ", next_suggestible_question[0])
+            print("Suggestion accepted: ", next_suggestible_question["question"])
             break
         else:
-            next_suggestible_question, suggestible_test_questions = get_next_suggestible_question(
-                suggestible_test_questions)
+            next_suggestible_question, user_suggestible_questions = get_next_suggestible_question(
+                user_suggestible_questions)
+
+
+def get_user_specific_suggestible_questions(user_id):
+    all_user_suggestible_questions = read_json_file("../application/resources/suggestible_questions.json")
+    user_suggestible_questions = all_user_suggestible_questions.get(user_id)
+    return user_suggestible_questions
 
 
 if __name__ == '__main__':
