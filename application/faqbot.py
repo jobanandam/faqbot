@@ -7,6 +7,7 @@ from nltk.stem import WordNetLemmatizer
 
 from classifier import DevopsClassifier
 
+from application.feedback_system import get_next_suggestible_question_for
 from application.questions_io import append_user_suggestible_questions_in_file
 
 stem_obj = SnowballStemmer('english')
@@ -27,6 +28,7 @@ class myClass():
 
 class SentenceSimilarities:
     dc = DevopsClassifier('resources/Single_FaQ.csv')
+
     @staticmethod
     def penn_to_wn(tag):
         """ Convert between a Penn Treebank tag to a simplified Wordnet tag """
@@ -65,7 +67,6 @@ class SentenceSimilarities:
         elif primary_sim is None and secondary_sim is not None:
             sentence_similar_score = secondary_sim
         return sentence_similar_score
-
 
     @staticmethod
     def sentence_similarity(sentence1, sentence2):
@@ -199,8 +200,10 @@ class SentenceSimilarities:
                 print("Cumulative Average score", cumulative_average_score)
                 print("Max Score", max(matched_score_array))
 
-            filtered_matched_sentences = SentenceSimilarities.filter_matched_sentences(cumulative_average_score, matched_sentences,
-                                                                  print_possible_matches, max(matched_score_array))
+            filtered_matched_sentences = SentenceSimilarities.filter_matched_sentences(cumulative_average_score,
+                                                                                       matched_sentences,
+                                                                                       print_possible_matches,
+                                                                                       max(matched_score_array))
         else:
             filtered_matched_sentences = matched_sentences
 
@@ -233,9 +236,11 @@ class SentenceSimilarities:
             if question.split(" ").__len__().__le__(1):
                 print("Can you please give some more details, so that i can try to answer")
             else:
-                possible_sentences = SentenceSimilarities.calculate_similarity(detailed_logging, question, perform_classification)
+                possible_sentences = SentenceSimilarities.calculate_similarity(detailed_logging, question,
+                                                                               perform_classification)
                 for best_sentence, question, best_score in possible_sentences:
-                    answer = SentenceSimilarities.get_the_answer_unclassified(detailed_logging, best_sentence, best_score, question)
+                    answer = SentenceSimilarities.get_the_answer_unclassified(detailed_logging, best_sentence,
+                                                                              best_score, question)
                     if not answer:
                         print("Please ask questions related to DevOps")
                     else:
@@ -249,26 +254,42 @@ class SentenceSimilarities:
         user_id = str(uuid4())
         prompt_feedback = "N"
         suggestible_questions = []
-
+        answer_for_unrelated_question = {"user_id": user_id, "answer": "Please ask questions related to DevOps",
+                                         "promptFeedback": prompt_feedback}
+        answer_for_short_question = {"user_id": user_id,
+                                     "answer": "Can you please give some more details, so that i can try to answer",
+                                     "promptFeedback": prompt_feedback}
         if question.split(" ").__len__().__le__(1):
-            return "Can you please give some more details, so that i can try to answer"
+            return answer_for_short_question
         else:
-            possible_sentences = SentenceSimilarities.calculate_similarity(detailed_logging, question, perform_classification)
+            possible_sentences = SentenceSimilarities.calculate_similarity(detailed_logging, question,
+                                                                           perform_classification)
 
-            SentenceSimilarities.write_possible_questions(detailed_logging, possible_sentences, suggestible_questions,
-                                                          user_id)
-
-            for best_sentence, question, best_score in possible_sentences:
-                answer = SentenceSimilarities.get_the_answer_unclassified(detailed_logging, best_sentence,
-                                                                          best_score, question)
-                if not answer:
-                    return "Please ask questions related to DevOps"
-                else:
-                    if best_score < 0.75:
-                        prompt_feedback = "Y"
-                    return {"user_id": user_id, "answer": answer, "promptFeedback": prompt_feedback}
-            if not possible_sentences:
-                return "Please ask questions related to DevOps"
+            sorted_possible_sentences = sorted(possible_sentences, key=lambda record: record[2], reverse=True)
+            print(" sorted_possible_sentences ")
+            print(sorted_possible_sentences)
+            if len(sorted_possible_sentences) > 0:
+                max_score = sorted_possible_sentences[0][2]
+                print("max score = ")
+                print(max_score)
+                if max_score < 0.75:    # bot is doubtful. go for feedback mechanism
+                    SentenceSimilarities.write_possible_questions(detailed_logging, possible_sentences,
+                                                                  suggestible_questions,
+                                                                  user_id)
+                    prompt_feedback = "Y"
+                    return get_next_suggestible_question_for(user_id)
+                else:   # bot is confident. go for the first question's answer in the sorted possible sentences
+                    best_match = sorted_possible_sentences[0]
+                    answer = SentenceSimilarities.get_the_answer_unclassified(detailed_logging, best_match[0],
+                                                                              best_match[2], best_match[1])
+                    if not answer:
+                        return answer_for_unrelated_question
+                    else:
+                        return {"user_id": user_id, "answer": answer, "promptFeedback": prompt_feedback}
+            # TODO do this only when best score is less than threshold
+            elif not possible_sentences:
+                return {"user_id": user_id, "answer": "Please ask questions related to DevOps",
+                        "promptFeedback": prompt_feedback}
 
     @staticmethod
     def write_possible_questions(detailed_logging, possible_sentences, suggestible_questions, user_id):
@@ -276,7 +297,7 @@ class SentenceSimilarities:
         for best_sentence, question, best_score in possible_sentences:
             index += 1
             answer = SentenceSimilarities.get_the_answer_unclassified(detailed_logging, best_sentence,
-                                                                                   best_score, question)
+                                                                      best_score, question)
             suggestible_questions.append({
                 "index": index,
                 "question": question,
@@ -329,9 +350,11 @@ class SentenceSimilarities:
                 results.append((question, "No Question Matched",
                                 "Can you please give some more details, so that i can try to answer", "0.0"))
             else:
-                possible_sentences = SentenceSimilarities.calculate_similarity(detailed_logging, question,perform_classification)
+                possible_sentences = SentenceSimilarities.calculate_similarity(detailed_logging, question,
+                                                                               perform_classification)
                 for best_sentence, question, best_score in possible_sentences:
-                    answer = SentenceSimilarities.get_the_answer_unclassified(detailed_logging, best_sentence, best_score, question)
+                    answer = SentenceSimilarities.get_the_answer_unclassified(detailed_logging, best_sentence,
+                                                                              best_score, question)
                     if not answer:
                         print("Please ask questions related to DevOps")
                         results.append(
@@ -377,6 +400,7 @@ class SentenceSimilarities:
                 print()
         print('[Test]: Accuracy: {:.2f}%'.format(((tot - cur) / tot) * 100))
         print('[Test]: Completed ! ! !')
+
 
 if __name__ == '__main__':
     # SentenceSimilarities.perform_classification_and_sent_similarities_on_file()

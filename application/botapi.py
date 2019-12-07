@@ -15,7 +15,6 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 def sentiment_index(question):
     feedback = request.args.get('feedback')
     conversation_key = request.args.get('conversation_key')
-    print(feedback + ' &&&&& ' + conversation_key + ' &&&&& ' + question)
     SentenceSimilarities.perform_classification_on_test_data()
     print("Hi Welcome to FAQ BOT ")
     print("Question asked --> ", question)
