@@ -283,7 +283,7 @@ class SentenceSimilarities:
             })
             # suggestible_questions.sort(key="score", reverse=True)
         suggestible_questions_json_file = "./resources/suggestible_questions.json"
-        user_suggestible_questions = {user_id: {"suggestible_questions": suggestible_questions}}
+        user_suggestible_questions = {user_id: suggestible_questions}
         append_json_into_array_file(user_suggestible_questions, suggestible_questions_json_file)
 
     @staticmethod
