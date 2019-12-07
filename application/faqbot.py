@@ -7,7 +7,7 @@ from nltk.stem import WordNetLemmatizer
 
 from classifier import DevopsClassifier
 
-from application.file_writer import write_file, append_user_suggestible_questions_in_file
+from application.questions_io import append_user_suggestible_questions_in_file
 
 stem_obj = SnowballStemmer('english')
 word_net_lemma = WordNetLemmatizer()
@@ -282,7 +282,8 @@ class SentenceSimilarities:
                 "question": question,
                 "answer": answer,
                 "score": best_score,
-                "processed": "N"
+                "processed": "N",
+                "accepted": "N"
             })
 
         suggestible_questions_json_file_name = "./resources/suggestible_questions.json"
