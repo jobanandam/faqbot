@@ -277,7 +277,8 @@ class SentenceSimilarities:
                                                                   suggestible_questions,
                                                                   user_id)
                     prompt_feedback = "Y"
-                    return get_next_suggestible_question_for(user_id)
+                    next_suggestible_question = get_next_suggestible_question_for(user_id)
+                    return {"user_id": user_id, "answer": next_suggestible_question["answer"], "promptFeedback": prompt_feedback}
                 else:   # bot is confident. go for the first question's answer in the sorted possible sentences
                     best_match = sorted_possible_sentences[0]
                     answer = SentenceSimilarities.get_the_answer_unclassified(detailed_logging, best_match[0],
