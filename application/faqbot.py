@@ -1,4 +1,3 @@
-import uuid
 from uuid import uuid4
 
 from nltk import word_tokenize, pos_tag
@@ -283,7 +282,7 @@ class SentenceSimilarities:
                 "processed": "N"
             })
             # suggestible_questions.sort(key="score", reverse=True)
-        write_file("./resources/test.txt", {"user_id": user_id, "suggestible_questions": suggestible_questions}, "a")
+        write_file("./resources/test.txt", {user_id: {"suggestible_questions": suggestible_questions}}, "a")
 
     @staticmethod
     def get_the_answer_unclassified(print_answers, best_sentence, best_score, question):
