@@ -1,8 +1,6 @@
 import json
 from uuid import uuid4
 
-from application.file_reader import read_json_file
-
 
 def write_file(target, content, mode):
     file = open(target, mode)
@@ -10,12 +8,6 @@ def write_file(target, content, mode):
         file.write(str(content))
         file.write("\n")
     file.close()
-
-
-def append_user_suggestible_questions_in_file(data, file_name):
-    root_json_obj = read_json_file(file_name)
-    root_json_obj[data["user_id"]] = data["suggestible_questions"]
-    write_json_file(root_json_obj, file_name)
 
 
 def write_json_file(json_data, target_file):
@@ -30,9 +22,7 @@ def main():
                 {"answer": "How are you3?", "processed": "N"},
                 {"answer": "How are you4?", "processed": "N"}
             ]}
-    append_user_suggestible_questions_in_file(data, "./resources/suggestible_questions.json")
-
-    # print(write_file("./resources/test.txt", data, "a"))
+    # append_user_suggestible_questions_in_file(data, "./resources/suggestible_questions.json")
 
 
 if __name__ == '__main__':
