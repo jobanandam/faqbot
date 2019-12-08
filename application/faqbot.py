@@ -7,7 +7,7 @@ from nltk.stem import WordNetLemmatizer
 
 from classifier import DevopsClassifier
 
-from application.feedback_system import get_next_suggestible_question_for
+from application.feedback_system import FeedbackSystem
 from application.questions_io import append_user_suggestible_questions_in_file
 
 stem_obj = SnowballStemmer('english')
@@ -252,45 +252,60 @@ class SentenceSimilarities:
     @staticmethod
     def get_questions_from_user_interface(question, detailed_logging, perform_classification):
         user_id = str(uuid4())
-        prompt_feedback = "N"
         suggestible_questions = []
-        answer_for_unrelated_question = {"user_id": user_id, "answer": "Please ask questions related to DevOps",
-                                         "promptFeedback": prompt_feedback}
-        answer_for_short_question = {"user_id": user_id,
-                                     "answer": "Can you please give some more details, so that i can try to answer",
-                                     "promptFeedback": prompt_feedback}
-        if question.split(" ").__len__().__le__(1):
-            return answer_for_short_question
-        else:
+        # Initialize response_dict with default values
+        response_dict = {"user_id": user_id, "answer": "Please ask questions related to DevOps",
+                                         "prompt_feedback": "N", "index": -1}
+        if question.split(" ").__len__().__le__(1):     # question too short
+            response_dict["answer"] = "Can you please give some more details, so that i can try to answer"
+        else:   # calculate similarity
             possible_sentences = SentenceSimilarities.calculate_similarity(detailed_logging, question,
                                                                            perform_classification)
-
+            # sort in descending order of score
             sorted_possible_sentences = sorted(possible_sentences, key=lambda record: record[2], reverse=True)
             print(" sorted_possible_sentences ")
             print(sorted_possible_sentences)
-            if len(sorted_possible_sentences) > 0:
+            if len(sorted_possible_sentences) > 0:      # if there is more than one matched sentence
                 max_score = sorted_possible_sentences[0][2]
                 print("max score = ")
                 print(max_score)
                 if max_score < 0.75:    # bot is doubtful. go for feedback mechanism
+                    print("I'm doubtful. Let me go for feedback mechanism")
                     SentenceSimilarities.write_possible_questions(detailed_logging, possible_sentences,
                                                                   suggestible_questions,
                                                                   user_id)
-                    prompt_feedback = "Y"
-                    next_suggestible_question = get_next_suggestible_question_for(user_id)
-                    return {"user_id": user_id, "answer": next_suggestible_question["answer"], "promptFeedback": prompt_feedback}
+                    next_suggestible_question = FeedbackSystem.get_next_suggestible_question_for(user_id)
+                    response_dict["prompt_feedback"] = "Y"
+                    response_dict["answer"] = next_suggestible_question["answer"]
+                    response_dict["index"] = next_suggestible_question["index"]
                 else:   # bot is confident. go for the first question's answer in the sorted possible sentences
+                    print("I'm confident. I'll respond with the first matched question's answer")
                     best_match = sorted_possible_sentences[0]
                     answer = SentenceSimilarities.get_the_answer_unclassified(detailed_logging, best_match[0],
                                                                               best_match[2], best_match[1])
-                    if not answer:
-                        return answer_for_unrelated_question
-                    else:
-                        return {"user_id": user_id, "answer": answer, "promptFeedback": prompt_feedback}
-            # TODO do this only when best score is less than threshold
-            elif not possible_sentences:
-                return {"user_id": user_id, "answer": "Please ask questions related to DevOps",
-                        "promptFeedback": prompt_feedback}
+                    if answer:
+                        response_dict["answer"] = answer
+        return response_dict
+
+    @staticmethod
+    def respond_to_user_feedback(feedback, user_id, index):
+        positive_feedback_list = ["y", "yes", "ye", "yeah", "yea", "s", "ss", "absolutely", "yup", "yep", "yeh", "ya", "yo"]
+        negative_feedback_list = ["n", "no", "noo", "nah", "na", "ne", "np", "never", "nil", "not", "nope", "dont", "nooo"]
+        response_dict = {"user_id": user_id, "answer": "Please ask questions related to DevOps",
+                         "prompt_feedback": "N", "index": -1}
+        if feedback.lower() in positive_feedback_list:
+            FeedbackSystem.update_positive_feedback(user_id, index)
+            response_dict["answer"] = "Thanks for your feedback. This will help me in my learning process."
+        elif feedback.lower() in negative_feedback_list:
+            next_suggestible_question = FeedbackSystem.get_next_suggestible_question_for(user_id)
+            answer = next_suggestible_question["answer"]
+            if not answer:
+                response_dict["answer"] = "Sorry, I couldn't help you at this moment! Please raise a ticket"
+            else:
+                response_dict["answer"] = answer
+                response_dict["prompt_feedback"] = "Y"
+
+        return response_dict
 
     @staticmethod
     def write_possible_questions(detailed_logging, possible_sentences, suggestible_questions, user_id):
