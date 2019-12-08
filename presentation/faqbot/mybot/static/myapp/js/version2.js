@@ -85,7 +85,7 @@
                 message.prompt_feedback = data.prompt_feedback;
                 message.index = data.index;
                 message.feedback_for_question = message.text;
-                message_suffix = '<br/> Was this information helpful? Please reply "yes" or "no". To abort, reply "stop".'
+                message_suffix = '<br/><br/> Was this information helpful? Please reply "yes" or "no". Or continue asking other questions. '
             } else {
                 message.clearFeedbackState();
             }
