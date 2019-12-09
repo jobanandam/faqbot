@@ -40,7 +40,7 @@ class FeedbackSystem:
 
         for index in range(len(suggestible_questions)):
             question = suggestible_questions[index]
-            if question.get("index") == accepted_question_index:
+            if question.get("index") == int(accepted_question_index):
                 question["accepted"] = "Y"
                 suggestible_questions[index] = question
                 update_user_suggestible_questions(user_id, suggestible_questions)

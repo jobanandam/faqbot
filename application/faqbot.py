@@ -304,6 +304,7 @@ class SentenceSimilarities:
             else:
                 response_dict["answer"] = answer
                 response_dict["prompt_feedback"] = "Y"
+                response_dict["index"] = next_suggestible_question["index"]
 
         return response_dict
 
