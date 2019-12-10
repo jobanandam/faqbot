@@ -324,19 +324,22 @@ class SentenceSimilarities:
         negative_feedback_list = ["n", "no", "noo", "nah", "na", "ne", "np", "never", "nil", "not", "nope", "dont", "nooo"]
         response_dict = {"user_id": user_id, "answer": "Please ask questions related to DevOps",
                          "prompt_feedback": "N", "index": -1}
-        if feedback.lower() in positive_feedback_list:
+        if feedback.lower() in positive_feedback_list:  # positive feedback
             FeedbackSystem.update_positive_feedback(user_id, index)
             response_dict["answer"] = "Thanks for your feedback. This will help me in my learning process."
-        elif feedback.lower() in negative_feedback_list:
+        elif feedback.lower() in negative_feedback_list:    # negative feedback
             next_suggestible_question = FeedbackSystem.get_next_suggestible_question_for(user_id)
             answer = next_suggestible_question["answer"]
             if not answer:
-                response_dict["answer"] = "Sorry, I couldn't help you at this moment! Please raise a ticket"
+                response_dict["answer"] = "Sorry, I couldn't help you with this question! Please raise a ticket"
             else:
                 response_dict["answer"] = answer
                 response_dict["prompt_feedback"] = "Y"
                 response_dict["index"] = next_suggestible_question["index"]
-
+        else:   # This doesn't look like a normal feedback. Treat this as a question
+            print("This doesnt look like a valid feedback. So treating this as a question from the user and "
+                  "performing similarity calculation. ")
+            response_dict = SentenceSimilarities.get_questions_from_user_interface(feedback, False, True)
         return response_dict
 
     @staticmethod
