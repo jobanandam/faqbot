@@ -1,0 +1,216 @@
+{
+  "d396c17e-5352-4248-9579-a0ceb262c7e1": [
+    {
+      "index": 0,
+      "question": " who are you",
+      "answer": " Atlassian JIRA is basically an issue and project tracking tool which allows us to track any project related work by following a proper workflow",
+      "score": 0.7222222222222222,
+      "processed": "Y",
+      "accepted": "N"
+    },
+    {
+      "index": 2,
+      "question": " who are you",
+      "answer": " JIRA has some defined set of default issue types which are displayed under Issue Type section Other issue types can be added# edited and deleted as per requirement of the project Some of the common issue types are Bug# Task# Sub-task# Epic# Story# etc",
+      "score": 0.6845238095238095,
+      "processed": "N",
+      "accepted": "N"
+    },
+    {
+      "index": 3,
+      "question": " who are you",
+      "answer": " Sub-task is the way of splitting up of parent issue into a number of small tasks which are tracked and worked on separately",
+      "score": 0.6666666666666666,
+      "processed": "N",
+      "accepted": "N"
+    },
+    {
+      "index": 1,
+      "question": " who are you",
+      "answer": " There are two fields available in JIRA: Linked issues and Issues Linked issue section contains the dropdown for the options to be selected as the reason for linking the issue",
+      "score": 0.65625,
+      "processed": "N",
+      "accepted": "N"
+    }
+  ],
+  "2dcb4831-9e54-4150-b7d4-36935a982947": [
+    {
+      "index": 1,
+      "question": " jira is what now",
+      "answer": " It is an efficient workflow management system which allows formulating unique process this utility allows to both increase and decreases the complexity of the workflows this allows implying more importance on the process involved",
+      "score": 0.7222222222222222,
+      "processed": "Y",
+      "accepted": "Y"
+    },
+    {
+      "index": 0,
+      "question": " jira is what now",
+      "answer": " Atlassian JIRA is basically an issue and project tracking tool which allows us to track any project related work by following a proper workflow",
+      "score": 0.7222222222222221,
+      "processed": "N",
+      "accepted": "N"
+    }
+  ],
+  "f42e34d9-2547-47be-8ae4-1a16b781f741": [
+    {
+      "index": 1,
+      "question": " jira is what now",
+      "answer": " It is an efficient workflow management system which allows formulating unique process this utility allows to both increase and decreases the complexity of the workflows this allows implying more importance on the process involved",
+      "score": 0.7222222222222222,
+      "processed": "Y",
+      "accepted": "N"
+    },
+    {
+      "index": 0,
+      "question": " jira is what now",
+      "answer": " Atlassian JIRA is basically an issue and project tracking tool which allows us to track any project related work by following a proper workflow",
+      "score": 0.7222222222222221,
+      "processed": "Y",
+      "accepted": "N"
+    }
+  ],
+  "cbd17a84-114e-4b42-a19e-83b85d62811d": [
+    {
+      "index": 0,
+      "question": " how is jeera used",
+      "answer": "Git Status shows you the difference between the working directory and the index",
+      "score": 0.6333333333333333,
+      "processed": "Y",
+      "accepted": "N"
+    },
+    {
+      "index": 1,
+      "question": " how is jeera used",
+      "answer": "git add adds file changes in your existing directory to your index",
+      "score": 0.6333333333333333,
+      "processed": "N",
+      "accepted": "N"
+    }
+  ],
+  "5897b187-0e73-47cd-8555-909dff6291bc": [
+    {
+      "index": 0,
+      "question": " what is nexus url",
+      "answer": "Nexus is a repository manager. It allows you to proxy",
+      "score": 0.6888888888888888,
+      "processed": "Y",
+      "accepted": "N"
+    },
+    {
+      "index": 1,
+      "question": " what is nexus url",
+      "answer": "Nexus Repository OSS is an open source repository that supports many artifact formats",
+      "score": 0.6875,
+      "processed": "Y",
+      "accepted": "N"
+    },
+    {
+      "index": 2,
+      "question": " what is nexus url",
+      "answer": " https://inet-prodnexus/nexus",
+      "score": 0.6818181818181818,
+      "processed": "N",
+      "accepted": "N"
+    }
+  ],
+  "e7fed2b7-6084-4c37-8318-eee08209b60f": [
+    {
+      "index": 0,
+      "question": " what is nexus url",
+      "answer": "Nexus is a repository manager. It allows you to proxy",
+      "score": 0.6888888888888888,
+      "processed": "Y",
+      "accepted": "N"
+    },
+    {
+      "index": 1,
+      "question": " what is nexus url",
+      "answer": "Nexus Repository OSS is an open source repository that supports many artifact formats",
+      "score": 0.6875,
+      "processed": "N",
+      "accepted": "N"
+    },
+    {
+      "index": 2,
+      "question": " what is nexus url",
+      "answer": " https://inet-prodnexus/nexus",
+      "score": 0.6818181818181818,
+      "processed": "N",
+      "accepted": "N"
+    }
+  ],
+  "d08d71a0-7f0e-4bf2-8292-87cb958a7ace": [
+    {
+      "index": 5,
+      "question": " what is ansible",
+      "answer": "Handlers are just like regular tasks in an Ansible playbook",
+      "score": 0.8571428571428572,
+      "processed": "Y",
+      "accepted": "N"
+    },
+    {
+      "index": 2,
+      "question": " what is ansible",
+      "answer": "Ansible Galaxy refers to the Galaxy website where users can share roles and to a command line tool for installing creating and managing roles.",
+      "score": 0.8333333333333333,
+      "processed": "Y",
+      "accepted": "N"
+    },
+    {
+      "index": 8,
+      "question": " what is ansible",
+      "answer": "Yes",
+      "score": 0.8333333333333333,
+      "processed": "Y",
+      "accepted": "N"
+    },
+    {
+      "index": 0,
+      "question": " what is ansible",
+      "answer": "Ansible is written in Python",
+      "score": 0.775,
+      "processed": "Y",
+      "accepted": "N"
+    },
+    {
+      "index": 4,
+      "question": " what is ansible",
+      "answer": "All hosts are stored in a local Ansible inventory file called /etc/ansible/hosts.",
+      "score": 0.775,
+      "processed": "Y",
+      "accepted": "N"
+    },
+    {
+      "index": 1,
+      "question": " what is ansible",
+      "answer": "Please refer official Ansible website for this information.",
+      "score": 0.75,
+      "processed": "Y",
+      "accepted": "N"
+    },
+    {
+      "index": 3,
+      "question": " what is ansible",
+      "answer": "When Ansible has problems running play against a host",
+      "score": 0.75,
+      "processed": "N",
+      "accepted": "N"
+    },
+    {
+      "index": 6,
+      "question": " what is ansible",
+      "answer": "Puppet is more of a configuration management tool",
+      "score": 0.75,
+      "processed": "N",
+      "accepted": "N"
+    },
+    {
+      "index": 7,
+      "question": " what is ansible",
+      "answer": "Ansible can use existing privilege esccalation systems to allow a user to execute tasks as another.",
+      "score": 0.75,
+      "processed": "N",
+      "accepted": "N"
+    }
+  ]
+}

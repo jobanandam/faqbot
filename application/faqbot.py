@@ -26,6 +26,35 @@ class myClass():
         return self.score < other.score
 
 
+def exclude_typo(question):
+    question = question.lower()
+    print ("question in lower", question)
+    question_tokens = question.split()
+    print("Inside exclude typo")
+    final_word = ""
+    for question_token in question_tokens:
+        word_exists_in_csv = 0
+        import csv
+        print(question_token)
+        with open('resources/Topic_Typo_Tolerance_Set.csv') as file:
+            csv_content = csv.reader(file, delimiter='\t')
+            for row in csv_content:
+                # print("row o >", row[0])
+                # print("row 1 >", row[1])
+                csv_entry = str(row[1].split(","))
+                # print(possible_values)
+                if question_token in csv_entry:
+                    print(row[0], "is miss spelt as", question_token)
+                    final_word = final_word + " " + row[0]
+                    word_exists_in_csv = 1
+                    break
+            if word_exists_in_csv == 0:
+                final_word = final_word + " " + question_token
+
+    print("corrected question is", final_word)
+    return final_word
+
+
 class SentenceSimilarities:
     dc = DevopsClassifier('resources/Single_FaQ.csv')
 
@@ -236,6 +265,7 @@ class SentenceSimilarities:
             if question.split(" ").__len__().__le__(1):
                 print("Can you please give some more details, so that i can try to answer")
             else:
+
                 possible_sentences = SentenceSimilarities.calculate_similarity(detailed_logging, question,
                                                                                perform_classification)
                 for best_sentence, question, best_score in possible_sentences:
@@ -259,7 +289,8 @@ class SentenceSimilarities:
         if question.split(" ").__len__().__le__(1):     # question too short
             response_dict["answer"] = "Can you please give some more details, so that i can try to answer"
         else:   # calculate similarity
-            possible_sentences = SentenceSimilarities.calculate_similarity(detailed_logging, question,
+            corrected_question = exclude_typo(question)
+            possible_sentences = SentenceSimilarities.calculate_similarity(detailed_logging, corrected_question,
                                                                            perform_classification)
             # sort in descending order of score
             sorted_possible_sentences = sorted(possible_sentences, key=lambda record: record[2], reverse=True)
@@ -269,7 +300,7 @@ class SentenceSimilarities:
                 max_score = sorted_possible_sentences[0][2]
                 print("max score = ")
                 print(max_score)
-                if max_score < 0.75:    # bot is doubtful. go for feedback mechanism
+                if 0.56 < max_score < 0.95:    # bot is doubtful. go for feedback mechanism
                     print("I'm doubtful. Let me go for feedback mechanism")
                     SentenceSimilarities.write_possible_questions(detailed_logging, possible_sentences,
                                                                   suggestible_questions,
@@ -420,8 +451,9 @@ class SentenceSimilarities:
 
 
 if __name__ == '__main__':
-    # SentenceSimilarities.perform_classification_and_sent_similarities_on_file()
+    SentenceSimilarities.perform_classification_and_sent_similarities_on_file()
+
     # SentenceSimilarities.perform_classification_and_sent_similarities()
     # SentenceSimilarities.perform_sent_similarities()
-    SentenceSimilarities.get_questions_from_user_interface("What is git?", False, False)
+    # SentenceSimilarities.get_questions_from_user(False)
     # SentenceSimilarities.get_questions_from_file(False)
