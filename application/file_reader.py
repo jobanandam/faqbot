@@ -1,8 +1,17 @@
+import json
+
+
 def read_file(source, mode):
     file = open(source, mode)
     content = file.read()
     file.close()
     return content
+
+
+def read_json_file(file_name):
+    file = open(file_name, "r")
+    json_data = json.loads(file.read())
+    return json_data
 
 
 def main():

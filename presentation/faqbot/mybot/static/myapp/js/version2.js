@@ -3,7 +3,7 @@
     Message = function(arg) {
         this.text = arg.text, this.message_side = arg.message_side,
         this.prompt_feedback = arg.prompt_feedback, this.conversation_key = arg.conversation_key,
-        this.feedback_for_question = arg.feedback_for_question,
+        this.feedback_for_question = arg.feedback_for_question, this.index = arg.index,
         this.user_feedback = arg.user_feedback;
         this.draw = function(_this) {
             return function() {
@@ -19,22 +19,26 @@
         this.getQueryString = function(_this) {
             return function() {
                 if (_this.feedback_for_question !== ''){
-                    return '?feedback=' + _this.user_feedback + '&conversation_key' + _this.conversation_key;
+                    return '?feedback=' + _this.user_feedback + '&conversation_key=' + _this.conversation_key + '&index=' + _this.index;
                 } else {
                     return '';
                 }
             };
         }(this);
+        this.clearFeedbackState = function(_this) {
+            return function() {
+                _this.prompt_feedback = 'N', _this.user_feedback = '', _this.feedback_for_question = '', _this.index = -1;
+            };
+        }(this);
         this.reset = function(_this) {
             return function() {
-                _this.prompt_feedback = ''
-                _this.conversation_key = ''
-                _this.feedback_for_question = ''
+                _this.prompt_feedback = ''; _this.user_feedback = ''; _this.conversation_key = '';
+                _this.feedback_for_question = ''; _this.index = -1;
             };
         }(this);
         this.isFeedBack = function(_this) {
             return function() {
-                _this.feedback_for_question !== ''
+                return _this.feedback_for_question !== ''
             };
         }(this);
         return this;
@@ -46,7 +50,9 @@
                 message_side: 'right',
                 prompt_feedback: '',
                 conversation_key: '',
-                feedback_for_question: ''
+                feedback_for_question: '',
+                user_feedback: '',
+                index: -1
             });
 
         getMessageText = function() {
@@ -56,6 +62,7 @@
         };
         callApi = function(message){
             question = message.isFeedBack() ? message.feedback_for_question : message.text;
+            message.user_feedback = message.isFeedBack() ? message.text: '';
             query_string = message.getQueryString();
             $.ajax({
                 url: 'http://localhost:9080/bot/dev-ops/' + question + query_string,
@@ -70,16 +77,20 @@
             });
         };
         processMessage = function(data, question) {
+            message_suffix = ''
             if (data === '' || data === undefined) {
                 return;
             }
-            message.text = data.answer;
-            if (message.prompt_feedback == 'Y'){
+            if (data.prompt_feedback == 'Y'){
                 message.prompt_feedback = data.prompt_feedback;
-                message.conversation_key = data.conversation_key;
-                message.feedback_for_question = question;
-                message.text = message.text + '\n Is this the answer you are looking for? Please reply "yes" or "no". To abort, reply "stop".'
+                message.index = data.index;
+                message.feedback_for_question = message.text;
+                message_suffix = '<br/><br/> Was this information helpful? Please reply "yes" or "no". Or continue asking other questions. '
+            } else {
+                message.clearFeedbackState();
             }
+            message.conversation_key = data.user_id;
+            message.text = data.answer + message_suffix;
             sendMessage(message);
         };
         sendMessage = function(message) {
