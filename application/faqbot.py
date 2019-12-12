@@ -5,7 +5,8 @@ from nltk.corpus import wordnet as wn
 from nltk.stem.snowball import SnowballStemmer
 from nltk.stem import WordNetLemmatizer
 
-from classifier import DevopsClassifier
+from application.classifier import DevopsClassifier
+from application.binary_classifier import TechnicalClassifier
 
 from application.feedback_system import FeedbackSystem
 from application.questions_io import append_user_suggestible_questions_in_file
@@ -57,6 +58,7 @@ def exclude_typo(question):
 
 class SentenceSimilarities:
     dc = DevopsClassifier('resources/Single_FaQ.csv')
+    tc = TechnicalClassifier('resources/Single_FaQ.csv', 'resources/generic_diag.csv')
 
     @staticmethod
     def penn_to_wn(tag):
@@ -199,8 +201,15 @@ class SentenceSimilarities:
     def calculate_similarity(print_possible_matches, question, perform_classification):
         score_array = []
         if perform_classification:
-            cat = SentenceSimilarities.dc.get_devops_category(question)
-            sentences = SentenceSimilarities.dc.get_questions(category=cat)
+            bin_cat = SentenceSimilarities.tc.get_technical_category(question)
+            print('[Debug]: Question is {}'.format(question))
+            print('[Debug]: Category from layer 1 is {}'.format(bin_cat))
+            if bin_cat == 'Generic':
+                sentences = SentenceSimilarities.dc.get_questions(category=bin_cat)
+            else:
+                cat = SentenceSimilarities.dc.get_devops_category(question)
+                print('[Debug]: Category from layer 2 is {}'.format(cat))
+                sentences = SentenceSimilarities.dc.get_questions(category=cat)
         else:
             sentences = SentenceSimilarities.read_content_from_file("resources/Single_FaQ.csv")
         if print_possible_matches:
@@ -422,15 +431,18 @@ class SentenceSimilarities:
     @staticmethod
     def perform_classification_on_test_data():
         SentenceSimilarities.dc.initialize_models()
+        SentenceSimilarities.tc.initialize_models()
 
     @staticmethod
     def perform_classification_and_sent_similarities():
         SentenceSimilarities.dc.initialize_models()
+        SentenceSimilarities.tc.initialize_models()
         SentenceSimilarities.get_questions_from_user(True, True)
 
     @staticmethod
     def perform_classification_and_sent_similarities_on_file():
         SentenceSimilarities.dc.initialize_models()
+        SentenceSimilarities.tc.initialize_models()
         SentenceSimilarities.get_questions_from_file(False, False)
 
     @staticmethod
