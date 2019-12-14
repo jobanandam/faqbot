@@ -27,6 +27,15 @@ class myClass():
         return self.score < other.score
 
 
+class Question:
+    category = ''
+    question = ''
+    max_score_of_matched_sent = 0
+
+    def is_feedback_required(self):
+        return self.category != 'Generic' and 0.56 < self.max_score_of_matched_sent < 0.95
+
+
 def exclude_typo(question):
     question = question.lower()
     print ("question in lower", question)
@@ -59,6 +68,7 @@ def exclude_typo(question):
 class SentenceSimilarities:
     dc = DevopsClassifier('resources/Single_FaQ.csv')
     tc = TechnicalClassifier('resources/Single_FaQ.csv', 'resources/generic_diag.csv')
+    questionObj = Question()    # contains current question's attributes
 
     @staticmethod
     def penn_to_wn(tag):
@@ -210,6 +220,7 @@ class SentenceSimilarities:
                 cat = SentenceSimilarities.dc.get_devops_category(question)
                 print('[Debug]: Category from layer 2 is {}'.format(cat))
                 sentences = SentenceSimilarities.dc.get_questions(category=cat)
+            SentenceSimilarities.questionObj.category = bin_cat
         else:
             sentences = SentenceSimilarities.read_content_from_file("resources/Single_FaQ.csv")
         if print_possible_matches:
@@ -290,6 +301,7 @@ class SentenceSimilarities:
 
     @staticmethod
     def get_questions_from_user_interface(question, detailed_logging, perform_classification):
+        SentenceSimilarities.questionObj.question = question
         user_id = str(uuid4())
         suggestible_questions = []
         # Initialize response_dict with default values
@@ -307,9 +319,10 @@ class SentenceSimilarities:
             print(sorted_possible_sentences)
             if len(sorted_possible_sentences) > 0:      # if there is more than one matched sentence
                 max_score = sorted_possible_sentences[0][2]
+                SentenceSimilarities.questionObj.max_score_of_matched_sent = max_score
                 print("max score = ")
                 print(max_score)
-                if 0.56 < max_score < 0.95:    # bot is doubtful. go for feedback mechanism
+                if SentenceSimilarities.questionObj.is_feedback_required():    # bot is doubtful. go for feedback mechanism
                     print("I'm doubtful. Let me go for feedback mechanism")
                     SentenceSimilarities.write_possible_questions(detailed_logging, possible_sentences,
                                                                   suggestible_questions,
@@ -335,7 +348,7 @@ class SentenceSimilarities:
                          "prompt_feedback": "N", "index": -1}
         if feedback.lower() in positive_feedback_list:  # positive feedback
             FeedbackSystem.update_positive_feedback(user_id, index)
-            response_dict["answer"] = "Thanks for your feedback. This will help me in my learning process."
+            response_dict["answer"] = "Thanks for your feedback! This will help me in my learning process."
         elif feedback.lower() in negative_feedback_list:    # negative feedback
             next_suggestible_question = FeedbackSystem.get_next_suggestible_question_for(user_id)
             answer = next_suggestible_question["answer"]
