@@ -82,7 +82,8 @@ class FeedbackSystem:
     @staticmethod
     def get_user_specific_suggestible_questions(user_id):
         all_user_suggestible_questions = read_json_file("../application/resources/suggestible_questions.json")
-        user_suggestible_questions = all_user_suggestible_questions.get(user_id)
+        one_question_results_for_given_user_id = all_user_suggestible_questions.get(user_id)
+        user_suggestible_questions = one_question_results_for_given_user_id["suggestible_questions"]
         return user_suggestible_questions
 
 
