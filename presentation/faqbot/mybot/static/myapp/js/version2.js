@@ -46,7 +46,7 @@
     $(function() {
         var getMessageText, message_side, sendMessage, message;
         message = new Message({ // initialize once globally
-                text: 'Hello Welcome !!! I am FAQ BOT .. How can I help you ?',
+                text: 'Hello Welcome, How may I help you ?',
                 message_side: 'right',
                 prompt_feedback: '',
                 conversation_key: '',

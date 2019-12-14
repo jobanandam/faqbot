@@ -1,4 +1,4 @@
-Veracode	What languages and platforms does your static scanner support	Veracode allows you to scan Java: JSP: .NET- C#: .NET - VB.NET: ASP.NET: .NET - C+/CLI: C/C+: PHP: ColdFusion: iOS: Android: J2ME: Ruby: Classic ASP: VBScript: VB6: Flash (using Dynamic): COBOL: and JavaScript for mobile and web applications! Our list of supported platforms and languages is always growing
+DevOpsVeracode	What languages and platforms does your static scanner support	Veracode allows you to scan Java: JSP: .NET- C#: .NET - VB.NET: ASP.NET: .NET - C+/CLI: C/C+: PHP: ColdFusion: iOS: Android: J2ME: Ruby: Classic ASP: VBScript: VB6: Flash (using Dynamic): COBOL: and JavaScript for mobile and web applications! Our list of supported platforms and languages is always growing
 Veracode	What email notifications will I get from Veracode	Veracode keeps customers up to date with scan and overall service status via email. Veracode users will receive emails when: Password is changed: Pre-scan verification is complete: Scan is submitted: and Scan has completed.
 Veracode	What is pre-scan verification	The Veracode platform performs a preliminary analysis: or Pre-Scan: of your binaries to validate that they can be analyzed and to give you an opportunity to fix problems with the uploaded files before submitting your scan request. The results of the Pre-Scan verification are given as messages in the module table; summary information appears as you select modules to be scanned.
 Veracode	I received an email saying there was an issue scanning my application. What should I do	Veracode will send a scan failure email if issues are encountered scanning your application. Our engineering team will work with you to resolve any issues like this and ensure scan success.
@@ -190,14 +190,14 @@ Git	What is a staging area	Developers can format and review commits in an interm
 Git	Explain the use of ‘Git diff’ command in Git	The command Git diff is used to show changes between commits
 Git	What is the use of ‘Git Rm’ command	Git Rm is used to remove file from both the staging area and the disk
 Git	What is the use of the function ‘Git log’	Git Log function is used to find specific commits in the project’s evolution
-Generic	What is your Name	 Myself FAQ BOT How can i help you
+Generic	What is your Name	 I'm DevOps Assistant
 Generic	What are the code quality tools available	 We have Sonar Qube and HP Fortify for Security check Please find the links for more details https://confluencebnnpparibasfortiscom/sonar and https://confluencebnnpparibasfortiscom/nexus
 Generic	What are the devops tool available	 Please refer link https://confluence/devopstools
 Generic	where can i get the architecture of DevOps	 Please refer link https://confluence/devops/architect
-Generic	How can you help me	 Myself FAQ BOT you can ask your DevOps Questions to me i can help answering you
+Generic	How can you help me	 I'm DevOps Assistant, you can ask your DevOps Questions to me i can help answering you
 Generic	You're not answering well	I'm just a kid Learning from you
 Generic	Where india Located	 Please ask questions related to DevOps
-Generic	how to build and package my ios App	Please refer link https://confluence/howtobuidandpackage
+CDD	how to build and package my ios App	Please refer link https://confluence/howtobuidandpackage
 Generic	What is Agile 	Agile software development comprises various approaches to software development under which requirements and solutions evolve through the collaborative effort of self-organizing and cross-functional teams and their customer/end user
 CDD	How do I deploy my application to DEV/Test 	 You can do it through Jenkins Pipeline & then through CDD Detailed documentation can be found here!
 CDD	How to report my CDD issue 	You can ask me !If we don't have any match for that answer then we can ask if Bot can log a issue to CDD Team on behalf of user
@@ -610,3 +610,4 @@ SVN	What is SVN stand for?	SVN, abbreviation for Apache Subversion, a software v
 SVN	How do I access SVN repository?	Connecting to an SVN Server Select File > Add Repository… (or click the button located at the bottom of the source list and select Add Repository…)  Select None to access a server without tunneling. Enter the relative path of the repository into the Repository Path field.
 SVN	How does SVN work?	The files on your computer are called working files. These are the files in which each user makes edits. Then, users commit their changes to the SVN server. Each time a user commits a change, SVN manages and records it by creating a new version.
 SVN	What is SVN tool?	Apache Subversion (often abbreviated SVN, after its command name svn) is a software versioning and revision control system distributed as open source under the Apache License. Software developers use Subversion to maintain current and historical versions of files such as source code, web pages, and documentation.
+DevOps	how can i get onboarded to devops	Please refer the below link for the detailed process. https://confluence/devops-onboarding-process
