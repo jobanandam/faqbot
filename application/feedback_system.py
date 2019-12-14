@@ -7,6 +7,7 @@ class FeedbackSystem:
     @staticmethod
     def get_next_suggestible_question_from(user_id, sorted_suggestible_questions):
         sorted_suggestible_questions = list(sorted_suggestible_questions)
+        already_suggested_questions_count = 0
 
         for index in range(len(sorted_suggestible_questions)):
             next_suggestible_question = sorted_suggestible_questions[index]
@@ -17,6 +18,10 @@ class FeedbackSystem:
                 update_user_suggestible_questions(user_id, sorted_suggestible_questions)
 
                 return next_suggestible_question
+            already_suggested_questions_count += 1
+
+            if already_suggested_questions_count > 4:
+                return None
 
         return None
 
@@ -77,7 +82,8 @@ class FeedbackSystem:
     @staticmethod
     def get_user_specific_suggestible_questions(user_id):
         all_user_suggestible_questions = read_json_file("../application/resources/suggestible_questions.json")
-        user_suggestible_questions = all_user_suggestible_questions.get(user_id)
+        one_question_results_for_given_user_id = all_user_suggestible_questions.get(user_id)
+        user_suggestible_questions = one_question_results_for_given_user_id["suggestible_questions"]
         return user_suggestible_questions
 
 

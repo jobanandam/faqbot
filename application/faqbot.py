@@ -326,7 +326,7 @@ class SentenceSimilarities:
                     print("I'm doubtful. Let me go for feedback mechanism")
                     SentenceSimilarities.write_possible_questions(detailed_logging, possible_sentences,
                                                                   suggestible_questions,
-                                                                  user_id)
+                                                                  user_id, corrected_question)
                     next_suggestible_question = FeedbackSystem.get_next_suggestible_question_for(user_id)
                     response_dict["prompt_feedback"] = "Y"
                     response_dict["answer"] = next_suggestible_question["answer"]
@@ -365,7 +365,7 @@ class SentenceSimilarities:
         return response_dict
 
     @staticmethod
-    def write_possible_questions(detailed_logging, possible_sentences, suggestible_questions, user_id):
+    def write_possible_questions(detailed_logging, possible_sentences, suggestible_questions, user_id, user_question):
         index = -1
         for best_sentence, question, best_score in possible_sentences:
             index += 1
@@ -373,7 +373,7 @@ class SentenceSimilarities:
                                                                       best_score, question)
             suggestible_questions.append({
                 "index": index,
-                "question": question,
+                "question": best_sentence,
                 "answer": answer,
                 "score": best_score,
                 "processed": "N",
@@ -381,8 +381,12 @@ class SentenceSimilarities:
             })
 
         suggestible_questions_json_file_name = "./resources/suggestible_questions.json"
-        user_suggestible_questions = {"user_id": user_id, "suggestible_questions": suggestible_questions}
-        append_user_suggestible_questions_in_file(user_suggestible_questions, suggestible_questions_json_file_name)
+        user_questions_data = {
+                "user_id": user_id,
+                "user_question": user_question,
+                "suggestible_questions": suggestible_questions
+        }
+        append_user_suggestible_questions_in_file(user_questions_data, suggestible_questions_json_file_name)
 
     @staticmethod
     def get_the_answer_unclassified(print_answers, best_sentence, best_score, question):
