@@ -7,6 +7,7 @@ class FeedbackSystem:
     @staticmethod
     def get_next_suggestible_question_from(user_id, sorted_suggestible_questions):
         sorted_suggestible_questions = list(sorted_suggestible_questions)
+        already_suggested_questions_count = 0
 
         for index in range(len(sorted_suggestible_questions)):
             next_suggestible_question = sorted_suggestible_questions[index]
@@ -17,6 +18,10 @@ class FeedbackSystem:
                 update_user_suggestible_questions(user_id, sorted_suggestible_questions)
 
                 return next_suggestible_question
+            already_suggested_questions_count += 1
+
+            if already_suggested_questions_count > 4:
+                return None
 
         return None
 
