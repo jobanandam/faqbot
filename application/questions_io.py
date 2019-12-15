@@ -1,3 +1,4 @@
+from application import file_reader
 from application.file_reader import read_json_file
 from application.file_writer import write_json_file
 
@@ -26,3 +27,9 @@ def append_user_suggestible_questions_in_file(data, file_name):
     root_json_obj = read_json_file(file_name)
     root_json_obj[data["user_id"]] = results_of_one_question
     write_json_file(root_json_obj, file_name)
+
+
+def get_all_questions(file="resources/Single_FaQ.json"):
+    single_faq_json_file = file
+    root_json_obj = file_reader.read_json_file(single_faq_json_file)
+    return root_json_obj["questions"]
