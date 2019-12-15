@@ -1,12 +1,13 @@
-import csv
 import numpy as np
 from nltk import word_tokenize
 from nltk.corpus import stopwords
-from sklearn import preprocessing
 from nltk.corpus import wordnet as wn
-from sklearn.naive_bayes import MultinomialNB
 from nltk.stem import WordNetLemmatizer, SnowballStemmer
+from sklearn import preprocessing
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
+from sklearn.naive_bayes import MultinomialNB
+
+from application import file_reader
 
 
 class DevopsClassifier:
@@ -40,12 +41,17 @@ class DevopsClassifier:
         self.clf.fit(self.X, self.y)
 
     def read_file(self, file):
-        with open(self.file) as file:
-            csv_reader = csv.reader(file, delimiter='\t')
-            for each_line in csv_reader:
-                self.raw_questions.append(each_line[1])
-                self.raw_categories.append(each_line[0])
-                self.raw_category_question.append((each_line[0], each_line[1]))
+        single_faq_json_file = file
+        root_json_obj = file_reader.read_json_file(single_faq_json_file)
+        questions_data = root_json_obj["questions"]
+        for question_data in questions_data:
+            question = question_data["question"]
+            question_category = question_data["category"]
+
+            self.raw_questions.append(question)
+            self.raw_categories.append(question_category)
+            self.raw_category_question.append((question_category, question))
+
         self.raw_questions = np.array(self.raw_questions)
         self.raw_categories = np.array(self.raw_categories)
 
