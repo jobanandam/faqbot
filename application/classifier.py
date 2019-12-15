@@ -15,7 +15,7 @@ class DevopsClassifier:
         self.stop_words = set(stopwords.words('english'))
         self.stem_obj = SnowballStemmer('english')
         self.le = preprocessing.LabelEncoder()
-        self.cv = CountVectorizer(ngram_range=(1, 3), lowercase=True)
+        self.cv = CountVectorizer(ngram_range=(1, 2), lowercase=True)
         self.tf_idf_transformer = TfidfTransformer(smooth_idf=True, use_idf=True)
         self.clf = MultinomialNB(alpha=0.6, fit_prior=False)
         self.raw_questions = []
@@ -50,7 +50,7 @@ class DevopsClassifier:
         self.raw_categories = np.array(self.raw_categories)
 
     def pre_process_question(self, sent):
-        words = [self.stem_obj.stem(w.lower()) for w in word_tokenize(sent)]
+        words = [self.stem_obj.stem(w.lower()) for w in word_tokenize(sent) if self.stem_obj.stem(w.lower()) not in self.stop_words]
         result = []
         for w in words:
             synsets = wn.synsets(self.word_net_lemma.lemmatize(w))
@@ -68,6 +68,8 @@ class DevopsClassifier:
 
     def get_devops_category(self, question):
         question = self.pre_process_question(question)
+        if len(question) == 0:
+            return 'Generic'
         X = self.tf_idf_transformer.transform(self.cv.transform([question]))
         X = np.squeeze(np.asarray(X.T.todense()))
         X = np.array(X)
@@ -80,3 +82,14 @@ class DevopsClassifier:
         else:
             res = [q for c, q in self.raw_category_question if c == category]
             return res
+
+'''
+if __name__ == '__main__':
+    tc = DevopsClassifier('resources/Single_FaQ.csv')
+    tc.initialize_models()
+
+    while True:
+        question = input('Question: ')
+        result = tc.get_devops_category(question)
+        print('{}'.format(result))
+'''
