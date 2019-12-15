@@ -67,7 +67,7 @@ def exclude_typo(question):
 
 class SentenceSimilarities:
     dev_ops_classifier = DevopsClassifier('resources/Single_FaQ.csv')
-    tc = TechnicalClassifier('resources/Single_FaQ.csv', 'resources/generic_diag.csv')
+    technical_classifier = TechnicalClassifier('resources/Single_FaQ.csv', 'resources/generic_diag.csv')
     questionObj = Question()    # contains current question's attributes
 
     @staticmethod
@@ -211,7 +211,7 @@ class SentenceSimilarities:
     def calculate_similarity(print_possible_matches, question, perform_classification):
         score_array = []
         if perform_classification:
-            bin_cat = SentenceSimilarities.tc.get_technical_category(question)
+            bin_cat = SentenceSimilarities.technical_classifier.get_technical_category(question)
             print('[Debug]: Question is {}'.format(question))
             print('[Debug]: Category from layer 1 is {}'.format(bin_cat))
             if bin_cat == 'Generic':
@@ -448,18 +448,18 @@ class SentenceSimilarities:
     @staticmethod
     def perform_classification_on_test_data():
         SentenceSimilarities.dev_ops_classifier.initialize_models()
-        SentenceSimilarities.tc.initialize_models()
+        SentenceSimilarities.technical_classifier.initialize_models()
 
     @staticmethod
     def perform_classification_and_sent_similarities():
         SentenceSimilarities.dev_ops_classifier.initialize_models()
-        SentenceSimilarities.tc.initialize_models()
+        SentenceSimilarities.technical_classifier.initialize_models()
         SentenceSimilarities.get_questions_from_user(True, True)
 
     @staticmethod
     def perform_classification_and_sent_similarities_on_file():
         SentenceSimilarities.dev_ops_classifier.initialize_models()
-        SentenceSimilarities.tc.initialize_models()
+        SentenceSimilarities.technical_classifier.initialize_models()
         SentenceSimilarities.get_questions_from_file(False, False)
 
     @staticmethod
