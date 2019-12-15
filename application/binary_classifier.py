@@ -7,6 +7,10 @@ from nltk.corpus import wordnet as wn
 from sklearn.naive_bayes import MultinomialNB
 from nltk.stem import WordNetLemmatizer, SnowballStemmer
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
+from sklearn.naive_bayes import MultinomialNB
+
+from application import file_reader
+from application.questions_io import get_all_questions
 
 
 class TechnicalClassifier:
@@ -44,25 +48,30 @@ class TechnicalClassifier:
         self.clf.fit(self.X, self.y)
 
     def read_file(self, file):
-        with open(self.file) as file:
-            csv_reader = csv.reader(file, delimiter='\t')
-            for each_line in csv_reader:
-                category = 'Generic' if each_line[0] == 'Generic' else 'Technical'
-                self.raw_questions.append(each_line[1])
-                self.raw_categories.append(category)
-                self.raw_category_question.append((each_line[0], each_line[1]))
-        # self.raw_questions = np.array(self.raw_questions)
-        # self.raw_categories = np.array(self.raw_categories)
+        questions_data = get_all_questions(file)
+        for question_data in questions_data:
+            question_category = question_data["category"]
+            if question_category != 'Generic':
+                question_category = "Technical"
+            question = question_data["question"]
 
-    def read_file_generic(self, g_file):
-        with open(g_file) as file:
-            csv_reader = csv.reader(file)
-            counter = 0
-            for each_line in csv_reader:
-                each_line = each_line[0].split('+++$+++')
-                self.raw_questions.append(each_line[1])
-                self.raw_categories.append(each_line[0])
-                self.raw_category_question.append((each_line[0], each_line[1]))
+            self.raw_questions.append(question)
+            self.raw_categories.append(question_category)
+            self.raw_category_question.append((question_category, question))
+
+    def read_file_generic(self, generic_dialogue_json_file):
+        root_json_obj = file_reader.read_json_file(generic_dialogue_json_file)
+        generic_dialogue_data = root_json_obj["generic_dialogue_data"]
+        questions_and_categories = generic_dialogue_data["questions_and_categories"]
+
+        for questions_and_category in questions_and_categories:
+            question = questions_and_category["question"]
+            category = questions_and_category["category"]
+
+            self.raw_questions.append(question)
+            self.raw_categories.append(category)
+            self.raw_category_question.append((category, question))
+
         self.raw_questions = np.array(self.raw_questions)
         self.raw_categories = np.array(self.raw_categories)
 
