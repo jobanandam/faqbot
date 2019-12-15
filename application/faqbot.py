@@ -5,6 +5,7 @@ from nltk.corpus import wordnet as wn
 from nltk.stem import WordNetLemmatizer
 from nltk.stem.snowball import SnowballStemmer
 
+from application import file_reader
 from application.binary_classifier import TechnicalClassifier
 from application.classifier import DevopsClassifier
 from application.feedback_system import FeedbackSystem
@@ -42,23 +43,20 @@ def exclude_typo(question):
     print("Inside exclude typo")
     final_word = ""
     for question_token in question_tokens:
+        root_json_obj = file_reader.read_json_file("resources/Topic_Typo_Tolerance_Set.json")
+        tolerable_words_data_collection = root_json_obj["tolerable_words_data_collection"]
         word_exists_in_csv = 0
-        import csv
         print(question_token)
-        with open('resources/Topic_Typo_Tolerance_Set.csv') as file:
-            csv_content = csv.reader(file, delimiter='\t')
-            for row in csv_content:
-                # print("row o >", row[0])
-                # print("row 1 >", row[1])
-                csv_entry = str(row[1].split(","))
-                # print(possible_values)
-                if question_token in csv_entry:
-                    print(row[0], "is miss spelt as", question_token)
-                    final_word = final_word + " " + row[0]
-                    word_exists_in_csv = 1
-                    break
-            if word_exists_in_csv == 0:
-                final_word = final_word + " " + question_token
+
+        for tolerable_word_data in tolerable_words_data_collection:
+            if question_token in tolerable_word_data["tolerable_words"]:
+                print(tolerable_word_data["correct_word"], "is miss spelt as", question_token)
+                final_word = final_word + " " + tolerable_word_data["correct_word"]
+                word_exists_in_csv = 1
+                break
+
+        if word_exists_in_csv == 0:
+            final_word = final_word + " " + question_token
 
     print("corrected question is", final_word)
     return final_word
