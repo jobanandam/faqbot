@@ -2,14 +2,13 @@ from uuid import uuid4
 
 from nltk import word_tokenize, pos_tag
 from nltk.corpus import wordnet as wn
-from nltk.stem.snowball import SnowballStemmer
 from nltk.stem import WordNetLemmatizer
+from nltk.stem.snowball import SnowballStemmer
 
-from application.classifier import DevopsClassifier
 from application.binary_classifier import TechnicalClassifier
-
+from application.classifier import DevopsClassifier
 from application.feedback_system import FeedbackSystem
-from application.questions_io import append_user_suggestible_questions_in_file
+from application.questions_io import append_user_suggestible_questions_in_file, get_all_questions
 
 stem_obj = SnowballStemmer('english')
 word_net_lemma = WordNetLemmatizer()
@@ -66,8 +65,8 @@ def exclude_typo(question):
 
 
 class SentenceSimilarities:
-    dev_ops_classifier = DevopsClassifier('resources/Single_FaQ.csv')
-    technical_classifier = TechnicalClassifier('resources/Single_FaQ.csv', 'resources/generic_diag.csv')
+    dev_ops_classifier = DevopsClassifier('resources/Single_FaQ.json')
+    technical_classifier = TechnicalClassifier('resources/Single_FaQ.json', 'resources/generic_dialogue.json')
     questionObj = Question()    # contains current question's attributes
 
     @staticmethod
@@ -390,13 +389,12 @@ class SentenceSimilarities:
 
     @staticmethod
     def get_the_answer_unclassified(print_answers, best_sentence, best_score, question):
-        import csv
         answers = ""
-        with open('resources/Single_FaQ.csv') as csvfile:
-            csv_content = csv.reader(csvfile, delimiter='\t')
-            for row in csv_content:
-                if row[1] == best_sentence:
-                    answers = row[2]
+        questions_data = get_all_questions()
+        for question_data in questions_data:
+            if question_data["question"] == best_sentence:
+                answers = question_data["answer"]
+
         if print_answers:
             SentenceSimilarities.print_question_answer(question, answers, best_score)
         return answers
