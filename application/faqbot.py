@@ -66,7 +66,7 @@ def exclude_typo(question):
 
 
 class SentenceSimilarities:
-    dc = DevopsClassifier('resources/Single_FaQ.csv')
+    dev_ops_classifier = DevopsClassifier('resources/Single_FaQ.csv')
     tc = TechnicalClassifier('resources/Single_FaQ.csv', 'resources/generic_diag.csv')
     questionObj = Question()    # contains current question's attributes
 
@@ -215,11 +215,11 @@ class SentenceSimilarities:
             print('[Debug]: Question is {}'.format(question))
             print('[Debug]: Category from layer 1 is {}'.format(bin_cat))
             if bin_cat == 'Generic':
-                sentences = SentenceSimilarities.dc.get_questions(category=bin_cat)
+                sentences = SentenceSimilarities.dev_ops_classifier.get_questions(category=bin_cat)
             else:
-                cat = SentenceSimilarities.dc.get_devops_category(question)
+                cat = SentenceSimilarities.dev_ops_classifier.get_devops_category(question)
                 print('[Debug]: Category from layer 2 is {}'.format(cat))
-                sentences = SentenceSimilarities.dc.get_questions(category=cat)
+                sentences = SentenceSimilarities.dev_ops_classifier.get_questions(category=cat)
             SentenceSimilarities.questionObj.category = bin_cat
         else:
             sentences = SentenceSimilarities.read_content_from_file("resources/Single_FaQ.csv")
@@ -447,18 +447,18 @@ class SentenceSimilarities:
 
     @staticmethod
     def perform_classification_on_test_data():
-        SentenceSimilarities.dc.initialize_models()
+        SentenceSimilarities.dev_ops_classifier.initialize_models()
         SentenceSimilarities.tc.initialize_models()
 
     @staticmethod
     def perform_classification_and_sent_similarities():
-        SentenceSimilarities.dc.initialize_models()
+        SentenceSimilarities.dev_ops_classifier.initialize_models()
         SentenceSimilarities.tc.initialize_models()
         SentenceSimilarities.get_questions_from_user(True, True)
 
     @staticmethod
     def perform_classification_and_sent_similarities_on_file():
-        SentenceSimilarities.dc.initialize_models()
+        SentenceSimilarities.dev_ops_classifier.initialize_models()
         SentenceSimilarities.tc.initialize_models()
         SentenceSimilarities.get_questions_from_file(False, False)
 
@@ -468,11 +468,11 @@ class SentenceSimilarities:
 
     @staticmethod
     def test_classifier(save_result=False, accuracy=False):
-        SentenceSimilarities.dc.initialize_models()
-        tot = len(SentenceSimilarities.dc.raw_category_question)
+        SentenceSimilarities.dev_ops_classifier.initialize_models()
+        tot = len(SentenceSimilarities.dev_ops_classifier.raw_category_question)
         cur = 0
-        for cat, question in SentenceSimilarities.dc.raw_category_question:
-            result = SentenceSimilarities.dc.get_devops_category(question)
+        for cat, question in SentenceSimilarities.dev_ops_classifier.raw_category_question:
+            result = SentenceSimilarities.dev_ops_classifier.get_devops_category(question)
             if (result != cat):
                 cur = cur + 1
                 print('[Test] Question: {}'.format(question))
