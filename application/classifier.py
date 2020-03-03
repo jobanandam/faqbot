@@ -7,7 +7,7 @@ from sklearn import preprocessing
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 from sklearn.naive_bayes import MultinomialNB
 
-from application import file_reader
+import file_reader
 
 
 class DevopsClassifier:

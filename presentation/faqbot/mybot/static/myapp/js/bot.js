@@ -15,7 +15,6 @@ function getTime(){
     return hr + ":" + min + " " + ampm;
 }
 
-
 function AddBotChat(text) {
     var botChatHtml = $($('#bot_chat').clone().html());
     botChatHtml.find('.text').html(text);

@@ -1,5 +1,5 @@
-from application.file_reader import read_json_file
-from application.questions_io import update_user_suggestible_questions
+from file_reader import read_json_file
+from questions_io import update_user_suggestible_questions
 
 
 class FeedbackSystem:

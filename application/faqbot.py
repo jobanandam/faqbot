@@ -5,11 +5,11 @@ from nltk.corpus import wordnet as wn
 from nltk.stem import WordNetLemmatizer
 from nltk.stem.snowball import SnowballStemmer
 
-from application import file_reader
-from application.binary_classifier import TechnicalClassifier
-from application.classifier import DevopsClassifier
-from application.feedback_system import FeedbackSystem
-from application.questions_io import append_user_suggestible_questions_in_file, get_all_questions
+import file_reader
+from binary_classifier import TechnicalClassifier
+from classifier import DevopsClassifier
+from feedback_system import FeedbackSystem
+from questions_io import append_user_suggestible_questions_in_file, get_all_questions
 
 stem_obj = SnowballStemmer('english')
 word_net_lemma = WordNetLemmatizer()

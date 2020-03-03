@@ -9,8 +9,8 @@ from nltk.stem import WordNetLemmatizer, SnowballStemmer
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 from sklearn.naive_bayes import MultinomialNB
 
-from application import file_reader
-from application.questions_io import get_all_questions
+import file_reader
+from questions_io import get_all_questions
 
 
 class TechnicalClassifier:

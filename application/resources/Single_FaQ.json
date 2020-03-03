@@ -278,7 +278,7 @@
     {
       "category": "Agile Central",
       "question": "How can I create my agile central account",
-      "answer": " Let me do it for you! Give me a second."
+      "answer": " Let me create an account for you! Give me some time."
     },
     {
       "category": "Agile Central",
@@ -3028,6 +3028,11 @@
     {
       "category": "DevOps",
       "question": "how can i get onboarded to devops",
+      "answer": "Please refer the below link for the detailed process. https://confluence/devops-onboarding-process"
+    },
+    {
+      "category": "DevOps",
+      "question": "what is the devops onboarding process",
       "answer": "Please refer the below link for the detailed process. https://confluence/devops-onboarding-process"
     }
   ]

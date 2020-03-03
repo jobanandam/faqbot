@@ -1,6 +1,6 @@
-from application import file_reader
-from application.file_reader import read_json_file
-from application.file_writer import write_json_file
+import file_reader
+from file_reader import read_json_file
+from file_writer import write_json_file
 
 
 def update_user_suggestible_questions(user_id, updated_suggestible_questions):

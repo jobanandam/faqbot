@@ -19,6 +19,13 @@ class VersionTwo(generic.ListView):
         return ChatModel.objects.all()
 
 
+class VersionThree(generic.ListView):
+    template_name = 'versionThree/index.html'
+    context_object_name = 'chat_history'
+
+    def get_queryset(self):
+        return ChatModel.objects.all()
+
 def get_human_ques(request):
     input_text = request.POST['question']
     ChatModel.objects.create(type="HUMAN", text=input_text)

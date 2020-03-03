@@ -45,6 +45,7 @@
     };
     $(function() {
         var getMessageText, message_side, sendMessage, message;
+        var state=true;
         message = new Message({ // initialize once globally
                 text: 'Hello Welcome, How may I help you ?',
                 message_side: 'right',
@@ -114,6 +115,28 @@
                 return processUserInput();
             }
         });
+
+        $( document ).ready(function() {
+            $( "#bt" ).click();
+        });
+
+       $( "#bt" ).click(function() {
+            if(state) {
+                $('#collapseExample').css('display', 'none');
+                $('#floatable_pane').css('height', '8%');
+                $('#header_pane').css('height', '100%');
+                $('#bt').text('+');
+                $('#title_txt').css('top', '22%');
+            }
+            else {
+                $('#collapseExample').css('display', 'block');
+                $('#floatable_pane').css('height', '84%');  // make sure the same value is used in css
+                $('#header_pane').css('height', '10%');
+                $('#bt').text('X');
+                $('#title_txt').css('top', '2.5%');
+            }
+            state=!state;
+        });
         processUserInput = function (){
             message.text = getMessageText();
             sendMessage(message);
@@ -122,3 +145,4 @@
         sendMessage(message);
     });
 }.call(this));
+

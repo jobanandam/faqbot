@@ -1,0 +1,66 @@
+<html>
+    <head>
+        {% load static %}
+
+        <link rel="stylesheet" type="text/css" href="{% static 'myapp/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'myapp/css/bot.css' %}">
+
+        <script src="{% static 'myapp/js/jquery.min.js' %}"></script>
+        <script src="{% static 'myapp/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'myapp/js/version2.js' %}"></script>
+    </head>
+
+    <body>
+            <!--<div class="chat_window">-->
+            <!--<div class="top_menu">
+                <div class="title">DevOps - FAQ BOT</div>
+            </div>-->
+
+
+            <div class="" id="floatable_pane" style="background-color: white; height: 84%; display:block;width: 27%;position: absolute;right: 4%;border-top-left-radius: 5px;border-top-right-radius: 5px;z-index: 1;margin-top: 20px;bottom:6%;">
+                <div class="row" id="header_pane" style="background: #42965E;width: 100%;height: 10%;margin-left: 0px;margin-right: 0px;">
+                    <div id="title_txt" style="position: absolute;left: 34%;width: 50%;top: 2%;color: white;">
+                        FAQ Bot
+                    </div>
+                     <div style="position: absolute; right: 25px; width: 10px; top: 1%;color: white;">
+                        <a class="btn" id="bt" data-toggle="collapse in" style="color: white;" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            X
+                        </a>
+                    </div>
+                </div>
+
+                <div id="collapseExample" class="collapse" style="display: block;">
+                    <div id="body_pane" class="row" style="background: white;width: 100%; display: block;margin-left: 0px;margin-right: 0px;">
+                        <ul class="messages"></ul>
+                    </div>
+
+                    <div id="footer_pane" class="row container bottom_wrapper clearfix" style="display: block; width: 100%;border-radius: 5%;margin-left: 0px;margin-right: 0px;">
+                        <div class="message_input_wrapper" style="float: left;width:70%;height: 28px;">
+                            <input class="message_input" placeholder="Ask your question here...">
+                        </div>
+                        <div class="send_message" style="float: right;width: 27%;height: 29px;display: block;">
+                            <div class="icon"></div>
+                            <div class="text">Send</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+       <!-- </div>
+
+        </div>-->
+
+        <div class="message_template">
+            <li class="message">
+                <div class="avatar">
+                    <img class="bot-logo rounded-circle"/>
+                </div>
+                <div class="text_wrapper">
+                    <div class="text"></div>
+                </div>
+            </li>
+        </div>
+
+    </body>
+</html>
