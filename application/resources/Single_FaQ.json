@@ -3039,42 +3039,42 @@
     {
       "category": "CDD",
       "question": "How to onboard a new application in cdd?",
-      "answer": "How to onboard a new application in cdd?"
+      "answer": "Please refer the below link for the detailed process. https://confluence/onboard-application-to-cdd . You need to raise a jira ticket"
     },
     {
       "category": "CDD",
       "question": "Can you give me access to cdd error logs?",
-      "answer": "Can you give me access to cdd error logs?"
+      "answer": "Please refer the kibana Deployment Dashboard for detailed CDD Error Logs https://ELK/cdd-logs"
     },
     {
       "category": "CDD",
       "question": "Can you give me access to cdd release of application Xxxx",
-      "answer": "Can you give me access to cdd release of application Xxxx"
+      "answer": "Its beyond my ability. Please get the approval mail from your Triber Release Engineer, and share with the roda.support, so that the access can be provided"
     },
     {
       "category": "Fortify",
       "question": "How to obtain a fortify token for a new application",
-      "answer": "How to obtain a fortify token for a new application"
+      "answer": "You can contact the Secure Development team and provide them the App Code, for more details please refer https://confluence/onboard-app-to-fortify"
     },
     {
       "category": "Jenkins",
       "question": "Is there a groovy template for a typical Jenkins build and release pipeline commonly used in the bank?",
-      "answer": "Is there a groovy template for a typical Jenkins build and release pipeline commonly used in the bank?"
+      "answer": "Please refer the below confluence which holds the sample template http://confluence/cipaas-sample-pipeline-template"
     },
      {
-      "category": "DevOps",
+      "category": "Jenkins",
       "question": "How to integrate JMeter with my CIPaaS pipeline?",
-      "answer": "How to integrate JMeter with my CIPaaS pipeline?"
+      "answer": "Currently we dont have support for this, but you can reach out to TOFA/ DACTOR Squad for further assiatance"
      },
      {
-      "category": "DevOps",
+      "category": "Jenkins",
       "question": "Can we configure CIPaaS build to failed status if the quality in Sonar is not as expected?",
-      "answer": "Can we configure CIPaaS build to failed status if the quality in Sonar is not as expected?"
+      "answer": "Yes we can make the jenkins build to fail when the sonar quality fails, please refer http://confluence/cipaas-setup#sonar"
      },
      {
-      "category": "DevOps",
+      "category": "Jenkins",
       "question": "How to enable polling in CIPaaS?",
-      "answer": "How to enable polling in CIPaaS?"
+      "answer": "You can create a webhook in the Gitlab and in the configuration of the jenkins add the webhook. for more details please refer http://confluence/cipaas-setup#gitlab-webhook"
      }
 
   ]
