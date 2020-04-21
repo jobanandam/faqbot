@@ -1333,7 +1333,7 @@
     {
       "category": "Ansible",
       "question": "How do I fix 'protocol error: filename does not match request' when fetching a file",
-      "answer": "Newer releases of OpenSSH have a bug in the SCP client that can trigger this error on the Ansible controller when using SCP as the file transfer mechanism failed to transfer file to /tmp/ansible/file.txt\\r\protocol error: filename does not match request"
+      "answer": "Newer releases of OpenSSH have a bug in the SCP client that can trigger this error on the Ansible controller when using SCP as the file transfer mechanism failed to transfer file to /tmp/ansible/file.txt protocol error: filename does not match request"
     },
     {
       "category": "Ansible",
@@ -3075,7 +3075,183 @@
       "category": "Jenkins",
       "question": "How to enable polling in CIPaaS?",
       "answer": "You can create a webhook in the Gitlab and in the configuration of the jenkins add the webhook. for more details please refer http://confluence/cipaas-setup#gitlab-webhook"
-     }
+     },
 
+
+     {
+      "category": "Nexus",
+      "question": "How to perform a Nexus IQ scan for my application",
+      "answer": ""
+     },
+     {
+      "category": "Maven",
+      "question": "Can I still use the jgit maven plugin",
+      "answer": ""
+     },
+     {
+      "category": "Maven",
+      "question": "How to integrate with build helper maven plug-in",
+      "answer": ""
+     },
+     {
+      "category": "Maven",
+      "question": "How to disable the maven javadoc plugin",
+      "answer": ""
+     },
+     {
+      "category": "Jenkins",
+      "question": "How to create a hotfix pipeline to push fixes directly to master instead of using the dev branch",
+      "answer": ""
+     },
+     {
+      "category": "SVN",
+      "question": "How to migrate my existing code base to git from svn",
+      "answer": "Contact Cipaas/Devops team to do the migration"
+     },
+     {
+      "category": "Jenkins",
+      "question": "Do you support non Java based projects on cipaas",
+      "answer": "Yes. We do support."
+     },
+     {
+      "category": "Jenkins",
+      "question": "How to use windows machine as Jenkins slave",
+      "answer": ""
+     },
+     {
+      "category": "Octane",
+      "question": "How to push cucumber reports to octane",
+      "answer": ""
+     },
+     {
+      "category": "Fortify",
+      "question": "Where can I find my application fortify report",
+      "answer": "You can find the report in fortify software security center"
+     },
+     {
+      "category": "Sonar",
+      "question": "Where can I find sonar report?",
+      "answer": "You can get the results from sonar dashboards."
+     },
+     {
+      "category": "DevOps",
+      "question": "What is Multilan?",
+      "answer": "Multilan is a code to define "
+     },
+     {
+      "category": "DevOps",
+      "question": "Where is the Multilan delivery folder?",
+      "answer": ""
+     },
+     {
+      "category": "DevOps",
+      "question": "What's the text for this Multilan xxxii?",
+      "answer": ""
+     },
+     {
+      "category": "DevOps",
+      "question": "Common errors and solution to install node Js inside Bnppf?",
+      "answer": ""
+     },
+     {
+      "category": "Jenkins",
+      "question": "Whom should I contact for cipaas issues? ",
+      "answer": "Cipaas Support team"
+     },
+     {
+      "category": "DevOps",
+      "question": "Where can I find intellij software?",
+      "answer": ""
+     },
+     {
+      "category": "DevOps",
+      "question": "How to obtain license for intellij?",
+      "answer": ""
+     },
+     {
+      "category": "Generic",
+      "question": "Who is this guy?  G28453",
+      "answer": "Please ask BNPPF relevant question"
+     },
+     {
+      "category": "SVN",
+      "question": "How to request for svn access?",
+      "answer": ""
+     },
+     {
+      "category": "DevOps",
+      "question": "How to connect to citrix prod?",
+      "answer": ""
+     },
+     {
+      "category": "DevOps",
+      "question": "How to change refog password?",
+      "answer": ""
+     },
+     {
+      "category": "Jenkins",
+      "question": "Do you support custom images other than the standard ones bundled with cipaas ?",
+      "answer": ""
+     },
+     {
+      "category": "DevOps",
+      "question": "Help needed to customize the Grafana monitoring",
+      "answer": ""
+     },
+     {
+      "category": "DevOps",
+      "question": "my application logs stop showing up in Kibana dashboard. How to fix this ?",
+      "answer": ""
+     },
+     {
+      "category": "Git",
+      "question": "can I set up Gitlab runners for my Gitlab project ?",
+      "answer": ""
+     },
+     {
+      "category": "Git",
+      "question": "On the squad of xxxx I saw them using Gitlab CI, can we as well use it ??",
+      "answer": ""
+     },
+     {
+      "category": "Jenkins",
+      "question": "my Project ran fine with the current set up on legacy Jenkins, however it fails on cipaas. I followed the document as is. How to fix it ?",
+      "answer": ""
+     },
+     {
+      "category": "DevOps",
+      "question": "Can I deploy to Lab using functional Service ?",
+      "answer": ""
+     },
+     {
+      "category": "Sonar",
+      "question": "my single page application using Marvin frame work failsb test coverage in sonar scan",
+      "answer": ""
+     },
+     {
+      "category": "Jenkins",
+      "question": "my cipaas requires frequent clean up ? How can I automate",
+      "answer": ""
+     },
+     {
+      "category": "Jenkins",
+      "question": "My cipaas owner has left the bank, what is the procedure to change ship",
+      "answer": ""
+     },
+     {
+      "category": "Git",
+      "question": "I am no longer able to ssh to my git project, was working fine since yesterday",
+      "answer": ""
+     },
+     {
+      "category": "Jenkins",
+      "question": "Can I automate my merges after every build ?",
+      "answer": ""
+     },
+     {
+      "category": "DevOps",
+      "question": "Null pointer exception when I instantiate your functional Service. Was working fine Just now. Please help fix.",
+      "answer": ""
+     }
   ]
 }
