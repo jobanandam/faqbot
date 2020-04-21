@@ -3090,6 +3090,31 @@
       "category": "Octane",
       "question": "Onboarding process to Octane",
       "answer": "Please refer the Link http://confluence/onboardToOctane. You can also raise a JIRA ticket"
+     },
+     {
+      "category": "Nexus",
+      "question": "How to perform a Nexus IQ scan for my application",
+      "answer": "You can use the CipaaS Nexus Scan Functional Service method, for more details please refer http://confluence/nexusIQScan"
+     },
+     {
+      "category": "Jenkins",
+      "question": "Can I still use the jgit maven plugin",
+      "answer": "No, it will be quarantined in next three months, so please use the new release model"
+     },
+     {
+      "category": "Jenkins",
+      "question": "How to integrate with build helper maven plug-in",
+      "answer": "Please refer the Link http://confluence/java-maven-release. You can also raise a JIRA ticket"
+     },
+     {
+      "category": "Maven",
+      "question": "How to disable the maven javadoc plugin",
+      "answer": "In the configuration of the maven-javadoc-plugin add the configuration to disable . Please refer the Link http://confluence/Maven-plugin. You can also raise a JIRA ticket"
+     },
+     {
+      "category": "Jenkins",
+      "question": "How to create a hotfix pipeline to push fixes directly to master instead of using the dev branch",
+      "answer": "Please refer the Link http://confluence/java-maven-release. You can also raise a JIRA ticket"
      }
   ]
 }
