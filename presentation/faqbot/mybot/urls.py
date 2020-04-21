@@ -8,5 +8,6 @@ urlpatterns = [
     path('v1/', views.VersionOne.as_view(), name='index'),
 	path('v2/', views.VersionTwo.as_view(), name='index'),
     path('v3/', views.VersionThree.as_view(), name='index'),
+    path('questions/', views.Questions.as_view(), name='questions'),
     path('getbotans/', views.get_human_ques, name='getbotans'),
 ]

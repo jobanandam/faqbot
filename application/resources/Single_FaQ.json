@@ -1333,7 +1333,7 @@
     {
       "category": "Ansible",
       "question": "How do I fix 'protocol error: filename does not match request' when fetching a file",
-      "answer": "Newer releases of OpenSSH have a bug in the SCP client that can trigger this error on the Ansible controller when using SCP as the file transfer mechanism failed to transfer file to /tmp/ansible/file.txt\\r\\nprotocol error: filename does not match request"
+      "answer": "Newer releases of OpenSSH have a bug in the SCP client that can trigger this error on the Ansible controller when using SCP as the file transfer mechanism failed to transfer file to /tmp/ansible/file.txt\\r\protocol error: filename does not match request"
     },
     {
       "category": "Ansible",
