@@ -302,7 +302,7 @@ class SentenceSimilarities:
         user_id = str(uuid4())
         suggestible_questions = []
         # Initialize response_dict with default values
-        response_dict = {"user_id": user_id, "answer": "Please ask questions related to DevOps",
+        response_dict = {"user_id": user_id, "answer": "Sorry, I couldn't help you with this question! Please raise a ticket",
                                          "prompt_feedback": "N", "index": -1}
         if question.split(" ").__len__().__le__(1):     # question too short
             response_dict["answer"] = "Can you please give some more details, so that i can try to answer"
@@ -341,7 +341,7 @@ class SentenceSimilarities:
     def respond_to_user_feedback(feedback, user_id, index):
         positive_feedback_list = ["y", "yes", "ye", "yeah", "yea", "s", "ss", "absolutely", "yup", "yep", "yeh", "ya", "yo"]
         negative_feedback_list = ["n", "no", "noo", "nah", "na", "ne", "np", "never", "nil", "not", "nope", "dont", "nooo"]
-        response_dict = {"user_id": user_id, "answer": "Please ask questions related to DevOps",
+        response_dict = {"user_id": user_id, "answer": "Sorry, I couldn't help you with this question! Please raise a ticket",
                          "prompt_feedback": "N", "index": -1}
         if feedback.lower() in positive_feedback_list:  # positive feedback
             FeedbackSystem.update_positive_feedback(user_id, index)
@@ -429,9 +429,9 @@ class SentenceSimilarities:
                     answer = SentenceSimilarities.get_the_answer_unclassified(detailed_logging, best_sentence,
                                                                               best_score, question)
                     if not answer:
-                        print("Please ask questions related to DevOps")
+                        print("Sorry, I couldn't help you with this question! Please raise a ticket")
                         results.append(
-                            (question, "No Question Matched", "Please ask questions related to DevOps", "0.0"))
+                            (question, "No Question Matched", "Sorry, I couldn't help you with this question! Please raise a ticket", "0.0"))
                     else:
                         print(answer, best_score)
                         results.append((question, best_sentence, answer, best_score))

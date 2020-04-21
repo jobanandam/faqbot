@@ -102,7 +102,9 @@
         "fortyfi",
         "fortyfy",
         "fortefy",
-        "fortyfive"
+        "fortyfive",
+        "fority",
+        "fortiy"
       ]
     },
     {
@@ -132,6 +134,18 @@
         "dev op",
         "dev-op",
         "devOps"
+      ]
+    },
+    {
+      "correct_word": "cipaas",
+      "tolerable_words": [
+        "jenkins",
+        "Jenkins",
+        "CIPAAS",
+        "Cipaas",
+        "CIPaaS",
+        "jenksin",
+        "CIP"
       ]
     },
     {
