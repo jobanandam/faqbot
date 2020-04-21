@@ -3034,6 +3034,47 @@
       "category": "DevOps",
       "question": "what is the devops onboarding process",
       "answer": "Please refer the below link for the detailed process. https://confluence/devops-onboarding-process"
-    }
+    },
+
+    {
+      "category": "CDD",
+      "question": "How to onboard a new application in cdd?",
+      "answer": "How to onboard a new application in cdd?"
+    },
+    {
+      "category": "CDD",
+      "question": "Can you give me access to cdd error logs?",
+      "answer": "Can you give me access to cdd error logs?"
+    },
+    {
+      "category": "CDD",
+      "question": "Can you give me access to cdd release of application Xxxx",
+      "answer": "Can you give me access to cdd release of application Xxxx"
+    },
+    {
+      "category": "Fortify",
+      "question": "How to obtain a fortify token for a new application",
+      "answer": "How to obtain a fortify token for a new application"
+    },
+    {
+      "category": "Jenkins",
+      "question": "Is there a groovy template for a typical Jenkins build and release pipeline commonly used in the bank?",
+      "answer": "Is there a groovy template for a typical Jenkins build and release pipeline commonly used in the bank?"
+    },
+     {
+      "category": "DevOps",
+      "question": "How to integrate JMeter with my CIPaaS pipeline?",
+      "answer": "How to integrate JMeter with my CIPaaS pipeline?"
+     },
+     {
+      "category": "DevOps",
+      "question": "Can we configure CIPaaS build to failed status if the quality in Sonar is not as expected?",
+      "answer": "Can we configure CIPaaS build to failed status if the quality in Sonar is not as expected?"
+     },
+     {
+      "category": "DevOps",
+      "question": "How to enable polling in CIPaaS?",
+      "answer": "How to enable polling in CIPaaS?"
+     }
   ]
 }
