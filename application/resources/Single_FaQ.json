@@ -2956,8 +2956,8 @@
       "answer": "There are 4 tabs are available in basic modules in HP Quality Center (QC) also below: Requirements-To specify the requirements related to Releases.Test Plan- Test Cases are designed under this tab.Test Lab-This tab is used for Test Cases Execution.Defects- This tab is used for Log and track defects."
     },
     {
-      "category": "HP ALM",
-      "question": "Is HP ALM and QC same?",
+      "category": "Octane",
+      "question": "Is ALM Octane and QC same?",
       "answer": "HP ALM is a software that is designed to manage the various phases of Software Development Life Cycle(SDLC) right from requirements gathering to testing. Earlier, it was known as HP Quality Center (QC). ... HP QC is named as HP ALM from version 11.0"
     },
     {
@@ -3076,8 +3076,6 @@
       "question": "How to enable polling in CIPaaS?",
       "answer": "You can create a webhook in the Gitlab and in the configuration of the jenkins add the webhook. for more details please refer http://confluence/cipaas-setup#gitlab-webhook"
      },
-
-
      {
       "category": "Nexus",
       "question": "How to perform a Nexus IQ scan for my application",
@@ -3248,10 +3246,50 @@
       "question": "Can I automate my merges after every build ?",
       "answer": ""
      },
-     {
+    {
       "category": "DevOps",
       "question": "Null pointer exception when I instantiate your functional Service. Was working fine Just now. Please help fix.",
       "answer": ""
+    },
+     {
+      "category": "Octane",
+      "question": "How to Perform Testing post deployment",
+      "answer": "You can create a task in CDD and pass your octane test suite id, Please refer http://confluence/testingFromCdd"
+     },
+     {
+      "category": "Octane",
+      "question": "Is there any way i can push my automated test results to octane",
+      "answer": "Yes, you can use the CTPaaS functional Service to push the results to Octane, Please refer http://confluence/testingFromCIPaaS"
+     },
+     {
+      "category": "Octane",
+      "question": "Onboarding process to Octane",
+      "answer": "Please refer the Link http://confluence/onboardToOctane. You can also raise a JIRA ticket"
+     },
+     {
+      "category": "Nexus",
+      "question": "How to perform a Nexus IQ scan for my application",
+      "answer": "You can use the CipaaS Nexus Scan Functional Service method, for more details please refer http://confluence/nexusIQScan"
+     },
+     {
+      "category": "Jenkins",
+      "question": "Can I still use the jgit maven plugin",
+      "answer": "No, it will be quarantined in next three months, so please use the new release model"
+     },
+     {
+      "category": "Jenkins",
+      "question": "How to integrate with build helper maven plug-in",
+      "answer": "Please refer the Link http://confluence/java-maven-release. You can also raise a JIRA ticket"
+     },
+     {
+      "category": "Maven",
+      "question": "How to disable the maven javadoc plugin",
+      "answer": "In the configuration of the maven-javadoc-plugin add the configuration to disable . Please refer the Link http://confluence/Maven-plugin. You can also raise a JIRA ticket"
+     },
+     {
+      "category": "Jenkins",
+      "question": "How to create a hotfix pipeline to push fixes directly to master instead of using the dev branch",
+      "answer": "Please refer the Link http://confluence/java-maven-release. You can also raise a JIRA ticket"
      }
   ]
 }
