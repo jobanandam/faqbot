@@ -1,5 +1,6 @@
 from file_reader import read_json_file
 from questions_io import update_user_suggestible_questions
+from db_functions import update_user_suggestible_questions_to_db
 
 
 class FeedbackSystem:
@@ -16,6 +17,7 @@ class FeedbackSystem:
                 sorted_suggestible_questions[index] = next_suggestible_question
 
                 update_user_suggestible_questions(user_id, sorted_suggestible_questions)
+                update_user_suggestible_questions_to_db(user_id, sorted_suggestible_questions)
 
                 return next_suggestible_question
             already_suggested_questions_count += 1
@@ -49,6 +51,7 @@ class FeedbackSystem:
                 question["accepted"] = "Y"
                 suggestible_questions[index] = question
                 update_user_suggestible_questions(user_id, suggestible_questions)
+                update_user_suggestible_questions_to_db(user_id, suggestible_questions)
 
     @staticmethod
     def main_run_feedback_system(next_suggestible_question, user_id):
