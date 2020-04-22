@@ -23,3 +23,6 @@ class QuestionAnswerModel(models.Model):
     class Meta:
         verbose_name = 'Q&A'
         verbose_name_plural = 'Q&A'
+
+    def __str__(self):
+        return self.question[:3000] + '...'
