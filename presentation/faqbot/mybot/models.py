@@ -1,4 +1,6 @@
 from django.db import models
+from django.template.defaultfilters import truncatechars  # or truncatewords
+
 
 
 class ChatModel(models.Model):
@@ -26,3 +28,28 @@ class QuestionAnswerModel(models.Model):
 
     def __str__(self):
         return self.question[:3000] + '...'
+
+class FeedBackModel(models.Model):
+    user_id = models.CharField(max_length=200)
+    actual_question = models.ForeignKey(QuestionAnswerModel, on_delete=models.CASCADE)
+    asked_question = models.TextField()
+    answer = models.TextField()
+    score = models.FloatField()
+    processed = models.BooleanField(default=False)
+    accepted = models.BooleanField(default=False)
+    comments = models.TextField(null=True)
+
+    @property
+    def actual_question_s(self):
+        return truncatechars(self.answer, 20)
+
+    @property
+    def answer_s(self):
+        return truncatechars(self.answer, 20)
+
+    class Meta:
+        verbose_name = 'Feedback System'
+        verbose_name_plural = 'Feedback System'
+
+    def __str__(self):
+        return self.asked_question[:300] + '...'
