@@ -3,6 +3,11 @@
         {% load static %}
 
         <style>
+
+            .card-body {
+                height: 350px;
+            }
+
             section.pricing {
               #background: #007bff;
               #background: linear-gradient(to right, #0062E6, #33AEFF);
@@ -27,7 +32,7 @@
             }
 
             .pricing .card-price {
-              font-size: 3rem;
+              font-size: 1.8rem;
               margin: 0;
             }
 
@@ -48,7 +53,7 @@
               border-radius: 5rem;
               letter-spacing: .1rem;
               font-weight: bold;
-              padding: 1rem;
+              padding: 0.5rem;
               opacity: 0.7;
               transition: all 0.2s;
             }
@@ -142,7 +147,8 @@
                                 <option value="hpaml">HP ALM</option>
                             </select>
                         </div>
-                        <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit">Scrap</button>
+                        <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" style="font-family: sans-serif; width: 150px; float:right;" type="submit">Scrap</button>
+                        <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" style="font-family: sans-serif; width: 150px;float:right;margin-right: 10px;" type="button">Help</button>
                     </form>
                   </div>
                 </div>
@@ -159,10 +165,15 @@
                     <form class="text-center" style="color: #757575;" action="#!">
                         <div class="md-form mt-3">
                             <label>File Path</label>
+                            <input type="file" id="csvd" name="csv" accept="text/*" class="form-control">
+                        </div>
+                        <div class="md-form mt-3" style="visibility: hidden;">
+                            <label>File Path</label>
                             <input type="file" id="csv" name="csv" accept="text/*" class="form-control">
                         </div>
                         <!-- Send button -->
-                        <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" type="submit">Upload</button>
+                        <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" style="font-family: sans-serif; width: 150px; float:right;" type="submit">Upload</button>
+                        <button class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" style="font-family: sans-serif; width: 150px;float:right;margin-right: 10px;" type="button">Help</button>
                     </form>
                   </div>
                 </div>
