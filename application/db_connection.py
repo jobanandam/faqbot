@@ -1,9 +1,11 @@
 import sqlite3
 from flask import g
 from flask import Flask
+import os
 
 app = Flask(__name__)
-DATABASE = '/home/gs650/PycharmProjects/faqbot/presentation/faqbot/db.sqlite3'
+
+DATABASE = os.path.join(os.path.normpath(os.getcwd() + os.sep + os.pardir), 'presentation', 'faqbot', 'db.sqlite3')
 
 def get_db():
     db = getattr(g, '_database', None)
