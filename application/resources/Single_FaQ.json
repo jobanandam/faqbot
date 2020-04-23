@@ -3039,7 +3039,12 @@
     {
       "category": "CDD",
       "question": "How to onboard a new application in cdd?",
-      "answer": "Please refer the below link for the detailed process. https://confluence/onboard-application-to-cdd . You need to raise a jira ticket"
+      "answer": "Please refer the below link for the detailed process.<a> https://confluence/onboard-application-to-cdd </a>. You need to raise a jira ticket"
+    },
+    {
+      "category": "CDD",
+      "question": "How to onboard application in cdd?",
+      "answer": "Please refer the below link for the detailed process.<a> https://confluence/onboard-application-to-cdd </a>. You need to raise a jira ticket"
     },
     {
       "category": "CDD",
