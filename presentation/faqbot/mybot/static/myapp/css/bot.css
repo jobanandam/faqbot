@@ -99,6 +99,10 @@ body {
     color: white;
 }
 
+.messages .message.left .feedbackBtn {
+    float: left;
+}
+
 .messages .message.right .avatar {
     float: right;
 	background-image: url("human.png")
@@ -118,6 +122,10 @@ body {
 
 .messages .message.right .text {
     color: #45829b;
+}
+
+.messages .message.right .feedbackBtn {
+    float: right;
 }
 
 .messages .message.appeared {
@@ -235,4 +243,47 @@ body {
 btn.focus, .btn:focus {
     outline: 0;
     box-shadow: none;
+}
+
+button.like{
+	width: 30px;
+	height: 30px;
+	margin: 0 auto;
+	line-heigth: 50px;
+	border-radius: 50%;
+	color: rgba(0,150,136 ,1);
+	background-color:rgba(38,166,154 ,0.3);
+	border-color: rgba(0,150,136 ,1);
+	border-width: 1px;
+	font-size: 15px;
+}
+
+button.dislike{
+	width: 30px;
+	height: 30px;
+	margin: 0 auto;
+	line-heigth: 50px;
+	border-radius: 50%;
+	color: rgba(255,82,82 ,1);
+	background-color: rgba(255,138,128 ,0.3);
+	border-color: rgba(255,82,82 ,1);
+	border-width: 1px;
+	font-size: 15px;
+}
+
+.feedbackBtn{
+    display : none;
+    margin-top: 10px;
+}
+.feedbackBtn.showFeedback{
+    display : block;
+}
+
+.fa.disabled,
+.fa[disabled],
+.disabled > .fa,
+[disabled] > .fa {
+  opacity: 0.5;
+  /*optional*/ cursor: not-allowed;
+  /*optional*/ pointer-events: none;
 }
