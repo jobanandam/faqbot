@@ -1,3 +1,6 @@
 .idea/
 *iml
 **/__pycache__/*
+
+application/resources/suggestible_questions.json
+presentation/faqbot/db.sqlite3
