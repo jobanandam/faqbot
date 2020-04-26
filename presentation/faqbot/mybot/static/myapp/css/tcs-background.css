@@ -1,0 +1,37 @@
+body {
+    background-image: url(Ultimatix.PNG);
+    background-size: cover;
+}
+
+.messages .message.left .text_wrapper {
+    background-color: #01acc1;
+    margin-left: 20px;
+}
+
+
+.messages .message.left .text_wrapper::after,
+.messages .message.left .text_wrapper::before {
+    right: 100%;
+    border-right-color: #01acc1;
+}
+
+.bottom_wrapper .send_message {
+    width: 140px;
+    height: 50px;
+    display: inline-block;
+    border-radius: 50px;
+    background-color: #01acc1;
+    border: 2px solid #01acc1;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    text-align: center;
+    float: right;
+}
+
+.top_menu {
+    background: #01acc1;
+    width: 100%;
+    padding: 20px 0 15px;
+    box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
+}
