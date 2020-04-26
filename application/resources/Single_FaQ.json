@@ -978,7 +978,7 @@
     {
       "category": "Agile Central",
       "question": "What is Agile ",
-      "answer": "Agile software development comprises various approaches to software development under which requirements and solutions evolve through the collaborative effort of self-organizing and cross-functional teams and their customer/end user"
+      "answer": "Agile is an iterative approach to project management and software development that helps teams deliver value to their customers faster and with fewer headaches. Instead of betting everything on a big bang launch, an agile team delivers work in small, but consumable, increments. Requirements, plans, and results are evaluated continuously so teams have a natural mechanism for responding to change quickly."
     },
     {
       "category": "CDD",
@@ -2291,7 +2291,7 @@
       "answer": "You can check for the reasons of failure in the deployment logs provided and act accordingly."
     },
     {
-      "category": "CDD",
+      "category": "DevOps",
       "question": "What is devops",
       "answer": "DevOps is a set of practices that combines software development and information-technology operations which aims to shorten the systems development life cycle and provide continuous delivery with high software quality."
     },
@@ -3035,7 +3035,6 @@
       "question": "what is the devops onboarding process",
       "answer": "Please refer the below link for the detailed process. https://confluence/devops-onboarding-process"
     },
-
     {
       "category": "CDD",
       "question": "How to onboard a new application in cdd?",
@@ -3066,210 +3065,235 @@
       "question": "Is there a groovy template for a typical Jenkins build and release pipeline commonly used in the bank?",
       "answer": "Please refer the below confluence which holds the sample template http://confluence/cipaas-sample-pipeline-template"
     },
-     {
+    {
       "category": "Jenkins",
       "question": "How to integrate JMeter with my CIPaaS pipeline?",
       "answer": "Currently we dont have support for this, but you can reach out to TOFA/ DACTOR Squad for further assiatance"
-     },
-     {
+    },
+    {
       "category": "Jenkins",
       "question": "Can we configure CIPaaS build to failed status if the quality in Sonar is not as expected?",
       "answer": "Yes we can make the jenkins build to fail when the sonar quality fails, please refer http://confluence/cipaas-setup#sonar"
-     },
-     {
+    },
+    {
       "category": "Jenkins",
       "question": "How to enable polling in CIPaaS?",
       "answer": "You can create a webhook in the Gitlab and in the configuration of the jenkins add the webhook. for more details please refer http://confluence/cipaas-setup#gitlab-webhook"
-     },
-     {
+    },
+    {
       "category": "SVN",
       "question": "How to migrate my existing code base to git from svn",
       "answer": "https://confluence.res.sys.shared.fortis:8443/confluence/pages/viewpage.action?spaceKey=CIPAS&title=SVN+to+GIT+Migration+Process"
-     },
-     {
+    },
+    {
       "category": "Jenkins",
       "question": "Do you support non Java based projects on cipaas",
       "answer": "Yes we support a wide variety of Tech platforms. For more information please look at our available tutorials. https://gitlab.res.sys.shared.fortis/cfhu/cipadmin/CIPaaSFS/blob/development/doc/user/nutshellguides/Readme.md"
-     },
-     {
+    },
+    {
       "category": "Jenkins",
       "question": "How to use windows machine as Jenkins slave",
       "answer": "Refer the confluence about | How to configure Jenkins as slave windows machine"
-     },
-     {
+    },
+    {
       "category": "Octane",
       "question": "How to push cucumber reports to octane",
       "answer": "Request a ticket to configure the Jenkins to access octane and use the Cipaas push functionalities."
-     },
-     {
+    },
+    {
       "category": "Fortify",
       "question": "Where can I find my application fortify report",
       "answer": "You can refer fortify in the link fortify.com , and search for the application you look for."
-     },
-     {
+    },
+    {
       "category": "Sonar",
       "question": "Where can I find sonar report?",
       "answer": "you can refer the link sonar.com and search on your application"
-     },
-     {
+    },
+    {
       "category": "DevOps",
       "question": "What is Multilan?",
       "answer": "Multilan is a language managed texts holding the same context in 4 different languages."
-     },
-     {
+    },
+    {
       "category": "DevOps",
       "question": "Where is the Multilan delivery folder?",
       "answer": "you can refer to the folder of content management folder under shared folder"
-     },
-     {
+    },
+    {
       "category": "DevOps",
       "question": "What's the text for this Multilan xxxii?",
       "answer": "you can use the Multilan finder tools to get it. Ex. CxCenter site"
-     },
-     {
+    },
+    {
       "category": "DevOps",
       "question": "Common errors and solution to install node Js inside Bnppf?",
       "answer": "you can refer the steps to install node from the link, available under Marvin setup"
-     },
-     {
+    },
+    {
       "category": "DevOps",
       "question": "Whom should I contact for cipaas issues? ",
       "answer": "create a JIIRA tivket"
-     },
-     {
+    },
+    {
       "category": "DevOps",
       "question": "Where can I find intellij software?",
       "answer": "you may find under tooling folder or nexus"
-     },
-     {
+    },
+    {
       "category": "DevOps",
       "question": "How to obtain license for intellij?",
       "answer": "you may refer to confluence to get a floating ticket"
-     },
-     {
+    },
+    {
       "category": "DevOps",
       "question": "Who is this guy?  G28453",
       "answer": "please refer user profile section"
-     },
-     {
+    },
+    {
       "category": "SVN",
       "question": "How to request for svn access?",
       "answer": "please raise a ticket in UAO portal"
-     },
-     {
+    },
+    {
       "category": "DevOps",
       "question": "How to connect to citrix prod?",
       "answer": "please use the option production citrix from start menu"
-     },
-     {
+    },
+    {
       "category": "DevOps",
       "question": "How to change refog password?",
       "answer": "please refer the below link to change, mypassword.refog.net"
-     },
-     {
+    },
+    {
       "category": "Jenkins",
       "question": "Do you support custom images other than the standard ones bundled with cipaas ?",
       "answer": "Yes we do, provided there is a business justification. Please open a JIRA ticket to with your specific request."
-     },
-     {
+    },
+    {
       "category": "DevOps",
       "question": "Help needed to customize the Grafana monitoring",
       "answer": "Please refer to  https://confluence.res.sys.shared.fortis:8443/confluence/pages/viewpage.action?pageId=145360127 "
-     },
-     {
+    },
+    {
       "category": "DevOps",
       "question": "my application logs stop showing up in Kibana dashboard. How to fix this ?",
       "answer": "Please refer to https://confluence.res.sys.shared.fortis:8443/confluence/pages/viewpage.action?pageId=269126074"
-     },
-     {
+    },
+    {
       "category": "Git",
       "question": "can I set up Gitlab runners for my Gitlab project ?",
       "answer": "Runners are not set for individual projects as of now please continue to use your Jenkins for CI"
-     },
-     {
+    },
+    {
       "category": "Git",
       "question": "On the squad of xxxx I saw them using Gitlab CI, can we as well use it ??",
       "answer": "No, we don’t support Gitlab CI for individual squad, but for a technology group."
-     },
-     {
+    },
+    {
       "category": "Jenkins",
       "question": "my Project ran fine with the current set up on legacy Jenkins, however it fails on cipaas. I followed the document as is. How to fix it ?",
       "answer": "Please open a JIRA ticket to with your issue."
-     },
-     {
+    },
+    {
       "category": "DevOps",
       "question": "Can I deploy to Lab using functional Service ?",
       "answer": "Please use the deployToLab function as defined under https://gitlab.res.sys.shared.fortis/cfhu/cipadmin/CIPaaSFS/blob/development/src/com/bnpparibasfortis/CIPaaServices.groovy"
-     },
-     {
+    },
+    {
       "category": "Sonar",
       "question": "my single page application using Marvin frame work failsb test coverage in sonar scan",
       "answer": "The solution is under progress, please keep watching the Devops newsletter for related information."
-     },
-     {
+    },
+    {
       "category": "Jenkins",
       "question": "my cipaas requires frequent clean up ? How can I automate",
       "answer": "We have created several public documentation to help developers manage their CIPaaS's disk space. Please go through the links below -> https://confluence.res.sys.shared.fortis:8443/confluence/display/IRS/Hints+to+keep+your+CIPaaS+disk+space+at+low+consumption https://confluence.res.sys.shared.fortis:8443/confluence/pages/viewpage.action?pageId=191103837 https://confluence.res.sys.shared.fortis:8443/confluence/display/IRS/How+to+limit+disk+space+used+by+Jenkins+by+setting-up+Git+Shallow+Clone"
-     },
-     {
+    },
+    {
       "category": "Jenkins",
       "question": "My cipaas owner has left the bank, what is the procedure to change ship",
       "answer": "Please open a JIRA ticket to with your issue. With a approval with your project code owner along with the new owner’s name."
-     },
-     {
+    },
+    {
       "category": "Git",
       "question": "I am no longer able to ssh to my git project, was working fine since yesterday",
       "answer": "SSH is not permitted by bank and it has been phased out. Please follow the procedure to switch your usage\nhttps://confluence.res.sys.shared.fortis:8443/confluence/pages/viewpage.action?pageId=274140504"
-     },
-     {
+    },
+    {
       "category": "Jenkins",
       "question": "Can I automate my merges after every build ?",
       "answer": "You can indeed automate, however there is no active support provided by cipsquad on the same."
-     },
+    },
     {
       "category": "DevOps",
       "question": "Null pointer exception when I instantiate your functional Service. Was working fine Just now. Please help fix.",
       "answer": "Please refer to https://confluence.res.sys.shared.fortis:8443/confluence/display/IRS/How+to+instantiate+Functional+Services+via+new+constructor?searchId=UJ2EL9G34"
     },
-     {
+    {
       "category": "Octane",
       "question": "How to Perform Testing post deployment",
       "answer": "You can create a task in CDD and pass your octane test suite id, Please refer http://confluence/testingFromCdd"
-     },
-     {
+    },
+    {
       "category": "Octane",
       "question": "Is there any way i can push my automated test results to octane",
       "answer": "Yes, you can use the CTPaaS functional Service to push the results to Octane, Please refer http://confluence/testingFromCIPaaS"
-     },
-     {
+    },
+    {
       "category": "Octane",
       "question": "Onboarding process to Octane",
       "answer": "Please refer the Link http://confluence/onboardToOctane. You can also raise a JIRA ticket"
-     },
-     {
+    },
+    {
       "category": "Nexus",
       "question": "How to perform a Nexus IQ scan for my application",
       "answer": "You can use the CipaaS Nexus Scan Functional Service method, for more details please refer http://confluence/nexusIQScan"
-     },
-     {
+    },
+    {
       "category": "Jenkins",
       "question": "Can I still use the jgit maven plugin",
       "answer": "No, it will be quarantined in next three months, so please use the new release model"
-     },
-     {
+    },
+    {
       "category": "Jenkins",
       "question": "How to integrate with build helper maven plug-in",
       "answer": "Please refer the Link http://confluence/java-maven-release. You can also raise a JIRA ticket"
-     },
-     {
+    },
+    {
       "category": "Maven",
       "question": "How to disable the maven javadoc plugin",
       "answer": "In the configuration of the maven-javadoc-plugin add the configuration to disable . Please refer the Link http://confluence/Maven-plugin. You can also raise a JIRA ticket"
-     },
-     {
+    },
+    {
       "category": "Jenkins",
       "question": "How to create a hotfix pipeline to push fixes directly to master instead of using the dev branch",
       "answer": "Please refer the Link http://confluence/java-maven-release. You can also raise a JIRA ticket"
-     }
+    },
+    {
+      "category": "PMO",
+      "question": "Where can i find CSI trend for my account",
+      "answer": "CSI Trend is available Under Project,Delivery & Sales --> Project Workbench --> Dashboard"
+    },
+    {
+      "category": "PMO",
+      "question": "Our Team have done a process improvement, where can i log the PI?",
+      "answer": "PI can be logged under Project,Delivery & Sales --> Improvement in Actions --> Enter PI Projects. Please reach out to your account PI Champion for further help. Please refer https://ipmskm.ultimatix.net/km/index.php"
+    },
+    {
+      "category": "PMO",
+      "question": "What is DML?",
+      "answer": "DML Stands for Document Master List"
+    },
+    {
+      "category": "PMO",
+      "question": "What is the role of the Audit Compliance Group (ACG)",
+      "answer": "The Audit Group at the Corporate level which co-ordinates the audit activities of IOU's Report to the Global HEAD - Delivery Excellence"
+    },
+    {
+      "category": "PMO",
+      "question": "From where i can get the estimation model?",
+      "answer": "TCS Estimation model is available under Project,Delivery & Sales --> Improvement in Actions --> Estimation models. From the Estimation model Repository, choose the type of service and download the available estimation model"
+    }
   ]
 }
