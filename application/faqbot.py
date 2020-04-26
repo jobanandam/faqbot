@@ -10,6 +10,7 @@ from binary_classifier import TechnicalClassifier
 from classifier import DevopsClassifier
 from feedback_system import FeedbackSystem
 from questions_io import append_user_suggestible_questions_in_file, get_all_questions
+from db_functions import update_questions_for_which_not_able_to_find_answer_to_db
 
 stem_obj = SnowballStemmer('english')
 word_net_lemma = WordNetLemmatizer()
@@ -335,6 +336,10 @@ class SentenceSimilarities:
                                                                               best_match[2], best_match[1])
                     if answer:
                         response_dict["answer"] = answer
+                    else:
+                        update_questions_for_which_not_able_to_find_answer_to_db(question,user_id)
+            else:
+                update_questions_for_which_not_able_to_find_answer_to_db(question, user_id)
         return response_dict
 
     @staticmethod

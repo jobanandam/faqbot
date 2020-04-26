@@ -35,3 +35,16 @@ def update_user_suggestible_questions_to_db(user_id, sorted_suggestible_question
         if q_id != 0 and asked_question_id ==0:
             db_connection.query_db(f"insert into mybot_feedbackmodel (user_id, actual_question_id, asked_question, answer, score, processed, accepted) values ('{user_id}', '{q_id}', '{asked_question}', '{answer}', {score}, {processed}, {accepted})", one=True)
             print('Inserted successfully ! ! !')
+
+
+def update_questions_for_which_not_able_to_find_answer_to_db(asked_question, user_id):
+    with app.app_context():
+        answer = ''
+        score = 0
+        processed = 0
+        accepted = 0
+
+        db_connection.query_db(
+            f"insert into mybot_feedbackmodel (user_id, actual_question_id, asked_question, answer, score, processed, accepted) values ('{user_id}', '0', '{asked_question}', '{answer}', {score}, {processed}, {accepted})",
+            one=True)
+        print('Inserted successfully ! ! !')
