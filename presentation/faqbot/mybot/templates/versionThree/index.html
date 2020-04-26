@@ -3,11 +3,12 @@
         {% load static %}
 
         <link rel="stylesheet" type="text/css" href="{% static 'myapp/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'myapp/css/font-awesome.min.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'myapp/css/bot.css' %}">
 
         <script src="{% static 'myapp/js/jquery.min.js' %}"></script>
         <script src="{% static 'myapp/js/bootstrap.min.js' %}"></script>
-        <script src="{% static 'myapp/js/version2.js' %}"></script>
+        <script src="{% static 'myapp/js/version3.js' %}"></script>
 		<title>Echonet Application</title>
     </head>
 
@@ -59,6 +60,15 @@
                 </div>
                 <div class="text_wrapper">
                     <div class="text"></div>
+                </div>
+                <div class="feedbackBtn">
+                    <span>Was this information helpful?</span>
+                    <button class="like">
+                        <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                    </button>
+                    <button class="dislike">
+                        <i class="fa fa-thumbs-o-down" aria-hidden="true"></i>
+                    </button>
                 </div>
             </li>
         </div>
