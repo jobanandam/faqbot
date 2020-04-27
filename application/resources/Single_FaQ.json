@@ -451,7 +451,7 @@
       "answer": "Stories should be the right size for their purpose. If you are planning an iteration: you need to ensure your stories are small enough to be"
     },
     {
-      "category": "Agile Central",
+      "category": "DevOps",
       "question": "Are Agile and DevOps same",
       "answer": "No: agile is not same as DevOps. However: agile can be used as a part of DevOps."
     },
@@ -987,8 +987,8 @@
     },
     {
       "category": "CDD",
-      "question": "How to report my CDD issue ",
-      "answer": "You can ask me !If we don't have any match for that answer then we can ask if Bot can log a issue to CDD Team on behalf of user"
+      "question": "How to report my Deployment issue ",
+      "answer": "You can ask me !If we don't have any match for that answer then we can ask if Bot can log a issue to Deployment Team on behalf of you"
     },
     {
       "category": "HP ALM",
@@ -2291,7 +2291,7 @@
       "answer": "You can check for the reasons of failure in the deployment logs provided and act accordingly."
     },
     {
-      "category": "DevOps",
+      "category": "CDD",
       "question": "What is devops",
       "answer": "DevOps is a set of practices that combines software development and information-technology operations which aims to shorten the systems development life cycle and provide continuous delivery with high software quality."
     },
@@ -3047,8 +3047,8 @@
     },
     {
       "category": "CDD",
-      "question": "Can you give me access to cdd error logs?",
-      "answer": "Please refer the kibana Deployment Dashboard for detailed CDD Error Logs https://ELK/cdd-logs"
+      "question": "Can you give me access to deployment error logs?",
+      "answer": "Please refer the kibana Deployment Dashboard for detailed Deployment Error Logs https://ELK/deployment-logs"
     },
     {
       "category": "CDD",
@@ -3271,28 +3271,28 @@
       "answer": "Please refer the Link http://confluence/java-maven-release. You can also raise a JIRA ticket"
     },
     {
-      "category": "PMO",
+      "category": "Generic",
       "question": "Where can i find CSI trend for my account",
       "answer": "CSI Trend is available Under Project,Delivery & Sales --> Project Workbench --> Dashboard"
     },
     {
-      "category": "PMO",
+      "category": "Generic",
       "question": "Our Team have done a process improvement, where can i log the PI?",
       "answer": "PI can be logged under Project,Delivery & Sales --> Improvement in Actions --> Enter PI Projects. Please reach out to your account PI Champion for further help. Please refer https://ipmskm.ultimatix.net/km/index.php"
     },
     {
-      "category": "PMO",
+      "category": "Generic",
       "question": "What is DML?",
       "answer": "DML Stands for Document Master List"
     },
     {
-      "category": "PMO",
+      "category": "Generic",
       "question": "What is the role of the Audit Compliance Group (ACG)",
       "answer": "The Audit Group at the Corporate level which co-ordinates the audit activities of IOU's Report to the Global HEAD - Delivery Excellence"
     },
     {
-      "category": "PMO",
-      "question": "From where i can get the estimation model?",
+      "category": "Generic",
+      "question": "From where i can get the estimation model/template?",
       "answer": "TCS Estimation model is available under Project,Delivery & Sales --> Improvement in Actions --> Estimation models. From the Estimation model Repository, choose the type of service and download the available estimation model"
     }
   ]
