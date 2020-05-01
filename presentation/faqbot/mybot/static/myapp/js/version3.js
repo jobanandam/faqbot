@@ -68,11 +68,15 @@
             $message_input = $('.message_input');
             return $message_input.val();
         };
+        toggleLoader = function(showLoader) {
+            showLoader ? $('.ticontainer > .tiblock').removeClass('d-none') : $('.ticontainer > .tiblock').addClass('d-none');
+        };
         callApi = function(message){
             question = message.text;
             // add this if you need to treat feedback from textbox
 //            message.user_feedback = message.isFeedBack() ? message.text: '';
             query_string = message.getQueryString();
+            toggleLoader(true);
             $.ajax({
                 url: 'http://localhost:9080/bot/dev-ops/' + question + query_string,
                 type: 'GET',
@@ -81,6 +85,7 @@
                 contentType: false,
                 success: function(data) {
                     console.log(data);
+                    toggleLoader(false);
                     processMessage(data);
                 }
             });
