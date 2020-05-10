@@ -34,7 +34,7 @@ class FeedBackModel(models.Model):
     actual_question = models.ForeignKey(QuestionAnswerModel, on_delete=models.CASCADE)
     asked_question = models.TextField()
     answer = models.TextField()
-    score = models.FloatField()
+    score = models.TextField()
     processed = models.BooleanField(default=False)
     accepted = models.BooleanField(default=False)
     comments = models.TextField(null=True)

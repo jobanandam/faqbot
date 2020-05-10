@@ -76,8 +76,13 @@ WSGI_APPLICATION = 'faqbot.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'djongo',
+        'NAME': 'faqbot',
+        'CLIENT': {
+            'host': 'mongodb+srv://admin:admin@faqbot-cluster-56f3s.mongodb.net/test?retryWrites=true&w=majority',
+            'username': 'admin',
+            'password' : 'admin'
+        }
     }
 }
 
