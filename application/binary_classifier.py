@@ -10,7 +10,7 @@ from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 from sklearn.naive_bayes import MultinomialNB
 
 import file_reader
-from questions_io import get_all_questions
+import db_functions
 
 
 class TechnicalClassifier:
@@ -31,7 +31,7 @@ class TechnicalClassifier:
         self.g_file = g_file
         self.X = []
         self.y = []
-        self.read_file(self.file)
+        self.read_database()
         self.read_file_generic(self.g_file)
 
     def initialize_models(self):
@@ -47,10 +47,13 @@ class TechnicalClassifier:
         self.y = np.array(self.le.transform(self.raw_categories))
         self.clf.fit(self.X, self.y)
 
-    def read_file(self, file):
-        questions_data = get_all_questions(file)
+    def read_database(self):
+        questions_data = db_functions.get_questionanswermodel()
+        category_data = db_functions.get_categorymodel()
+        category_map = {c['id']: c['category'] for c in category_data}
         for question_data in questions_data:
-            question_category = question_data["category"]
+            category_id = question_data["category_id"]
+            question_category = category_map[category_id]
             if question_category != 'Generic':
                 question_category = "Technical"
             question = question_data["question"]

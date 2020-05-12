@@ -8,6 +8,7 @@ from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 from sklearn.naive_bayes import MultinomialNB
 
 import file_reader
+import db_functions
 
 
 class DevopsClassifier:
@@ -25,7 +26,7 @@ class DevopsClassifier:
         self.file = file
         self.X = []
         self.y = []
-        self.read_file(self.file)
+        self.read_database()
 
     def initialize_models(self):
         questions = np.array([self.pre_process_question(q) for q in self.raw_questions])
@@ -40,20 +41,20 @@ class DevopsClassifier:
         self.y = np.array(self.le.transform(self.raw_categories))
         self.clf.fit(self.X, self.y)
 
-    def read_file(self, file):
-        single_faq_json_file = file
-        root_json_obj = file_reader.read_json_file(single_faq_json_file)
-        questions_data = root_json_obj["questions"]
+    def read_database(self):
+        questions_data = db_functions.get_questionanswermodel()
+        category_data = db_functions.get_categorymodel()
+        category_map = {c['id']: c['category'] for c in category_data}
         for question_data in questions_data:
+            category_id = question_data["category_id"]
+            question_category = category_map[category_id]
+            if question_category != 'Generic':
+                question_category = "Technical"
             question = question_data["question"]
-            question_category = question_data["category"]
 
             self.raw_questions.append(question)
             self.raw_categories.append(question_category)
             self.raw_category_question.append((question_category, question))
-
-        self.raw_questions = np.array(self.raw_questions)
-        self.raw_categories = np.array(self.raw_categories)
 
     def pre_process_question(self, sent):
         words = [self.stem_obj.stem(w.lower()) for w in word_tokenize(sent) if self.stem_obj.stem(w.lower()) not in self.stop_words]
