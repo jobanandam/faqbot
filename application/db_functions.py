@@ -18,3 +18,11 @@ def get_categorymodel():
         collection = db['mybot_categorymodel']
         records = collection.find()
         return records
+
+def get_genericquestionmodel():
+    with app.app_context():
+        conn = db_connection.get_db()
+        db = conn.faqbot
+        collection = db['mybot_genericquestionmodel']
+        records = collection.find()
+        return records

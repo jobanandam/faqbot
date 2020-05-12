@@ -32,7 +32,7 @@ class TechnicalClassifier:
         self.X = []
         self.y = []
         self.read_database()
-        self.read_file_generic(self.g_file)
+        self.read_generic_table()
 
     def initialize_models(self):
         questions = np.array([self.pre_process_question(q) for q in self.raw_questions])
@@ -62,14 +62,11 @@ class TechnicalClassifier:
             self.raw_categories.append(question_category)
             self.raw_category_question.append((question_category, question))
 
-    def read_file_generic(self, generic_dialogue_json_file):
-        root_json_obj = file_reader.read_json_file(generic_dialogue_json_file)
-        generic_dialogue_data = root_json_obj["generic_dialogue_data"]
-        questions_and_categories = generic_dialogue_data["questions_and_categories"]
-
+    def read_generic_table(self):
+        questions_and_categories = db_functions.get_genericquestionmodel()
         for questions_and_category in questions_and_categories:
             question = questions_and_category["question"]
-            category = questions_and_category["category"]
+            category = 'Generic'
 
             self.raw_questions.append(question)
             self.raw_categories.append(category)
